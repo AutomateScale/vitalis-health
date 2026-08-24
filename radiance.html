@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Aesthetic Radiance &amp; Bridal IV Wellness | Vitalis Dallas</title>
+  <meta name="description" content="High-dose Glutathione (2000mg), Biotin, and Vitamin C concierge IV infusions delivered to your Dallas suite or residence. Perfect for bridal parties, galas, and skin rejuvenation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0C110F;
+      --surface: #131A17;
+      --surface-card: #192420;
+      --surface-light: #202D28;
+      --ink: #F8F6F2;
+      --ink-muted: #95A39E;
+      --sage: #5E6B5C;
+      --sage-light: #829980;
+      --gold: #C5A880;
+      --gold-light: #E2CDAF;
+      --emerald: #4ade80;
+      --border: #23312B;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 90px;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+    header {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand { font-family: var(--font-serif); font-size: 26px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+    .badge-live {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(197, 168, 128, 0.12);
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(197, 168, 128, 0.3);
+    }
+    .pulse {
+      width: 7px; height: 7px;
+      background: var(--emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--emerald);
+      animation: pulseAnim 2s infinite;
+    }
+    @keyframes pulseAnim {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 12px var(--emerald); }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    .hero { padding: 40px 0 28px; text-align: center; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: inline-block; }
+    h1 { font-family: var(--font-serif); font-size: clamp(34px, 7vw, 54px); font-weight: 400; line-height: 1.12; margin-bottom: 16px; }
+    h1 em { font-style: italic; color: var(--gold-light); }
+    .lead { font-size: 17px; color: var(--ink-muted); max-width: 580px; margin: 0 auto 28px; }
+    
+    .beauty-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px; }
+    .beauty-box { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 12px; text-align: center; }
+    .beauty-title { font-size: 13px; font-weight: 600; color: var(--gold-light); margin-bottom: 2px; }
+    .beauty-sub { font-size: 11px; color: var(--ink-muted); }
+
+    /* Offer Cards */
+    .menu-head-title { font-family: var(--font-serif); font-size: 28px; text-align: center; margin-bottom: 6px; }
+    .menu-head-sub { font-size: 14px; color: var(--ink-muted); text-align: center; margin-bottom: 22px; }
+    .offer-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .offer-card:hover { border-color: var(--gold); }
+    .offer-card.selected {
+      border-color: var(--gold);
+      background: linear-gradient(180deg, rgba(197, 168, 128, 0.12) 0%, var(--surface) 100%);
+      box-shadow: 0 0 0 1px var(--gold);
+    }
+    .offer-badge {
+      position: absolute; top: -10px; right: 20px;
+      background: var(--gold); color: #000;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 999px;
+    }
+    .offer-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .offer-name { font-family: var(--font-serif); font-size: 24px; }
+    .offer-price { font-size: 24px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+    .offer-desc { font-size: 14px; color: var(--ink-muted); margin-bottom: 16px; line-height: 1.5; }
+    .btn-offer {
+      width: 100%;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .offer-card.selected .btn-offer { background: var(--gold); color: #000; font-weight: 700; border-color: var(--gold); }
+    .btn-offer:hover { background: var(--gold-light); color: #000; }
+
+    /* Interactive Compound Customizer */
+    .addons-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 36px;
+    }
+    .addons-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .addons-title { font-family: var(--font-serif); font-size: 22px; color: var(--ink); }
+    .addons-sub { font-size: 12px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; }
+    .addon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .addon-item {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      padding: 12px 14px; cursor: pointer; display: flex; justify-content: space-between;
+      align-items: center; transition: all 0.2s; user-select: none;
+    }
+    .addon-item:hover { border-color: var(--gold); }
+    .addon-item.active { border-color: var(--gold); background: rgba(197, 168, 128, 0.12); }
+    .addon-name { font-size: 13px; font-weight: 600; color: var(--ink); display: block; }
+    .addon-desc { font-size: 11px; color: var(--ink-muted); }
+    .addon-price { font-size: 13px; font-weight: 700; color: var(--gold); margin-left: 8px; }
+    .addon-check {
+      width: 18px; height: 18px; border-radius: 4px; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; font-size: 11px;
+      margin-left: 8px; color: transparent; transition: all 0.2s;
+    }
+    .addon-item.active .addon-check { background: var(--gold); border-color: var(--gold); color: #000; font-weight: 700; }
+
+    /* Live Summary Bar */
+    .summary-bar {
+      background: var(--surface-card);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 18px;
+    }
+    .sum-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .sum-drip-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .sum-total-val { font-size: 22px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+
+    /* Form Wrap */
+    .form-wrap {
+      background: var(--surface);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 48px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .form-field { margin-bottom: 14px; }
+    .form-field label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 6px; }
+    .form-field input, .form-field select {
+      width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+      padding: 12px 14px; color: #fff; font-family: var(--font-sans); font-size: 14px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-field input:focus, .form-field select:focus { border-color: var(--gold); }
+    .btn-submit {
+      width: 100%; background: var(--gold); color: #000; border: none;
+      padding: 16px; border-radius: 6px; font-size: 14px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+      margin-top: 10px; box-shadow: 0 4px 20px rgba(197, 168, 128, 0.35);
+      transition: all 0.2s;
+    }
+    .btn-submit:hover { background: var(--gold-light); }
+
+    /* Sticky Bottom Bar */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(19, 26, 23, 0.96); backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border); padding: 12px 20px; z-index: 900;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+    }
+    .sticky-wrap {
+      max-width: 760px; width: 100%; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .sticky-status { font-size: 11px; color: var(--gold-light); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .sticky-price { font-size: 20px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+    .sticky-btn {
+      background: var(--gold); color: #000; border: none; border-radius: 6px;
+      padding: 12px 22px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    }
+    .sticky-btn:hover { background: var(--gold-light); }
+
+    /* 2-Step Modal */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85); backdrop-filter: blur(6px);
+      z-index: 1000; display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-card {
+      background: var(--surface); border: 1px solid var(--gold);
+      border-radius: 14px; max-width: 520px; width: 100%; padding: 28px;
+      position: relative; max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+    .modal-close { position: absolute; top: 18px; right: 18px; background: transparent; border: none; color: var(--ink-muted); font-size: 24px; cursor: pointer; }
+    .step-indicator { display: flex; gap: 8px; margin-bottom: 20px; }
+    .step-dot { flex: 1; height: 4px; background: var(--border); border-radius: 2px; }
+    .step-dot.active { background: var(--gold); }
+
+    /* Localized Social Proof Toast */
+    .toast-proof {
+      position: fixed; bottom: 82px; left: 20px;
+      background: rgba(25, 36, 32, 0.95);
+      border: 1px solid var(--border); border-left: 3px solid var(--gold);
+      border-radius: 8px; padding: 12px 16px;
+      display: flex; align-items: center; gap: 12px; z-index: 850;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transform: translateY(120px); opacity: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      max-width: 320px; pointer-events: none;
+    }
+    .toast-proof.show { transform: translateY(0); opacity: 1; }
+    .toast-title { font-size: 12px; font-weight: 600; color: var(--ink); }
+    .toast-sub { font-size: 11px; color: var(--ink-muted); }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 0 64px; text-align: center; font-size: 12px; color: var(--ink-muted); }
+
+    @media (max-width: 600px) {
+      .beauty-grid { grid-template-columns: 1fr; }
+      .addon-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <a href="/" class="brand">Vitalis</a>
+    <div class="badge-live">
+      <span class="pulse"></span> Bridal &amp; Aesthetic RN Dispatch Active
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">Cellular Skin Rejuvenation &middot; In-Suite RN Delivery</span>
+    <h1>Radiance Engineered from<br>the <em>Inside Out.</em></h1>
+    <p class="lead">Topical serums only penetrate the dead stratum corneum. Vitalis delivers 2,000mg Glutathione, concentrated Biotin, and 1,000mL of deep cellular hydration directly to your vascular system for an unmistakable lit-from-within glow.</p>
+
+    <div class="beauty-grid">
+      <div class="beauty-box">
+        <div class="beauty-title">2,000mg Glutathione</div>
+        <div class="beauty-sub">Master antioxidant &amp; melanin inhibitor</div>
+      </div>
+      <div class="beauty-box">
+        <div class="beauty-title">High-Potency Biotin</div>
+        <div class="beauty-sub">Keratin matrix &amp; dermal elasticity</div>
+      </div>
+      <div class="beauty-box">
+        <div class="beauty-title">1,000mL Dermal Hydration</div>
+        <div class="beauty-sub">Plumps micro-lines in &lt;45 minutes</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offers -->
+  <section>
+    <h2 class="menu-head-title">Select Your Aesthetic Treatment</h2>
+    <p class="menu-head-sub">Delivered discreetly to your bridal suite, hotel penthouse, or Dallas home.</p>
+
+    <div class="offer-card selected" id="card-radiance" onclick="chooseRadiance('Radiance (Signature Glow)', 374, 'card-radiance')">
+      <span class="offer-badge">Bridal &amp; Gala Favorite</span>
+      <div class="offer-head">
+        <h3 class="offer-name">Radiance (Signature Glow)</h3>
+        <div class="offer-price">$374</div>
+      </div>
+      <p class="offer-desc">2,000mg Glutathione IV push, concentrated Biotin, Megadose Vitamin C (5,000mg), and 1,000mL Normal Saline. Recommended 24–48 hours prior to weddings, galas, or photoshoots.</p>
+      <button type="button" class="btn-offer">Selected: Radiance ($374) ✓</button>
+    </div>
+
+    <div class="offer-card" id="card-bridal-suite" onclick="chooseRadiance('Bridal & Event Suite (3+ Guests)', 850, 'card-bridal-suite')">
+      <div class="offer-head">
+        <h3 class="offer-name">Bridal &amp; Event Group Suite (3+ Guests)</h3>
+        <div class="offer-price">15% Off Group</div>
+      </div>
+      <p class="offer-desc">Dedicated registered nurse on-site for 3 hours at your Dallas hotel suite, venue, or residence. Customized infusions for the bride, groom, and bridal party while getting ready.</p>
+      <button type="button" class="btn-offer">Select Bridal Suite Concierge →</button>
+    </div>
+
+    <div class="offer-card" id="card-reserve" onclick="chooseRadiance('The Reserve (Master Aesthetic & Longevity)', 500, 'card-reserve')">
+      <div class="offer-head">
+        <h3 class="offer-name">The Reserve (Master Glow Protocol)</h3>
+        <div class="offer-price">$500</div>
+      </div>
+      <p class="offer-desc">Full cellular saturation: 100mg NAD+ + 2,000mg Glutathione push, Biotin, Vitamin C, Zinc, and full B-Complex matrix for total systemic radiance.</p>
+      <button type="button" class="btn-offer">Select The Reserve ($500) →</button>
+    </div>
+  </section>
+
+  <!-- Interactive Compound Customizer -->
+  <section class="addons-box">
+    <div class="addons-head">
+      <div>
+        <h3 class="addons-title">Aesthetic Boosters &amp; Vitamin Shots</h3>
+        <p style="font-size:12px; color:var(--ink-muted); margin-top:2px;">Targeted pushes for hair, nails, and complexion clarity.</p>
+      </div>
+      <span class="addons-sub">Beauty Matrix</span>
+    </div>
+
+    <div class="addon-grid">
+      <div class="addon-item" data-id="glutathione_extra" data-price="40" onclick="toggleRadianceAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Extra Glutathione Push (2,000mg)</span>
+          <span class="addon-desc">Intensive melanin reduction &amp; brightness</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$40</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="biotin_extra" data-price="30" onclick="toggleRadianceAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ High-Potency Biotin Booster</span>
+          <span class="addon-desc">Keratin synthesis for hair &amp; nail strength</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$30</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="vitc_extra" data-price="35" onclick="toggleRadianceAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Vitamin C Collagen Catalyst</span>
+          <span class="addon-desc">Fibroblast stimulation for skin firmness</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$35</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="b12_glow" data-price="30" onclick="toggleRadianceAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Methyl B-12 Energy Shot</span>
+          <span class="addon-desc">Vibrant pre-event energy</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$30</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Summary Bar -->
+    <div class="summary-bar">
+      <div>
+        <div class="sum-label">Selected Configuration:</div>
+        <div class="sum-drip-name" id="sumConfigName">Radiance (Signature Glow — $374)</div>
+      </div>
+      <div style="text-align:right;">
+        <div class="sum-label">Total Investment:</div>
+        <div class="sum-total-val" id="sumTotal">$374</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="form-wrap" id="booking">
+    <h3 style="font-family:var(--font-serif); font-size:26px; text-align:center; margin-bottom:6px;">Reserve Aesthetic RN Concierge</h3>
+    <p style="font-size:13px; color:var(--ink-muted); text-align:center; margin-bottom:20px;">Zero travel fee in the core Dallas 15-mile corridor. 5-minute confirmation call.</p>
+    
+    <form id="radianceForm" onsubmit="handleBeautySubmit(event)">
+      <div class="form-field">
+        <label>Selected Treatment Protocol</label>
+        <input type="text" id="selectedRadianceSummary" value="Radiance ($374)" readonly style="color:var(--gold); font-weight:600;">
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;" class="form-field">
+        <div>
+          <label>Full Name</label>
+          <input type="text" id="radianceName" placeholder="Your Name" required>
+        </div>
+        <div>
+          <label>Phone (5-Min Confirmation)</label>
+          <input type="tel" id="radiancePhone" placeholder="(214) 555-0177" required>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label>Dallas Service Address or Hotel / Suite #</label>
+        <input type="text" id="radianceAddress" placeholder="e.g. The Joule Hotel, Suite 1204 or Highland Park Home" required>
+      </div>
+
+      <div class="form-field">
+        <label>Target Event / Timeline</label>
+        <select id="radianceEvent">
+          <option>Bridal / Wedding Prep (Within 24–48h)</option>
+          <option>Gala / Black-Tie Media Event</option>
+          <option>Photoshoot / Red Carpet Appearance</option>
+          <option>Routine Skin &amp; Hair Wellness Maintenance</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-submit" id="radianceSubmitBtn">Confirm Reservation &middot; Dispatch Aesthetic RN →</button>
+      <p style="font-size:11px; color:var(--ink-muted); text-align:center; margin-top:10px;">
+        Zero travel fees inside the 15-mile Love Field corridor &middot; HSA/FSA itemized receipts provided
+      </p>
+    </form>
+
+    <div id="radianceConfirmation" style="display:none; text-align:center; padding:24px 0;">
+      <div style="font-size:36px; margin-bottom:8px;">✓</div>
+      <h4 style="color:#86efac; font-size:22px; margin-bottom:8px;">Aesthetic Reservation Confirmed</h4>
+      <p style="font-size:15px; color:var(--ink); margin-bottom:12px;">Your dedicated aesthetic Registered Nurse has been assigned.</p>
+      <div style="background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:14px; max-width:400px; margin:0 auto; font-size:13px; color:var(--ink-muted);">
+        ⏱️ Speed-to-lead status: <strong style="color:var(--emerald);" id="radianceCountdown">4:59</strong> until confirmation call/text.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Vitalis Health &amp; Performance &middot; Physician Directed &middot; Critical Care RN Administered &middot; Dallas Love Field Corridor</p>
+  </footer>
+</div>
+
+<!-- Sticky Bottom Bar -->
+<div class="sticky-bar">
+  <div class="sticky-wrap">
+    <div>
+      <div class="sticky-status"><span class="pulse"></span> Dallas Aesthetic RN Dispatch Active</div>
+      <div class="sticky-price" id="stickyTotalVal">$374</div>
+    </div>
+    <button type="button" class="sticky-btn" onclick="openRadianceModal()">Book Radiance Glow →</button>
+  </div>
+</div>
+
+<!-- 2-Step Modal -->
+<div class="modal-overlay" id="radianceModal" onclick="closeModalOnBg(event)">
+  <div class="modal-card">
+    <button type="button" class="modal-close" onclick="closeRadianceModal()">&times;</button>
+    <div class="step-indicator">
+      <div class="step-dot active" id="radDot1"></div>
+      <div class="step-dot" id="radDot2"></div>
+    </div>
+
+    <div id="radStep1">
+      <h3 style="font-family:var(--font-serif); font-size:24px; margin-bottom:4px;">Step 1: Glow Protocol &amp; Location</h3>
+      <p style="font-size:13px; color:var(--ink-muted); margin-bottom:18px;">Zero travel fee in the core Dallas 15-mile corridor.</p>
+
+      <div class="form-field">
+        <label>Selected Treatment</label>
+        <input type="text" id="modalRadDrip" value="Radiance ($374)" readonly style="color:var(--gold); font-weight:600;">
+      </div>
+      <div class="form-field">
+        <label>Dallas Hotel / Suite / Address</label>
+        <input type="text" id="modalRadAddress" placeholder="e.g. The Joule Hotel or Uptown Dallas Address" required>
+      </div>
+      <button type="button" class="btn-submit" onclick="goToRadStep2()">Continue to Guest Contact →</button>
+    </div>
+
+    <div id="radStep2" style="display:none;">
+      <h3 style="font-family:var(--font-serif); font-size:24px; margin-bottom:4px;">Step 2: Contact Information</h3>
+      <p style="font-size:13px; color:var(--ink-muted); margin-bottom:18px;">Your nurse will call and text directly before arrival.</p>
+
+      <div class="form-field">
+        <label>Full Name</label>
+        <input type="text" id="modalRadName" placeholder="Your Name" required>
+      </div>
+      <div class="form-field">
+        <label>Cell Phone</label>
+        <input type="tel" id="modalRadPhone" placeholder="(214) 555-0177" required>
+      </div>
+      <div style="display:flex; gap:10px;">
+        <button type="button" class="btn-offer" style="width:auto; padding:12px 18px;" onclick="goToRadStep1()">← Back</button>
+        <button type="button" class="btn-submit" style="margin-top:0; flex:1;" onclick="submitRadModal()">Confirm RN Dispatch →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Localized Social Proof Toast -->
+<div class="toast-proof" id="toastProof">
+  <div style="font-size:20px;">✨</div>
+  <div>
+    <div class="toast-title" id="toastTitle">The Joule Hotel, Dallas</div>
+    <div class="toast-sub" id="toastSub">Bride booked Radiance Bridal Suite (28m ago)</div>
+  </div>
+</div>
+
+<script>
+  let basePrice = 374;
+  let selectedDripTitle = 'Radiance';
+  let activeAddons = {};
+
+  function chooseRadiance(name, price, cardId) {
+    basePrice = price;
+    selectedDripTitle = name;
+
+    document.querySelectorAll('.offer-card').forEach(c => {
+      c.classList.remove('selected');
+      const btn = c.querySelector('.btn-offer');
+      if (btn) btn.textContent = 'Select ' + c.querySelector('.offer-name').textContent + ' →';
+    });
+
+    const card = document.getElementById(cardId);
+    if (card) {
+      card.classList.add('selected');
+      const btn = card.querySelector('.btn-offer');
+      if (btn) btn.textContent = 'Selected: ' + name + ' ($' + price + ') ✓';
+    }
+
+    recalculateTotal();
+  }
+
+  function toggleRadianceAddon(el) {
+    const id = el.getAttribute('data-id');
+    const price = parseInt(el.getAttribute('data-price'), 10);
+    const name = el.querySelector('.addon-name').textContent;
+
+    if (activeAddons[id]) {
+      delete activeAddons[id];
+      el.classList.remove('active');
+    } else {
+      activeAddons[id] = { price, name };
+      el.classList.add('active');
+    }
+
+    recalculateTotal();
+  }
+
+  function recalculateTotal() {
+    let addonSum = 0;
+    let addonNames = [];
+    for (let k in activeAddons) {
+      addonSum += activeAddons[k].price;
+      addonNames.push(activeAddons[k].name);
+    }
+    const total = basePrice + addonSum;
+
+    document.getElementById('sumTotal').textContent = '$' + total;
+    document.getElementById('stickyTotalVal').textContent = '$' + total;
+
+    let summaryStr = selectedDripTitle + ' ($' + basePrice + ')';
+    if (addonNames.length > 0) {
+      summaryStr += ' + ' + addonNames.length + ' Booster(s): ' + addonNames.join(', ');
+    }
+    document.getElementById('selectedRadianceSummary').value = summaryStr;
+    document.getElementById('sumConfigName').textContent = summaryStr;
+    document.getElementById('modalRadDrip').value = summaryStr;
+  }
+
+  function handleBeautySubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('radianceSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Assigning Aesthetic RN...';
+
+    setTimeout(() => {
+      document.getElementById('radianceForm').style.display = 'none';
+      document.getElementById('radianceConfirmation').style.display = 'block';
+      startRadianceCountdown();
+    }, 800);
+  }
+
+  function startRadianceCountdown() {
+    let sec = 299;
+    const el = document.getElementById('radianceCountdown');
+    const timer = setInterval(() => {
+      sec--;
+      if (sec <= 0) { clearInterval(timer); return; }
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    }, 1000);
+  }
+
+  function openRadianceModal() { document.getElementById('radianceModal').classList.add('open'); }
+  function closeRadianceModal() { document.getElementById('radianceModal').classList.remove('open'); }
+  function closeModalOnBg(e) { if (e.target.id === 'radianceModal') closeRadianceModal(); }
+  function goToRadStep2() {
+    if (!document.getElementById('modalRadAddress').value.trim()) { alert('Please enter your Dallas hotel or address.'); return; }
+    document.getElementById('radStep1').style.display = 'none';
+    document.getElementById('radStep2').style.display = 'block';
+    document.getElementById('radDot2').classList.add('active');
+  }
+  function goToRadStep1() {
+    document.getElementById('radStep2').style.display = 'none';
+    document.getElementById('radStep1').style.display = 'block';
+    document.getElementById('radDot2').classList.remove('active');
+  }
+  function submitRadModal() {
+    const name = document.getElementById('modalRadName').value.trim();
+    const phone = document.getElementById('modalRadPhone').value.trim();
+    if (!name || !phone) { alert('Please provide your name and phone.'); return; }
+    closeRadianceModal();
+    document.getElementById('radianceName').value = name;
+    document.getElementById('radiancePhone').value = phone;
+    document.getElementById('radianceAddress').value = document.getElementById('modalRadAddress').value;
+    document.getElementById('radianceForm').style.display = 'none';
+    document.getElementById('radianceConfirmation').style.display = 'block';
+    document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    startRadianceCountdown();
+  }
+
+  /* Social proof */
+  const RAD_PROOFS = [
+    { title: "The Joule Hotel, Dallas", sub: "Bride booked Radiance Suite (28m ago)" },
+    { title: "Highland Park", sub: "Radiance Glow Drip booked (1h ago)" },
+    { title: "Uptown Dallas", sub: "Gala Prep Session booked (2h ago)" },
+    { title: "The Ritz-Carlton Dallas", sub: "Bridal Party of 4 booked Radiance (3h ago)" }
+  ];
+  let rpIdx = 0;
+  function showNextProof() {
+    const toast = document.getElementById('toastProof');
+    const data = RAD_PROOFS[rpIdx];
+    document.getElementById('toastTitle').textContent = data.title;
+    document.getElementById('toastSub').textContent = data.sub;
+    toast.classList.add('show');
+    setTimeout(() => { toast.classList.remove('show'); }, 4500);
+    rpIdx = (rpIdx + 1) % RAD_PROOFS.length;
+  }
+  setTimeout(() => { showNextProof(); setInterval(showNextProof, 12000); }, 3500);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Athletic Recovery &amp; Intracellular Kinetic IV Therapy | Vitalis Dallas</title>
+  <meta name="description" content="100% Bioavailability vs 15% Digestive Absorption. Physician-directed Lactate Clearance and Amino Acid IV infusions delivered to your Dallas residence or gym by critical care RNs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B100E;
+      --surface: #121A17;
+      --surface-card: #182320;
+      --surface-light: #1E2C28;
+      --ink: #F7F5F2;
+      --ink-muted: #8E9B97;
+      --sage: #5E6B5C;
+      --sage-accent: #788C75;
+      --sage-light: #A3B8A0;
+      --gold: #C5A880;
+      --gold-light: #E2CDAF;
+      --emerald: #4ade80;
+      --border: #212F2A;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 90px;
+    }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+    header {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage-accent);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(120, 140, 117, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pulse {
+      width: 7px; height: 7px;
+      background: var(--emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--emerald);
+      animation: pulseAnim 2s infinite;
+    }
+    @keyframes pulseAnim {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 12px var(--emerald); }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    .hero { padding: 40px 0 28px; text-align: center; }
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 7vw, 54px);
+      font-weight: 400;
+      line-height: 1.12;
+      margin-bottom: 16px;
+    }
+    h1 em { font-style: italic; color: var(--sage-accent); }
+    .lead {
+      font-size: 17px;
+      color: var(--ink-muted);
+      max-width: 580px;
+      margin: 0 auto 28px;
+      line-height: 1.55;
+    }
+
+    /* Comparison Bioavailability Matrix */
+    .compare-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      text-align: left;
+    }
+    .compare-col {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .compare-col.highlight {
+      border-color: var(--sage-accent);
+      background: linear-gradient(180deg, rgba(120,140,117,0.12) 0%, var(--bg) 100%);
+    }
+    .col-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .col-title.bad { color: #f87171; }
+    .col-title.good { color: #86efac; }
+    .col-stat {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+    .col-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.45; }
+
+    /* Lactate Clearance Box */
+    .science-banner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+    .science-head { font-family: var(--font-serif); font-size: 22px; color: var(--ink); margin-bottom: 6px; }
+    .science-body { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+
+    /* Performance Proof Grid */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .proof-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .proof-icon { font-size: 20px; margin-bottom: 4px; }
+    .proof-label { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .proof-sub { font-size: 11px; color: var(--ink-muted); }
+
+    /* Protocol Ladder Menu */
+    .menu-head-title { font-family: var(--font-serif); font-size: 28px; text-align: center; margin-bottom: 6px; }
+    .menu-head-sub { font-size: 14px; color: var(--ink-muted); text-align: center; margin-bottom: 22px; }
+    .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+    .drip-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .drip-box:hover { border-color: var(--sage-accent); }
+    .drip-box.selected {
+      border-color: var(--sage-accent);
+      background: linear-gradient(180deg, rgba(120,140,117,0.12) 0%, var(--surface) 100%);
+      box-shadow: 0 0 0 1px var(--sage-accent);
+    }
+    .drip-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .drip-name { font-family: var(--font-serif); font-size: 24px; margin-bottom: 4px; }
+    .drip-cost { font-size: 24px; font-weight: 700; color: var(--gold); margin-bottom: 10px; font-variant-numeric: tabular-nums; }
+    .drip-body { font-size: 13px; color: var(--ink-muted); margin-bottom: 16px; flex: 1; line-height: 1.45; }
+    .btn-card {
+      width: 100%;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      transition: all 0.2s;
+    }
+    .drip-box.selected .btn-card { background: var(--sage-accent); border-color: var(--sage-accent); }
+    .btn-card:hover { background: var(--sage-light); color: var(--bg); }
+
+    /* Retainer Card Full-Width */
+    .retainer-card {
+      background: var(--surface);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .retainer-card.selected {
+      background: linear-gradient(180deg, rgba(197, 168, 128, 0.12) 0%, var(--surface) 100%);
+      box-shadow: 0 0 0 1px var(--gold);
+    }
+    .retainer-badge {
+      position: absolute; top: -10px; right: 20px;
+      background: var(--gold); color: #000;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 999px;
+    }
+
+    /* Interactive Compound Add-on Customizer */
+    .addons-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 36px;
+    }
+    .addons-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .addons-title { font-family: var(--font-serif); font-size: 22px; color: var(--ink); }
+    .addons-sub { font-size: 12px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; }
+    .addon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .addon-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .addon-item:hover { border-color: var(--sage-accent); }
+    .addon-item.active {
+      border-color: var(--sage-accent);
+      background: rgba(120, 140, 117, 0.12);
+    }
+    .addon-info { text-align: left; }
+    .addon-name { font-size: 13px; font-weight: 600; color: var(--ink); display: block; }
+    .addon-desc { font-size: 11px; color: var(--ink-muted); }
+    .addon-price { font-size: 13px; font-weight: 700; color: var(--gold); margin-left: 8px; }
+    .addon-check {
+      width: 18px; height: 18px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; margin-left: 8px; color: transparent;
+      transition: all 0.2s;
+    }
+    .addon-item.active .addon-check {
+      background: var(--sage-accent);
+      border-color: var(--sage-accent);
+      color: #fff;
+    }
+
+    /* Live Summary Bar */
+    .summary-bar {
+      background: var(--surface-card);
+      border: 1px solid var(--sage-accent);
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 18px;
+    }
+    .sum-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .sum-drip-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .sum-total-val { font-size: 22px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+
+    /* Form Section */
+    .form-section {
+      background: var(--surface);
+      border: 1px solid var(--sage-accent);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 48px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .form-title { font-family: var(--font-serif); font-size: 28px; text-align: center; margin-bottom: 6px; }
+    .form-sub { font-size: 13px; color: var(--ink-muted); text-align: center; margin-bottom: 22px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 6px; }
+    .field input, .field select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .field input:focus, .field select:focus { border-color: var(--sage-accent); }
+    .btn-submit {
+      width: 100%;
+      background: var(--sage-accent);
+      color: #fff;
+      border: none;
+      padding: 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 4px 20px rgba(120, 140, 117, 0.35);
+      transition: all 0.2s;
+    }
+    .btn-submit:hover { background: var(--sage-light); color: var(--bg); }
+
+    /* Sticky Mobile Bottom Booking Bar */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(18, 26, 23, 0.96);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border);
+      padding: 12px 20px;
+      z-index: 900;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+    }
+    .sticky-wrap {
+      max-width: 760px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .sticky-status { font-size: 11px; color: var(--sage-light); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .sticky-price { font-size: 20px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+    .sticky-btn {
+      background: var(--sage-accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .sticky-btn:hover { background: var(--sage-light); color: var(--bg); }
+
+    /* 2-Step Scheduling Modal */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85); backdrop-filter: blur(6px);
+      z-index: 1000; display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-card {
+      background: var(--surface); border: 1px solid var(--sage-accent);
+      border-radius: 14px; max-width: 520px; width: 100%; padding: 28px;
+      position: relative; max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+    .modal-close {
+      position: absolute; top: 18px; right: 18px; background: transparent;
+      border: none; color: var(--ink-muted); font-size: 24px; cursor: pointer;
+    }
+    .step-indicator { display: flex; gap: 8px; margin-bottom: 20px; }
+    .step-dot { flex: 1; height: 4px; background: var(--border); border-radius: 2px; }
+    .step-dot.active { background: var(--sage-accent); }
+
+    /* Localized Social Proof Toast */
+    .toast-proof {
+      position: fixed; bottom: 82px; left: 20px;
+      background: rgba(24, 35, 32, 0.95);
+      border: 1px solid var(--border); border-left: 3px solid var(--sage-accent);
+      border-radius: 8px; padding: 12px 16px;
+      display: flex; align-items: center; gap: 12px; z-index: 850;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transform: translateY(120px); opacity: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      max-width: 320px; pointer-events: none;
+    }
+    .toast-proof.show { transform: translateY(0); opacity: 1; }
+    .toast-title { font-size: 12px; font-weight: 600; color: var(--ink); }
+    .toast-sub { font-size: 11px; color: var(--ink-muted); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0 64px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+
+    @media (max-width: 600px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .compare-card { grid-template-columns: 1fr; }
+      .addon-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .proof-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <a href="/" class="brand">Vitalis</a>
+    <div class="nav-tag">
+      <span class="pulse"></span> Athletic Performance Dispatch Active
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">Intracellular Athletic Kinetic Recovery &middot; Dallas, TX</span>
+    <h1>Why Dallas Athletes Skip<br>the <em>Shaker Cup.</em></h1>
+    <p class="lead">Oral BCAAs and electrolyte powders lose up to 85% of active compounds in digestion. Vitalis delivers 100% bioavailable amino acids, Lactated Ringer's acid buffers, and high-dose antioxidants directly into your bloodstream.</p>
+
+    <!-- Bioavailability comparison -->
+    <div class="compare-card">
+      <div class="compare-col">
+        <div class="col-title bad">Oral Powders &amp; Supplements</div>
+        <div class="col-stat" style="color:#f87171;">15–20%</div>
+        <div class="col-desc">Degraded by stomach acid, GI motility lag, and hepatic first-pass filtration before reaching muscle fibers.</div>
+      </div>
+      <div class="compare-col highlight">
+        <div class="col-title good">Vitalis Intravenous Infusion</div>
+        <div class="col-stat" style="color:var(--sage-accent);">100%</div>
+        <div class="col-desc">Instant plasma volume repletion. Direct intracellular glycogen uptake, zero GI distress, and rapid Whoop HRV recovery.</div>
+      </div>
+    </div>
+
+    <!-- Lactate Kinetics Science Box -->
+    <div class="science-banner">
+      <div class="science-head">The Lactate Clearance Mechanism</div>
+      <div class="science-body">
+        During high-intensity exertion (HYROX, marathon pacing, CrossFit intervals), hydrogen ions accumulate in deep muscular tissue, causing severe acidosis and prolonged DOMS. Vitalis uses <strong>1,000 mL Lactated Ringer's</strong>—which the liver metabolizes directly into sodium bicarbonate—actively buffering systemic acidosis and normalizing blood pH in 45 minutes.
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Proof -->
+  <div class="proof-grid">
+    <div class="proof-box">
+      <div class="proof-icon">⚡</div>
+      <div class="proof-label">Zero Gastric Lag</div>
+      <div class="proof-sub">100% Direct cellular absorption</div>
+    </div>
+    <div class="proof-box">
+      <div class="proof-icon">🩺</div>
+      <div class="proof-label">Critical Care RNs</div>
+      <div class="proof-sub">Painless micro-vascular access</div>
+    </div>
+    <div class="proof-box">
+      <div class="proof-icon">📍</div>
+      <div class="proof-label">Doorstep in 45m</div>
+      <div class="proof-sub">Zero travel fees in 15-mi Dallas zone</div>
+    </div>
+  </div>
+
+  <!-- Performance Protocol Ladder -->
+  <section>
+    <h2 class="menu-head-title">Select Your Athletic Protocol Ladder</h2>
+    <p class="menu-head-sub">Formulated with concentrated amino acids and isotonic buffers for immediate muscular restoration.</p>
+
+    <!-- Monthly Retainer Option (Hero High-LTV Tier) -->
+    <div class="retainer-card" id="card-athlete-monthly" onclick="chooseAthleteDrip('Elite Athlete Monthly Retainer (4x Rebuild Infusions)', 900, 'card-athlete-monthly')">
+      <span class="retainer-badge">High-Performance Monthly Retainer</span>
+      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;">
+        <h3 style="font-family:var(--font-serif); font-size:24px; color:var(--ink);">Elite Athlete Monthly Retainer</h3>
+        <div style="font-size:24px; font-weight:700; color:var(--gold);">$900 <span style="font-size:13px; font-weight:400; color:var(--ink-muted);">/ mo</span></div>
+      </div>
+      <p style="font-size:13px; color:var(--ink-muted); margin-bottom:14px; line-height:1.5;">
+        4 weekly in-home or gym recovery infusions (Rebuild Protocol) with included Glutathione pushes, scheduled priority booking, and ongoing HRV biomarker tracking during heavy training blocks.
+      </p>
+      <button type="button" class="btn-card" style="background:var(--gold); color:#000; font-weight:700; border-color:var(--gold);">Select Monthly Retainer ($900/mo) →</button>
+    </div>
+
+    <!-- Core Single Infusion Grid -->
+    <div class="card-grid">
+      <div class="drip-box selected" id="card-rebuild" onclick="chooseAthleteDrip('Rebuild (Single Athletic Protocol)', 324, 'card-rebuild')">
+        <div>
+          <div class="drip-tag" style="color:var(--sage-accent);">Hero Post-Workout Infusion</div>
+          <h3 class="drip-name">Rebuild</h3>
+          <div class="drip-cost">$324</div>
+          <p class="drip-body">Targeted post-event protocol: Concentrated Amino Blend (Arginine, Citrulline, Lysine, Proline), Tri-Amino Matrix, Magnesium, Vitamin C (5,000mg), and 1,000mL Lactated Ringer's to eliminate DOMS.</p>
+        </div>
+        <button type="button" class="btn-card">Selected: Rebuild ($324) ✓</button>
+      </div>
+
+      <div class="drip-box" id="card-reserve-ath" onclick="chooseAthleteDrip('The Reserve (Athletic Master Drip)', 500, 'card-reserve-ath')">
+        <div>
+          <div class="drip-tag" style="color:var(--gold);">Master Cellular &amp; NAD+ Infusion</div>
+          <h3 class="drip-name">The Reserve</h3>
+          <div class="drip-cost">$500</div>
+          <p class="drip-body">100mg NAD+ + 2,000mg Glutathione push + Complete Amino Acid Matrix + High-Dose Vitamin C &amp; Magnesium for maximum mitochondrial ATP output and systemic anti-inflammatory reset.</p>
+        </div>
+        <button type="button" class="btn-card">Select The Reserve ($500) →</button>
+      </div>
+    </div>
+
+    <div class="drip-box" id="card-ascend" style="margin-bottom:32px;" onclick="chooseAthleteDrip('Ascend (Pre-Competition Primer)', 274, 'card-ascend')">
+      <div>
+        <div class="drip-tag" style="color:var(--gold);">Pre-Training Focus &amp; Energy</div>
+        <h3 class="drip-name">Ascend</h3>
+        <div class="drip-cost">$274</div>
+        <p class="drip-body">Pre-competition mitochondrial priming: Full B-Complex, High-dose Methyl B-12, Taurine, Vitamin C, and balanced electrolytes for sustained physical stamina.</p>
+      </div>
+      <button type="button" class="btn-card">Select Ascend ($274) →</button>
+    </div>
+  </section>
+
+  <!-- Interactive Compound Add-On Customizer -->
+  <section class="addons-box">
+    <div class="addons-head">
+      <div>
+        <h3 class="addons-title">Performance &amp; Recovery Boosters</h3>
+        <p style="font-size:12px; color:var(--ink-muted); margin-top:2px;">Add targeted clinical pushes to accelerate muscle repair.</p>
+      </div>
+      <span class="addons-sub">Add-On Matrix</span>
+    </div>
+
+    <div class="addon-grid">
+      <div class="addon-item" data-id="glutathione" data-price="40" onclick="toggleAthleteAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Glutathione Push (2,000mg)</span>
+          <span class="addon-desc">Neutralizes exercise oxidative stress</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$40</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="toradol" data-price="35" onclick="toggleAthleteAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Toradol Joint &amp; Muscle Push</span>
+          <span class="addon-desc">Non-narcotic acute anti-inflammatory</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$35</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="magnesium" data-price="35" onclick="toggleAthleteAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ High-Dose Magnesium Push</span>
+          <span class="addon-desc">Relaxes muscle spasms &amp; cramps</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$35</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="triamino" data-price="40" onclick="toggleAthleteAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Tri-Amino Synthesis Boost</span>
+          <span class="addon-desc">Arginine, Citrulline, Ornithine</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$40</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="b12" data-price="30" onclick="toggleAthleteAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Methyl B-12 Injection</span>
+          <span class="addon-desc">Cellular Krebs cycle energy</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$30</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="nad" data-price="50" onclick="toggleAthleteAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ NAD+ Micro-Booster</span>
+          <span class="addon-desc">Mitochondrial ATP resynthesis</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$50</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Customizer Summary -->
+    <div class="summary-bar">
+      <div>
+        <div class="sum-label">Selected Configuration:</div>
+        <div class="sum-drip-name" id="sumConfigName">Rebuild ($324)</div>
+      </div>
+      <div style="text-align:right;">
+        <div class="sum-label">Total Investment:</div>
+        <div class="sum-total-val" id="sumTotal">$324</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intake Form -->
+  <section class="form-section" id="booking">
+    <h3 class="form-title">Reserve In-Home / Gym Athletic RN</h3>
+    <p class="form-sub">Our clinical coordinator confirms your dispatch within <strong>5 minutes</strong>.</p>
+
+    <form id="athleteDispatchForm" onsubmit="submitAthleteForm(event)">
+      <div class="field">
+        <label>Selected Treatment Protocol</label>
+        <input type="text" id="selectedAthleteDripSummary" value="Rebuild ($324)" readonly style="color:var(--gold); font-weight:600;">
+      </div>
+
+      <div class="form-row">
+        <div class="field" style="margin-bottom:0;">
+          <label>Full Name</label>
+          <input type="text" id="athleteName" placeholder="Marcus Turner" required>
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label>Phone Number (5-Min Confirmation)</label>
+          <input type="tel" id="athletePhone" placeholder="(214) 555-0188" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Dallas Residence / Gym / Facility Address</label>
+        <input type="text" id="athleteAddress" placeholder="e.g. 3838 Oak Lawn Ave or Lakewood Home Address" required>
+      </div>
+
+      <div class="form-row">
+        <div class="field" style="margin-bottom:0;">
+          <label>Primary Sport / Training Goal</label>
+          <select id="athleteGoal">
+            <option>HYROX / CrossFit Competition Recovery</option>
+            <option>Marathon / Long Run De-load</option>
+            <option>Tennis / High-Volume Training Block</option>
+            <option>Executive Energy &amp; General Optimization</option>
+          </select>
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label>Preferred Window</label>
+          <select id="athleteWindow">
+            <option value="asap">ASAP (~45m Arrival)</option>
+            <option value="afternoon">This Afternoon</option>
+            <option value="evening">This Evening</option>
+            <option value="tomorrow">Tomorrow Morning</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit" id="athleteSubmitBtn">Confirm Dispatch &middot; Reserve Registered Nurse →</button>
+      <p style="font-size:11px; color:var(--ink-muted); text-align:center; margin-top:10px;">
+        Zero travel fees inside the 15-mile Love Field corridor &middot; HSA/FSA itemized receipts provided
+      </p>
+    </form>
+
+    <div id="athleteConfirmation" style="display:none; text-align:center; padding:24px 0;">
+      <div style="font-size:36px; margin-bottom:8px;">✓</div>
+      <h4 style="color:#86efac; font-size:22px; margin-bottom:8px;">Athletic Protocol Queued</h4>
+      <p style="font-size:15px; color:var(--ink); margin-bottom:12px;">Your Registered Nurse is preparing your cold-chain compounds.</p>
+      <div style="background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:14px; max-width:400px; margin:0 auto; font-size:13px; color:var(--ink-muted);">
+        ⏱️ Speed-to-lead triage: <strong style="color:var(--emerald);" id="athleteCountdown">4:59</strong> until confirmation.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Vitalis Health &amp; Performance &middot; Physician Directed &middot; Critical Care RN Administered &middot; Dallas Love Field Corridor</p>
+  </footer>
+</div>
+
+<!-- Sticky Bottom Bar -->
+<div class="sticky-bar">
+  <div class="sticky-wrap">
+    <div>
+      <div class="sticky-status"><span class="pulse"></span> 45-Min Athletic RN Dispatch Active</div>
+      <div class="sticky-price" id="stickyTotalVal">$324</div>
+    </div>
+    <button type="button" class="sticky-btn" onclick="openAthleteModal()">Book In-Home Drip →</button>
+  </div>
+</div>
+
+<!-- 2-Step Modal -->
+<div class="modal-overlay" id="athleteModal" onclick="closeModalOnBg(event)">
+  <div class="modal-card">
+    <button type="button" class="modal-close" onclick="closeAthleteModal()">&times;</button>
+    <div class="step-indicator">
+      <div class="step-dot active" id="athDot1"></div>
+      <div class="step-dot" id="athDot2"></div>
+    </div>
+
+    <div id="athStep1">
+      <h3 style="font-family:var(--font-serif); font-size:24px; margin-bottom:4px;">Step 1: Recovery Protocol &amp; Location</h3>
+      <p style="font-size:13px; color:var(--ink-muted); margin-bottom:18px;">Zero travel fee in the core Dallas 15-mile corridor.</p>
+
+      <div class="field">
+        <label>Selected Treatment</label>
+        <input type="text" id="modalAthDrip" value="Rebuild ($324)" readonly style="color:var(--gold); font-weight:600;">
+      </div>
+      <div class="field">
+        <label>Dallas ZIP / Address</label>
+        <input type="text" id="modalAthAddress" placeholder="e.g. 75214 or Lakewood / Uptown Address" required>
+      </div>
+      <button type="button" class="btn-submit" onclick="goToAthStep2()">Continue to Athlete Contact →</button>
+    </div>
+
+    <div id="athStep2" style="display:none;">
+      <h3 style="font-family:var(--font-serif); font-size:24px; margin-bottom:4px;">Step 2: Contact Information</h3>
+      <p style="font-size:13px; color:var(--ink-muted); margin-bottom:18px;">Your nurse will call and text directly before arrival.</p>
+
+      <div class="field">
+        <label>Full Name</label>
+        <input type="text" id="modalAthName" placeholder="Your Name" required>
+      </div>
+      <div class="field">
+        <label>Cell Phone</label>
+        <input type="tel" id="modalAthPhone" placeholder="(214) 555-0188" required>
+      </div>
+      <div style="display:flex; gap:10px;">
+        <button type="button" class="btn-card" style="width:auto; padding:12px 18px;" onclick="goToAthStep1()">← Back</button>
+        <button type="button" class="btn-submit" style="margin-top:0; flex:1;" onclick="submitAthModal()">Confirm RN Dispatch →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Localized Social Proof Toast -->
+<div class="toast-proof" id="toastProof">
+  <div style="font-size:20px;">⚡</div>
+  <div>
+    <div class="toast-title" id="toastTitle">Lakewood, Dallas</div>
+    <div class="toast-sub" id="toastSub">HYROX athlete booked Rebuild (22m ago)</div>
+  </div>
+</div>
+
+<script>
+  let basePrice = 324;
+  let selectedDripTitle = 'Rebuild';
+  let activeAddons = {};
+
+  function chooseAthleteDrip(name, price, cardId) {
+    basePrice = price;
+    selectedDripTitle = name;
+
+    document.querySelectorAll('.drip-box, .retainer-card').forEach(b => {
+      b.classList.remove('selected');
+      const btn = b.querySelector('.btn-card');
+      if (btn && !b.classList.contains('retainer-card')) {
+        btn.textContent = 'Select ' + b.querySelector('.drip-name').textContent + ' →';
+      }
+    });
+
+    const card = document.getElementById(cardId);
+    if (card) {
+      card.classList.add('selected');
+      const btn = card.querySelector('.btn-card');
+      if (btn) btn.textContent = 'Selected: ' + name + ' ($' + price + ') ✓';
+    }
+
+    recalculateTotal();
+  }
+
+  function toggleAthleteAddon(el) {
+    const id = el.getAttribute('data-id');
+    const price = parseInt(el.getAttribute('data-price'), 10);
+    const name = el.querySelector('.addon-name').textContent;
+
+    if (activeAddons[id]) {
+      delete activeAddons[id];
+      el.classList.remove('active');
+    } else {
+      activeAddons[id] = { price, name };
+      el.classList.add('active');
+    }
+
+    recalculateTotal();
+  }
+
+  function recalculateTotal() {
+    let addonSum = 0;
+    let addonNames = [];
+    for (let k in activeAddons) {
+      addonSum += activeAddons[k].price;
+      addonNames.push(activeAddons[k].name);
+    }
+    const total = basePrice + addonSum;
+
+    document.getElementById('sumTotal').textContent = '$' + total;
+    document.getElementById('stickyTotalVal').textContent = '$' + total;
+
+    let summaryStr = selectedDripTitle + ' ($' + basePrice + ')';
+    if (addonNames.length > 0) {
+      summaryStr += ' + ' + addonNames.length + ' Booster(s): ' + addonNames.join(', ');
+    }
+    document.getElementById('selectedAthleteDripSummary').value = summaryStr;
+    document.getElementById('sumConfigName').textContent = summaryStr;
+    document.getElementById('modalAthDrip').value = summaryStr;
+  }
+
+  function submitAthleteForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('athleteSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Routing to Registered Nurse...';
+
+    setTimeout(() => {
+      document.getElementById('athleteDispatchForm').style.display = 'none';
+      document.getElementById('athleteConfirmation').style.display = 'block';
+      startAthleteCountdown();
+    }, 800);
+  }
+
+  function startAthleteCountdown() {
+    let sec = 299;
+    const el = document.getElementById('athleteCountdown');
+    const timer = setInterval(() => {
+      sec--;
+      if (sec <= 0) { clearInterval(timer); return; }
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    }, 1000);
+  }
+
+  function openAthleteModal() { document.getElementById('athleteModal').classList.add('open'); }
+  function closeAthleteModal() { document.getElementById('athleteModal').classList.remove('open'); }
+  function closeModalOnBg(e) { if (e.target.id === 'athleteModal') closeAthleteModal(); }
+  function goToAthStep2() {
+    if (!document.getElementById('modalAthAddress').value.trim()) {
+      alert('Please enter your Dallas address.');
+      return;
+    }
+    document.getElementById('athStep1').style.display = 'none';
+    document.getElementById('athStep2').style.display = 'block';
+    document.getElementById('athDot2').classList.add('active');
+  }
+  function goToAthStep1() {
+    document.getElementById('athStep2').style.display = 'none';
+    document.getElementById('athStep1').style.display = 'block';
+    document.getElementById('athDot2').classList.remove('active');
+  }
+  function submitAthModal() {
+    const name = document.getElementById('modalAthName').value.trim();
+    const phone = document.getElementById('modalAthPhone').value.trim();
+    if (!name || !phone) { alert('Please provide your name and phone.'); return; }
+    closeAthleteModal();
+    document.getElementById('athleteName').value = name;
+    document.getElementById('athletePhone').value = phone;
+    document.getElementById('athleteAddress').value = document.getElementById('modalAthAddress').value;
+    document.getElementById('athleteDispatchForm').style.display = 'none';
+    document.getElementById('athleteConfirmation').style.display = 'block';
+    document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    startAthleteCountdown();
+  }
+
+  /* Social proof */
+  const ATHLETE_PROOFS = [
+    { title: "Lakewood, Dallas", sub: "HYROX athlete booked Rebuild (22m ago)" },
+    { title: "Highland Park", sub: "Marathoner booked Elite Monthly Retainer ($900/mo) (45m ago)" },
+    { title: "Preston Hollow", sub: "Triathlete booked The Reserve Athletic Master ($500) (1h ago)" },
+    { title: "Victory Park", sub: "CrossFit athlete booked Rebuild + Toradol (2h ago)" }
+  ];
+  let pIdx = 0;
+  function showNextProof() {
+    const toast = document.getElementById('toastProof');
+    const data = ATHLETE_PROOFS[pIdx];
+    document.getElementById('toastTitle').textContent = data.title;
+    document.getElementById('toastSub').textContent = data.sub;
+    toast.classList.add('show');
+    setTimeout(() => { toast.classList.remove('show'); }, 4500);
+    pIdx = (pIdx + 1) % ATHLETE_PROOFS.length;
+  }
+  setTimeout(() => { showNextProof(); setInterval(showNextProof, 12000); }, 3500);
+</script>
+
+</body>
+</html>

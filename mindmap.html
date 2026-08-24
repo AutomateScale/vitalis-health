@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitalis Health & Performance &middot; Master Interactive Mind Map</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050807;
+      --surface: #0B120F;
+      --surface-card: #101B16;
+      --surface-hover: #172620;
+      --ink: #F7F5F2;
+      --ink-muted: #8E9E97;
+      --ink-dim: #54635D;
+      --sage: #5E6B5C;
+      --sage-light: #859F83;
+      --gold: #C5A880;
+      --gold-light: #E5D3B8;
+      --gold-glow: rgba(197, 168, 128, 0.25);
+      --border: #182821;
+      --border-accent: #294035;
+      --blue: #3B82F6;
+      --green: #22C55E;
+      --purple: #A855F7;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      padding: 16px 36px;
+      background: rgba(11, 18, 15, 0.95);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .header-links { display: flex; gap: 12px; }
+    .btn-link {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: var(--gold-light);
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: var(--font-mono);
+      transition: all 0.2s;
+    }
+    .btn-link:hover {
+      background: var(--sage);
+      color: #fff;
+      border-color: var(--sage);
+    }
+
+    .map-viewport {
+      flex: 1;
+      overflow: auto;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: radial-gradient(circle at center, #0E1713 0%, #050807 100%);
+    }
+    .map-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 48px;
+      min-width: 1320px;
+      position: relative;
+    }
+
+    .central-hub {
+      background: radial-gradient(circle, #1A2A22 0%, #0C1411 100%);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 32px 28px;
+      min-width: 290px;
+      text-align: center;
+      box-shadow: 0 0 45px var(--gold-glow);
+      position: sticky;
+      top: 20px;
+      z-index: 10;
+    }
+    .hub-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-block;
+      background: rgba(197,168,128,0.12);
+      padding: 3px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(197,168,128,0.3);
+    }
+    .hub-h {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .hub-p { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+
+    .branches-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex: 1;
+    }
+    .branch-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      transition: all 0.2s ease;
+    }
+    .branch-card:hover { border-color: var(--border-accent); transform: translateX(4px); }
+    .branch-card.blue { border-left: 4px solid var(--blue); }
+    .branch-card.gold { border-left: 4px solid var(--gold); }
+    .branch-card.purple { border-left: 4px solid var(--purple); }
+    .branch-card.green { border-left: 4px solid var(--green); }
+    .branch-card.teal { border-left: 4px solid #14B8A6; }
+
+    .branch-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+    .branch-title { font-family: var(--font-serif); font-size: 22px; font-weight: 500; color: #fff; }
+    .branch-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold-light); }
+
+    .subnodes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+    }
+    .subnode {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      transition: all 0.2s;
+    }
+    .subnode:hover {
+      background: var(--surface-hover);
+      border-color: var(--sage-light);
+    }
+    .subnode-h { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 4px; display: flex; justify-content: space-between; }
+    .subnode-p { font-size: 11px; color: var(--ink-muted); line-height: 1.45; }
+
+    footer {
+      padding: 14px 36px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-title">Vitalis Master Mind Map</div>
+    <div class="header-links">
+      <a href="presentation-geru-funnels.html" class="btn-link">← GERU Simulator</a>
+      <a href="review-hub.html" class="btn-link">Flight Review Hub</a>
+    </div>
+  </header>
+
+  <div class="map-viewport">
+    <div class="map-container">
+
+      <!-- Central Core Hub -->
+      <div class="central-hub">
+        <span class="hub-badge">High-LTV Core</span>
+        <h1 class="hub-h">VITALIS</h1>
+        <p class="hub-p">
+          <strong>Mobile IV Concierge</strong><br>
+          Centroid: Dallas Love Field (15-Mi $0 Fee)<br>
+          8 Drips/Wk Capacity Ceiling<br>
+          $9,828/Mo Day-90 MRR &middot; 14.75x ROAS
+        </p>
+      </div>
+
+      <!-- Branches Column -->
+      <div class="branches-column">
+
+        <!-- BRANCH 1: TRAFFIC & PAID MEDIA -->
+        <div class="branch-card blue">
+          <div class="branch-header">
+            <h3 class="branch-title">1. Traffic Ingestion Engines (75% Athletes &amp; Longevity)</h3>
+            <span class="branch-tag">Top-of-Funnel</span>
+          </div>
+          <div class="subnodes-grid">
+            <div class="subnode">
+              <div class="subnode-h"><span>Athletic Meta Ads</span> <span style="color:var(--blue);">$14.50/d</span></div>
+              <div class="subnode-p">"Why Dallas Athletes Skip the Shaker Cup" &middot; 100% IV Bioavailability vs 15% Oral.</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>NAD+ Longevity Ads</span> <span style="color:var(--blue);">$12.70/d</span></div>
+              <div class="subnode-p">"The 50% NAD+ Deficit by 40" &middot; Park Cities executive cognitive stamina.</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>Google Local Services (LSA)</span> <span style="color:var(--blue);">$35&ndash;65 CPL</span></div>
+              <div class="subnode-p">"Google Guaranteed" nurse badge in 75205, 75225, 75201 with 120+ negative keywords.</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>Weekend Surge Dayparting</span> <span style="color:var(--blue);">$5.40/d</span></div>
+              <div class="subnode-p">Thu 4pm &ndash; Sun 2pm acute hangover capture in Uptown &amp; luxury hotel suites.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BRANCH 2: FRONT-END CONVERSION FUNNELS -->
+        <div class="branch-card gold">
+          <div class="branch-header">
+            <h3 class="branch-title">2. Dedicated Conversion Funnels (Flagship Heroes)</h3>
+            <span class="branch-tag">Landing Pages</span>
+          </div>
+          <div class="subnodes-grid">
+            <div class="subnode">
+              <div class="subnode-h"><span>Athletic HYROX (`/athletes`)</span> <span style="color:var(--gold);">$324</span></div>
+              <div class="subnode-p"><strong>Hero Funnel</strong> &middot; Rebuild &middot; Bioavailability matrix &middot; DOMS relief &middot; Amino kinetics.</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>NAD+ Longevity (`/longevity`)</span> <span style="color:var(--gold);">$500&ndash;$900</span></div>
+              <div class="subnode-p"><strong>Hero Funnel</strong> &middot; The Reserve &middot; 4-Week in-home NAD+ induction protocol ($900/mo).</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>Executive Hangover (`/reset`)</span> <span style="color:var(--gold);">$249</span></div>
+              <div class="subnode-p">The Reset &middot; 45-min arrival guarantee &middot; Zofran &amp; Toradol &middot; Love Field ZIP check.</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>Aesthetic Radiance (`/radiance`)</span> <span style="color:var(--gold);">$374</span></div>
+              <div class="subnode-p">Radiance &middot; 2,000mg Glutathione + Biotin vascular glow &middot; In-suite bridal suites.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BRANCH 3: CRM & SPEED-TO-LEAD -->
+        <div class="branch-card purple">
+          <div class="branch-header">
+            <h3 class="branch-title">3. GoHighLevel CRM &amp; Speed-to-Lead Logic</h3>
+            <span class="branch-tag">Automation Core</span>
+          </div>
+          <div class="subnodes-grid">
+            <div class="subnode">
+              <div class="subnode-h"><span>&lt;30s Automated SMS</span> <span style="color:var(--purple);">Instant</span></div>
+              <div class="subnode-p">Dynamic personalized text matching ad pillar &amp; athletic intent in &lt;30 seconds.</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>AI Voice Agent Callback</span> <span style="color:var(--purple);">&lt;60s Call</span></div>
+              <div class="subnode-p">Retell AI calls lead if Sergio is scrubbed in on a 12-hour hospital shift.</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>Love Field 15-Mi Geofence</span> <span style="color:var(--purple);">$0 vs $50</span></div>
+              <div class="subnode-p">Core zero-fee radius (Park Cities, Uptown) vs +$50 surcharge on outer ring (Frisco).</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>Two-Way Shift Sync</span> <span style="color:var(--purple);">Shift Sync</span></div>
+              <div class="subnode-p">Google Calendar sync preventing double-bookings during 3 hospital RN shifts/wk.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BRANCH 4: 7 DOWNSTREAM RETENTION & 28-EMAIL DRIP -->
+        <div class="branch-card green">
+          <div class="branch-header">
+            <h3 class="branch-title">4. Downstream Retention &amp; 28-Email Evergreen Drip</h3>
+            <span class="branch-tag">LTV Engine</span>
+          </div>
+          <div class="subnodes-grid">
+            <div class="subnode">
+              <div class="subnode-h"><span>28-Email Drip Series</span> <span style="color:var(--green);">90-Day Nurture</span></div>
+              <div class="subnode-p">Induction, biomarker science, athletic case studies, &amp; retainer ascension.</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>T+24h Review Gate</span> <span style="color:var(--green);">5★ Filter</span></div>
+              <div class="subnode-p">4-5★ routes to Google Review link; 1-3★ escalates directly to Sergio's private cell.</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>30-Day Member MRR</span> <span style="color:var(--green);">$369&ndash;$699/mo</span></div>
+              <div class="subnode-p">The Protocol ($369/mo) &middot; 2 monthly drips &middot; 100% rollover &middot; Priority booking.</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>4-Week NAD+ Ascension</span> <span style="color:var(--green);">$900/mo</span></div>
+              <div class="subnode-p">Mitochondrial protocol (250&ndash;500mg weekly) locking in $5,400/mo MRR with 6 clients.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BRANCH 5: TRANSFORMED 90-DAY UNIT ECONOMICS -->
+        <div class="branch-card teal">
+          <div class="branch-header">
+            <h3 class="branch-title">5. Transformed High-LTV Unit Economics ($382 AOV)</h3>
+            <span class="branch-tag">System Math</span>
+          </div>
+          <div class="subnodes-grid">
+            <div class="subnode">
+              <div class="subnode-h"><span>Target AOV: $382.00</span> <span style="color:#14B8A6;">+34% AOV</span></div>
+              <div class="subnode-p">Elevated by Rebuild ($324) and The Reserve ($500) front-end packages.</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>Front-End Cash: $14,516</span> <span style="color:#14B8A6;">38 Drips</span></div>
+              <div class="subnode-p">Paced to 3.8 drips/week around Sergio's hospital shifts ($2,500 ad spend).</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>Day-90 Locked MRR: $9,828</span> <span style="color:#14B8A6;">Recurring</span></div>
+              <div class="subnode-p">12 Performance Members ($4,428/mo) + 6 NAD+ Retainers ($5,400/mo).</div>
+            </div>
+            <div class="subnode">
+              <div class="subnode-h"><span>90-Day Gross: $36,896</span> <span style="color:#14B8A6;">14.75x ROAS</span></div>
+              <div class="subnode-p">Total 90-day pipeline value with 100% schedule capacity locked in.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>Vitalis Health & Performance &middot; Master Mind Map Canvas</div>
+    <div style="font-family:var(--font-mono); color:var(--gold);">5 HIGH-LTV BRANCHES &middot; 24 ACTIVE NODES</div>
+  </footer>
+
+</body>
+</html>

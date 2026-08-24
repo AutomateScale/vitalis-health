@@ -1,0 +1,90 @@
+{
+  "name": "Vitalis Health & Performance 90-Day GHL Snapshot",
+  "version": "1.0.0",
+  "author": "Mo Berkane (AutomateScale)",
+  "client": "Sergio Enriquez (Vitalis Health & Performance)",
+  "custom_fields": [
+    { "field_key": "contact.vitalis_service_address", "name": "Service Address", "data_type": "TEXT" },
+    { "field_key": "contact.vitalis_service_zip", "name": "Service ZIP Code", "data_type": "NUMERICAL" },
+    { "field_key": "contact.vitalis_geo_tier", "name": "Geofence Tier", "data_type": "DROPDOWN", "options": ["Core Dallas ($0 Fee)", "Extended DFW (+$50 Fee)", "Out of Area"] },
+    { "field_key": "contact.vitalis_selected_drip", "name": "Selected Drip", "data_type": "DROPDOWN", "options": ["The Foundation ($224)", "The Reset ($249)", "Ascend ($274)", "Rebuild ($324)", "Immune Defense ($324)", "Radiance ($374)", "The Reserve ($500)", "NAD+ Protocol ($900/mo)"] },
+    { "field_key": "contact.vitalis_gate_code", "name": "Gate Code / Parking Notes", "data_type": "TEXT" },
+    { "field_key": "contact.vitalis_deposit_status", "name": "Deposit Status", "data_type": "DROPDOWN", "options": ["Pending", "Collected ($50)", "Waived", "Refunded"] },
+    { "field_key": "contact.vitalis_hospital_shift_conflict", "name": "Shift Conflict Flag", "data_type": "BOOLEAN" },
+    { "field_key": "contact.vitalis_audience_pillar", "name": "Audience Pillar", "data_type": "DROPDOWN", "options": ["Athletes", "Hangover & Events", "NAD+ Longevity", "Beauty & Bridal", "General Hydration"] }
+  ],
+  "pipelines": [
+    {
+      "name": "1. Concierge Acquisition & Booking",
+      "stages": [
+        "1. New Inbound Lead",
+        "2. Speed-to-Lead Engaged (<5min)",
+        "3. Address & Shift Qualified",
+        "4. Appointment Scheduled (Pending Deposit)",
+        "5. Deposit Collected ($50 Hold)",
+        "6. Reschedule Requested",
+        "7. No-Show / Cancelled (Rescue Triggered)",
+        "8. Out of Service Area / Waitlist"
+      ]
+    },
+    {
+      "name": "2. Clinical Delivery & Retention",
+      "stages": [
+        "1. En Route (30-45m Ping)",
+        "2. On-Site In Service",
+        "3. Drip Completed",
+        "4. 2-Hour Check-in Sent",
+        "5. 24-Hour Review Captured (Google)",
+        "6. 14-Day Cellular Recharge Active",
+        "7. 30-Day Retained / Recurring"
+      ]
+    },
+    {
+      "name": "3. Membership & NAD+ Ascension",
+      "stages": [
+        "1. Ascension Prospect",
+        "2. Tier 1: Foundation ($189/mo)",
+        "3. Tier 2: The Protocol ($369/mo)",
+        "4. Tier 3: Vitalis Elite ($699/mo)",
+        "5. NAD+ Recurring Protocol ($900/mo)",
+        "6. Paused / Churned"
+      ]
+    }
+  ],
+  "automation_workflows": [
+    {
+      "id": "wf_speed_to_lead",
+      "name": "01 — Sub-5-Minute Speed-to-Lead & Confirmation Bridge",
+      "trigger": "Form Submitted / Inbound Lead",
+      "actions": [
+        "Send Personalized SMS in <30 seconds",
+        "Evaluate Google Calendar Hospital Shift Status",
+        "If Sergio On-Shift -> Trigger Concierge AI Voice Agent Outbound Call in 60s",
+        "If Sergio Off-Duty -> Bridge Call to Sergio Mobile App",
+        "Send $50 Stripe Pre-Auth Deposit Link"
+      ]
+    },
+    {
+      "id": "wf_pre_arrival",
+      "name": "02 — Pre-Arrival & Show-Rate Enforcement",
+      "trigger": "Deposit Collected ($50)",
+      "actions": [
+        "Lock Calendar Appointment & Block 45m Transit Buffer",
+        "T-24h SMS: Vein preparation & hydration tips",
+        "T-2h SMS: Dispatch confirmation & live RN transit alert",
+        "T-15m SMS: Nurse arrival & gate access prompt"
+      ]
+    },
+    {
+      "id": "wf_review_ascension",
+      "name": "03 — Post-Visit Review & Ascension Engine",
+      "trigger": "Drip Marked Completed",
+      "actions": [
+        "T+2h SMS: Clinical check-in & hydration note",
+        "T+24h SMS: 1-5 sentiment survey (4-5 routes to Google Review link, 1-3 alerts Sergio)",
+        "T+14d SMS/Email: $25 loyalty credit for bi-weekly recharge",
+        "T+30d Email: Membership conversion ($189-$699/mo) and NAD+ Protocol pitch"
+      ]
+    }
+  ]
+}

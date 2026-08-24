@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Executive Hangover & Rapid Event Recovery | Vitalis Health Dallas</title>
+  <meta name="description" content="Physician-directed mobile IV hydration delivered to your Dallas home or hotel in 45 minutes. RN-administered. Zero travel fees in the core Dallas corridor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0D1311;
+      --surface: #141C19;
+      --surface-light: #1A2421;
+      --surface-card: #1F2C27;
+      --ink: #F7F5F2;
+      --ink-muted: #9BA39F;
+      --sage: #7A8D78;
+      --sage-light: #A3B8A0;
+      --sage-glow: rgba(122, 141, 120, 0.25);
+      --gold: #C5A880;
+      --gold-light: #E2CDAF;
+      --border: #222F2A;
+      --border-focus: #7A8D78;
+      --emerald: #4ade80;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 90px; /* Space for sticky bar */
+    }
+
+    .container { max-width: 740px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .badge-live {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      background: rgba(122, 141, 120, 0.12);
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(122, 141, 120, 0.3);
+    }
+    .pulse {
+      width: 7px; height: 7px;
+      background: var(--emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--emerald);
+      animation: pulseAnim 2s infinite;
+    }
+    @keyframes pulseAnim {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 12px var(--emerald); }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    /* Hero */
+    .hero { padding: 40px 0 28px; text-align: center; }
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 7vw, 54px);
+      font-weight: 400;
+      line-height: 1.12;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    h1 em { font-style: italic; color: var(--sage-light); }
+    .lead {
+      font-size: 17px;
+      color: var(--ink-muted);
+      max-width: 580px;
+      margin: 0 auto 28px;
+      line-height: 1.55;
+    }
+
+    /* ZIP Checker Box */
+    .zip-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 32px;
+      text-align: left;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+    }
+    .zip-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .zip-form { display: flex; gap: 10px; }
+    .zip-input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .zip-input:focus { border-color: var(--border-focus); }
+    .btn {
+      background: var(--sage);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn:hover { background: var(--sage-light); color: var(--bg); }
+    .zip-result {
+      margin-top: 14px;
+      font-size: 13px;
+      padding: 12px 14px;
+      border-radius: 6px;
+      display: none;
+      line-height: 1.45;
+    }
+    .zip-result.success {
+      background: rgba(74, 222, 128, 0.1);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      color: #86efac;
+      display: block;
+    }
+    .zip-result.extended {
+      background: rgba(197, 168, 128, 0.1);
+      border: 1px solid rgba(197, 168, 128, 0.3);
+      color: var(--gold-light);
+      display: block;
+    }
+
+    /* Benefits Strip */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .proof-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .proof-icon { font-size: 20px; margin-bottom: 4px; }
+    .proof-label { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .proof-sub { font-size: 11px; color: var(--ink-muted); }
+
+    /* Drip Menu Cards */
+    .menu-section { margin-bottom: 36px; }
+    .menu-head-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .menu-head-sub {
+      font-size: 14px;
+      color: var(--ink-muted);
+      text-align: center;
+      margin-bottom: 22px;
+    }
+    .menu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      position: relative;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .menu-card:hover { border-color: var(--sage); }
+    .menu-card.selected {
+      border-color: var(--sage);
+      background: linear-gradient(180deg, rgba(122,141,120,0.12) 0%, var(--surface) 100%);
+      box-shadow: 0 0 0 1px var(--sage);
+    }
+    .badge-pop {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      background: var(--sage);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 500;
+    }
+    .card-price {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold);
+      font-variant-numeric: tabular-nums;
+    }
+    .card-desc {
+      font-size: 14px;
+      color: var(--ink-muted);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .compounds {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .pill {
+      font-size: 11px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 4px;
+      color: var(--sage-light);
+    }
+    .btn-select {
+      width: 100%;
+      background: var(--surface-light);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .menu-card.selected .btn-select, .menu-card.featured .btn-select {
+      background: var(--sage);
+      border-color: var(--sage);
+    }
+    .btn-select:hover { background: var(--sage-light); color: var(--bg); }
+
+    /* Interactive Compound Add-on Customizer */
+    .addons-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 36px;
+    }
+    .addons-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .addons-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .addons-sub {
+      font-size: 12px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .addon-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .addon-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .addon-item:hover { border-color: var(--sage); }
+    .addon-item.active {
+      border-color: var(--sage);
+      background: rgba(122, 141, 120, 0.12);
+    }
+    .addon-info { text-align: left; }
+    .addon-name { font-size: 13px; font-weight: 600; color: var(--ink); display: block; }
+    .addon-desc { font-size: 11px; color: var(--ink-muted); }
+    .addon-price {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      font-variant-numeric: tabular-nums;
+      margin-left: 8px;
+    }
+    .addon-check {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      margin-left: 8px;
+      color: transparent;
+      transition: all 0.2s;
+    }
+    .addon-item.active .addon-check {
+      background: var(--sage);
+      border-color: var(--sage);
+      color: #fff;
+    }
+
+    /* Live Summary Box */
+    .summary-bar {
+      background: var(--surface-card);
+      border: 1px solid var(--sage);
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 18px;
+    }
+    .sum-label { font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .sum-drip-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .sum-total-wrap { text-align: right; }
+    .sum-total-val { font-size: 22px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+
+    /* Intake Dispatch Box */
+    .dispatch-box {
+      background: var(--surface);
+      border: 1px solid var(--sage);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 48px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .dispatch-head { text-align: center; margin-bottom: 22px; }
+    .dispatch-head h3 { font-family: var(--font-serif); font-size: 28px; margin-bottom: 6px; }
+    .dispatch-head p { font-size: 13px; color: var(--ink-muted); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-full { margin-bottom: 14px; }
+    .form-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 6px; }
+    .form-control {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus { border-color: var(--sage); }
+    .btn-dispatch {
+      width: 100%;
+      background: var(--sage);
+      color: #fff;
+      border: none;
+      padding: 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 8px;
+      box-shadow: 0 4px 20px rgba(122, 141, 120, 0.35);
+      transition: all 0.2s;
+    }
+    .btn-dispatch:hover { background: var(--sage-light); color: var(--bg); }
+    .guarantee {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--ink-muted);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 2-Step Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-card {
+      background: var(--surface);
+      border: 1px solid var(--sage);
+      border-radius: 14px;
+      max-width: 520px;
+      width: 100%;
+      padding: 28px;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: transparent;
+      border: none;
+      color: var(--ink-muted);
+      font-size: 24px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .modal-close:hover { color: #fff; }
+    .step-indicator {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .step-dot {
+      flex: 1;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      transition: background 0.3s;
+    }
+    .step-dot.active { background: var(--sage); }
+
+    /* Sticky Mobile Bottom Bar */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(20, 28, 25, 0.96);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border);
+      padding: 12px 20px;
+      z-index: 900;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+    }
+    .sticky-wrap {
+      max-width: 740px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .sticky-info { display: flex; flex-direction: column; }
+    .sticky-status {
+      font-size: 11px;
+      color: var(--sage-light);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sticky-price {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+      font-variant-numeric: tabular-nums;
+    }
+    .sticky-btn {
+      background: var(--sage);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(122, 141, 120, 0.4);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .sticky-btn:hover { background: var(--sage-light); color: var(--bg); }
+
+    /* Localized Social Proof Toast */
+    .toast-proof {
+      position: fixed;
+      bottom: 82px;
+      left: 20px;
+      background: rgba(26, 36, 33, 0.95);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--sage);
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 850;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transform: translateY(120px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      max-width: 320px;
+      pointer-events: none;
+    }
+    .toast-proof.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .toast-icon { font-size: 20px; }
+    .toast-content { text-align: left; }
+    .toast-title { font-size: 12px; font-weight: 600; color: var(--ink); }
+    .toast-sub { font-size: 11px; color: var(--ink-muted); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0 64px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+
+    @media (max-width: 560px) {
+      .proof-grid { grid-template-columns: 1fr; }
+      .addon-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .sticky-wrap { gap: 10px; }
+      .sticky-price { font-size: 17px; }
+      .toast-proof { left: 12px; right: 12px; max-width: none; bottom: 85px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <a href="/" class="brand">Vitalis</a>
+    <div class="badge-live">
+      <span class="pulse"></span> Dallas RN Dispatch Active
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">Concierge Mobile Medical Care &middot; Dallas, TX</span>
+    <h1>You Don't Have 24 Hours<br>to <em>Lose to a Hangover.</em></h1>
+    <p class="lead">Physician-directed IV infusions delivered directly to your Dallas home, high-rise, or hotel in 45 minutes. Rapid nausea relief, headache cessation, and 100% cellular rehydration.</p>
+
+    <!-- Instant ZIP Check -->
+    <div class="zip-card">
+      <div class="zip-title">
+        <span>Check Immediate RN Dispatch in Your Area</span>
+        <span style="color:var(--emerald); font-weight:600;">● Online Now</span>
+      </div>
+      <div class="zip-form">
+        <input type="text" id="zipInput" class="zip-input" placeholder="Enter 5-digit Dallas ZIP (e.g. 75205, 75201)" maxlength="5">
+        <button type="button" class="btn" onclick="checkZip()">Check Radius</button>
+      </div>
+      <div id="zipResult" class="zip-result"></div>
+    </div>
+  </section>
+
+  <!-- Key Clinical Proof -->
+  <div class="proof-grid">
+    <div class="proof-box">
+      <div class="proof-icon">⏱️</div>
+      <div class="proof-label">45-Min Arrival</div>
+      <div class="proof-sub">Love Field centroid dispatch</div>
+    </div>
+    <div class="proof-box">
+      <div class="proof-icon">🩺</div>
+      <div class="proof-label">BSN Registered Nurse</div>
+      <div class="proof-sub">Critical care hospital experience</div>
+    </div>
+    <div class="proof-box">
+      <div class="proof-icon">💎</div>
+      <div class="proof-label">Zero Travel Fees</div>
+      <div class="proof-sub">Core 15-mi Dallas corridor</div>
+    </div>
+  </div>
+
+  <!-- Menu Cards -->
+  <section class="menu-section">
+    <h2 class="menu-head-title">Select Your Clinical Recovery Drip</h2>
+    <p class="menu-head-sub">Every formulation is mixed fresh on-site and administered by a licensed BSN/RN.</p>
+
+    <div class="menu-card featured selected" id="card-reset" onclick="chooseDrip('The Reset', 249, 'card-reset')">
+      <span class="badge-pop">Most Requested for Hangover</span>
+      <div class="card-head">
+        <h3 class="card-title">The Reset</h3>
+        <div class="card-price">$249</div>
+      </div>
+      <p class="card-desc">The clinical benchmark for acute dehydration, nausea, and headache rebound. Rapid electrolyte replenishment and targeted symptom relief.</p>
+      <div class="compounds">
+        <span class="pill">Lactated Ringer's (1,000mL)</span>
+        <span class="pill">Zofran (Ondansetron)</span>
+        <span class="pill">Toradol (Ketorolac)</span>
+        <span class="pill">B-Complex Matrix</span>
+        <span class="pill">Magnesium Chloride</span>
+      </div>
+      <button type="button" class="btn-select">Selected: The Reset ($249) ✓</button>
+    </div>
+
+    <div class="menu-card" id="card-foundation" onclick="chooseDrip('The Foundation', 224, 'card-foundation')">
+      <div class="card-head">
+        <h3 class="card-title">The Foundation</h3>
+        <div class="card-price">$224</div>
+      </div>
+      <p class="card-desc">Pure systemic hydration and electrolyte restoration. Ideal for mild fatigue, travel dehydration, dry climate recovery, and post-flight fatigue.</p>
+      <div class="compounds">
+        <span class="pill">1,000mL Normal Saline</span>
+        <span class="pill">Ascorbic Acid (Vitamin C)</span>
+        <span class="pill">B12 Hydroxocobalamin</span>
+        <span class="pill">Essential Electrolytes</span>
+      </div>
+      <button type="button" class="btn-select">Select The Foundation ($224) →</button>
+    </div>
+
+    <div class="menu-card" id="card-reserve" onclick="chooseDrip('The Reserve', 500, 'card-reserve')">
+      <div class="card-head">
+        <h3 class="card-title">The Reserve (Executive Protocol)</h3>
+        <div class="card-price">$500</div>
+      </div>
+      <p class="card-desc">Our flagship cellular longevity cocktail. High-dose Glutathione master antioxidant push + NAD+ micro-infusion for executive clarity and deep cellular recovery.</p>
+      <div class="compounds">
+        <span class="pill">NAD+ Cellular Infusion</span>
+        <span class="pill">Glutathione (2,000mg Push)</span>
+        <span class="pill">Megadose Vitamin C</span>
+        <span class="pill">Amino Acid Blend</span>
+      </div>
+      <button type="button" class="btn-select">Select The Reserve ($500) →</button>
+    </div>
+  </section>
+
+  <!-- Interactive Compound Add-On Customizer -->
+  <section class="addons-box">
+    <div class="addons-head">
+      <div>
+        <h3 class="addons-title">Customize with Targeted Compound Add-Ons</h3>
+        <p style="font-size:12px; color:var(--ink-muted); margin-top:2px;">Enhance your infusion with physician-directed clinical pushes.</p>
+      </div>
+      <span class="addons-sub">Optional Boosters</span>
+    </div>
+
+    <div class="addon-grid">
+      <div class="addon-item" data-id="glutathione" data-price="40" onclick="toggleAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Glutathione Push (2,000mg)</span>
+          <span class="addon-desc">Master antioxidant &amp; liver detox</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$40</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="toradol" data-price="35" onclick="toggleAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Toradol Extra Push</span>
+          <span class="addon-desc">Severe headache &amp; muscle aches</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$35</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="zofran" data-price="30" onclick="toggleAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Zofran Nausea Push</span>
+          <span class="addon-desc">Fast vagus nerve stomach calm</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$30</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="b12" data-price="30" onclick="toggleAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Methyl B-12 Energy Shot</span>
+          <span class="addon-desc">Immediate metabolic energy</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$30</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="pepcid" data-price="30" onclick="toggleAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Famotidine (Pepcid) Push</span>
+          <span class="addon-desc">Soothes acid reflux &amp; heartburn</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$30</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="nad" data-price="50" onclick="toggleAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ NAD+ Micro-Booster</span>
+          <span class="addon-desc">Mitochondrial ATP surge</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$50</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Customizer Summary -->
+    <div class="summary-bar">
+      <div>
+        <div class="sum-label">Current Configuration:</div>
+        <div class="sum-drip-name" id="sumConfigName">The Reset (Base $249)</div>
+      </div>
+      <div class="sum-total-wrap">
+        <div class="sum-label">Total Estimated Investment:</div>
+        <div class="sum-total-val" id="sumTotal">$249</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speed-to-Lead Dispatch Form -->
+  <section class="dispatch-box" id="booking">
+    <div class="dispatch-head">
+      <h3>Request In-Home RN Dispatch</h3>
+      <p>Complete the details below. Our clinical coordinator confirms ETA within <strong>5 minutes</strong>.</p>
+    </div>
+
+    <form id="dispatchForm" onsubmit="submitDispatch(event)">
+      <div class="form-full">
+        <label class="form-label">Selected Protocol &amp; Add-ons</label>
+        <input type="text" id="selectedDripSummary" class="form-control" value="The Reset ($249)" readonly style="color:var(--gold); font-weight:600;">
+      </div>
+
+      <div class="form-grid">
+        <div>
+          <label class="form-label">Full Name</label>
+          <input type="text" id="fullName" class="form-control" placeholder="Sergio Enriquez" required>
+        </div>
+        <div>
+          <label class="form-label">Cell Phone (For 5-Min Confirmation)</label>
+          <input type="tel" id="phoneNumber" class="form-control" placeholder="(214) 555-0192" required>
+        </div>
+      </div>
+
+      <div class="form-full">
+        <label class="form-label">Dallas Address or Hotel Name &amp; Room #</label>
+        <input type="text" id="address" class="form-control" placeholder="e.g. 2323 N Akard St, Apt 1402, Dallas, TX 75201" required>
+      </div>
+
+      <div class="form-grid">
+        <div>
+          <label class="form-label">Desired Timing</label>
+          <select id="dispatchTiming" class="form-control">
+            <option value="immediate">ASAP (Next available RN ~45m)</option>
+            <option value="today_afternoon">Today — Afternoon (1pm - 4pm)</option>
+            <option value="today_evening">Today — Evening (4pm - 8pm)</option>
+            <option value="tomorrow_morning">Tomorrow Morning (8am - 11am)</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label">Gate Code / Parking Instructions</label>
+          <input type="text" id="gateCode" class="form-control" placeholder="e.g. Gate #4120 / Valet / Concierge Desk">
+        </div>
+      </div>
+
+      <button type="submit" class="btn-dispatch" id="submitBtn">Confirm &amp; Dispatch Registered Nurse →</button>
+      <div class="guarantee">
+        🔒 $50 temporary hold to secure your nurse. Zero travel fee inside 15-mile Love Field zone. HSA/FSA Eligible.
+      </div>
+    </form>
+
+    <div id="confirmationMessage" style="display:none; text-align:center; padding:24px 0;">
+      <div style="font-size:36px; margin-bottom:8px;">✓</div>
+      <h4 style="color:#86efac; font-size:22px; margin-bottom:8px;">Dispatch Request Confirmed</h4>
+      <p style="font-size:15px; color:var(--ink); margin-bottom:12px;">Our clinical triage team is routing the nearest Registered Nurse to your location.</p>
+      <div style="background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:14px; max-width:400px; margin:0 auto; font-size:13px; color:var(--ink-muted);">
+        ⏱️ Speed-to-lead status: <strong style="color:var(--emerald);" id="countdown">4:59</strong> until confirmation call/text.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Vitalis Health &amp; Performance &middot; Physician Directed &middot; Critical Care RN Administered &middot; Dallas Love Field Corridor</p>
+  </footer>
+</div>
+
+<!-- Sticky Mobile Bottom Booking Bar -->
+<div class="sticky-bar">
+  <div class="sticky-wrap">
+    <div class="sticky-info">
+      <div class="sticky-status">
+        <span class="pulse"></span> 45-Min Dallas RN Dispatch
+      </div>
+      <div class="sticky-price" id="stickyTotalVal">$249</div>
+    </div>
+    <button type="button" class="sticky-btn" onclick="openBookingModal()">Dispatch RN Now →</button>
+  </div>
+</div>
+
+<!-- 2-Step Scheduling Modal -->
+<div class="modal-overlay" id="bookingModal" onclick="closeModalOnBg(event)">
+  <div class="modal-card">
+    <button type="button" class="modal-close" onclick="closeBookingModal()">&times;</button>
+    
+    <div class="step-indicator">
+      <div class="step-dot active" id="dot1"></div>
+      <div class="step-dot" id="dot2"></div>
+    </div>
+
+    <!-- Modal Step 1 -->
+    <div id="modalStep1">
+      <h3 style="font-family:var(--font-serif); font-size:24px; margin-bottom:4px;">Step 1: Confirm Protocol &amp; Location</h3>
+      <p style="font-size:13px; color:var(--ink-muted); margin-bottom:18px;">Zero travel fee in the core 15-mile Love Field corridor.</p>
+
+      <div class="form-full">
+        <label class="form-label">Selected Treatment</label>
+        <input type="text" id="modalDripName" class="form-control" value="The Reset ($249)" readonly style="color:var(--gold); font-weight:600;">
+      </div>
+
+      <div class="form-full">
+        <label class="form-label">Dallas ZIP Code / Address</label>
+        <input type="text" id="modalAddress" class="form-control" placeholder="e.g. 75205 or Uptown Dallas Address" required>
+      </div>
+
+      <div class="form-full">
+        <label class="form-label">Target Arrival Time</label>
+        <select id="modalTiming" class="form-control">
+          <option value="immediate">Immediate Dispatch (~45 Mins)</option>
+          <option value="today_afternoon">Today — Afternoon</option>
+          <option value="today_evening">Today — Evening</option>
+          <option value="tomorrow_morning">Tomorrow Morning</option>
+        </select>
+      </div>
+
+      <button type="button" class="btn-dispatch" onclick="goToStep2()">Continue to Contact &amp; Dispatch →</button>
+    </div>
+
+    <!-- Modal Step 2 -->
+    <div id="modalStep2" style="display:none;">
+      <h3 style="font-family:var(--font-serif); font-size:24px; margin-bottom:4px;">Step 2: Contact &amp; 5-Min Confirmation</h3>
+      <p style="font-size:13px; color:var(--ink-muted); margin-bottom:18px;">Your nurse will call and text directly before arrival.</p>
+
+      <div class="form-full">
+        <label class="form-label">Full Name</label>
+        <input type="text" id="modalName" class="form-control" placeholder="Your Full Name" required>
+      </div>
+
+      <div class="form-full">
+        <label class="form-label">Cell Phone</label>
+        <input type="tel" id="modalPhone" class="form-control" placeholder="(214) 555-0192" required>
+      </div>
+
+      <div class="form-full">
+        <label class="form-label">Gate Code / Parking Notes</label>
+        <input type="text" id="modalGate" class="form-control" placeholder="e.g. Gate #1234 / Park in guest visitor spot">
+      </div>
+
+      <div style="background:var(--bg); border:1px solid var(--border); padding:12px; border-radius:6px; margin-bottom:16px; font-size:12px; color:var(--ink-muted);">
+        🔒 <strong>Estimated Total: <span id="modalTotalVal" style="color:var(--gold);">$249</span></strong><br>
+        $50 hold to confirm clinical RN dispatch. Full receipt provided for HSA/FSA.
+      </div>
+
+      <div style="display:flex; gap:10px;">
+        <button type="button" class="btn" style="background:var(--surface-light); color:var(--ink);" onclick="goToStep1()">← Back</button>
+        <button type="button" class="btn-dispatch" style="margin-top:0; flex:1;" onclick="submitModalDispatch()">Confirm RN Dispatch →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Localized Live Social Proof Toast -->
+<div class="toast-proof" id="toastProof">
+  <div class="toast-icon">🩺</div>
+  <div class="toast-content">
+    <div class="toast-title" id="toastTitle">Uptown Dallas</div>
+    <div class="toast-sub" id="toastSub">RN dispatched for The Reset (18m ago)</div>
+  </div>
+</div>
+
+<script>
+  let basePrice = 249;
+  let selectedDripTitle = 'The Reset';
+  let activeAddons = {};
+
+  const CORE_ZIPS = ['75201', '75202', '75204', '75205', '75206', '75207', '75209', '75214', '75219', '75220', '75225', '75229', '75230', '75235', '75240', '75248', '75001', '75038', '75039'];
+  const EXTENDED_ZIPS = ['75024', '75093', '75034', '75035', '76092', '76034', '76262', '75019', '76107'];
+
+  function checkZip() {
+    const input = document.getElementById('zipInput').value.trim();
+    const result = document.getElementById('zipResult');
+    if (CORE_ZIPS.includes(input)) {
+      result.className = 'zip-result success';
+      result.innerHTML = '✓ <strong>Eligible for $0 Travel Fee</strong> — You are in our Core 15-Mile Love Field Zone. RN dispatch available in ~45 mins.';
+    } else if (EXTENDED_ZIPS.includes(input)) {
+      result.className = 'zip-result extended';
+      result.innerHTML = '✓ <strong>Extended Service Zone</strong> — Flat $50 extended travel fee (or waived with 2+ drips).';
+    } else if (input.length === 5) {
+      result.className = 'zip-result extended';
+      result.innerHTML = '📍 <strong>Custom Service Area</strong> — Please request dispatch below and our team will confirm transit time.';
+    } else {
+      alert('Please enter a valid 5-digit ZIP code.');
+    }
+  }
+
+  function chooseDrip(name, price, cardId) {
+    basePrice = price;
+    selectedDripTitle = name;
+    
+    document.querySelectorAll('.menu-card').forEach(c => {
+      c.classList.remove('selected');
+      const btn = c.querySelector('.btn-select');
+      if (btn) btn.textContent = 'Select ' + c.querySelector('.card-title').textContent + ' →';
+    });
+    
+    const card = document.getElementById(cardId);
+    if (card) {
+      card.classList.add('selected');
+      const btn = card.querySelector('.btn-select');
+      if (btn) btn.textContent = 'Selected: ' + name + ' ($' + price + ') ✓';
+    }
+
+    recalculateTotal();
+  }
+
+  function toggleAddon(el) {
+    const id = el.getAttribute('data-id');
+    const price = parseInt(el.getAttribute('data-price'), 10);
+    const name = el.querySelector('.addon-name').textContent;
+
+    if (activeAddons[id]) {
+      delete activeAddons[id];
+      el.classList.remove('active');
+    } else {
+      activeAddons[id] = { price, name };
+      el.classList.add('active');
+    }
+
+    recalculateTotal();
+  }
+
+  function recalculateTotal() {
+    let addonSum = 0;
+    let addonNames = [];
+    for (let k in activeAddons) {
+      addonSum += activeAddons[k].price;
+      addonNames.push(activeAddons[k].name);
+    }
+    const total = basePrice + addonSum;
+
+    document.getElementById('sumTotal').textContent = '$' + total;
+    document.getElementById('stickyTotalVal').textContent = '$' + total;
+    document.getElementById('modalTotalVal').textContent = '$' + total;
+
+    let summaryStr = selectedDripTitle + ' ($' + basePrice + ')';
+    if (addonNames.length > 0) {
+      summaryStr += ' + ' + addonNames.length + ' Booster(s): ' + addonNames.join(', ');
+    }
+    document.getElementById('selectedDripSummary').value = summaryStr;
+    document.getElementById('sumConfigName').textContent = summaryStr;
+    document.getElementById('modalDripName').value = summaryStr;
+  }
+
+  function submitDispatch(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Routing to Nearest RN...';
+
+    setTimeout(() => {
+      document.getElementById('dispatchForm').style.display = 'none';
+      document.getElementById('confirmationMessage').style.display = 'block';
+      startCountdown();
+    }, 800);
+  }
+
+  function startCountdown() {
+    let sec = 299;
+    const el = document.getElementById('countdown');
+    const timer = setInterval(() => {
+      sec--;
+      if (sec <= 0) { clearInterval(timer); return; }
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    }, 1000);
+  }
+
+  /* Modal functions */
+  function openBookingModal() {
+    document.getElementById('bookingModal').classList.add('open');
+  }
+  function closeBookingModal() {
+    document.getElementById('bookingModal').classList.remove('open');
+  }
+  function closeModalOnBg(e) {
+    if (e.target.id === 'bookingModal') closeBookingModal();
+  }
+  function goToStep2() {
+    const addr = document.getElementById('modalAddress').value.trim();
+    if (!addr) {
+      alert('Please enter your Dallas address or ZIP code.');
+      return;
+    }
+    document.getElementById('modalStep1').style.display = 'none';
+    document.getElementById('modalStep2').style.display = 'block';
+    document.getElementById('dot2').classList.add('active');
+  }
+  function goToStep1() {
+    document.getElementById('modalStep2').style.display = 'none';
+    document.getElementById('modalStep1').style.display = 'block';
+    document.getElementById('dot2').classList.remove('active');
+  }
+  function submitModalDispatch() {
+    const name = document.getElementById('modalName').value.trim();
+    const phone = document.getElementById('modalPhone').value.trim();
+    if (!name || !phone) {
+      alert('Please provide your name and contact phone number.');
+      return;
+    }
+    closeBookingModal();
+    document.getElementById('fullName').value = name;
+    document.getElementById('phoneNumber').value = phone;
+    document.getElementById('address').value = document.getElementById('modalAddress').value;
+    document.getElementById('dispatchForm').style.display = 'none';
+    document.getElementById('confirmationMessage').style.display = 'block';
+    document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    startCountdown();
+  }
+
+  /* Social Proof Rotation */
+  const PROOF_DATA = [
+    { title: "Uptown Dallas", sub: "RN dispatched for The Reset (18m ago)" },
+    { title: "Highland Park", sub: "The Reset + Glutathione Push booked (34m ago)" },
+    { title: "Preston Hollow", sub: "The Reserve Longevity Session booked (52m ago)" },
+    { title: "Victory Park", sub: "The Reset booked for in-suite dispatch (1h ago)" },
+    { title: "Lakewood", sub: "The Foundation IV booked (2h ago)" }
+  ];
+  let proofIdx = 0;
+  function showNextProof() {
+    const toast = document.getElementById('toastProof');
+    const data = PROOF_DATA[proofIdx];
+    document.getElementById('toastTitle').textContent = data.title;
+    document.getElementById('toastSub').textContent = data.sub;
+
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 4500);
+
+    proofIdx = (proofIdx + 1) % PROOF_DATA.length;
+  }
+  setTimeout(() => {
+    showNextProof();
+    setInterval(showNextProof, 12000);
+  }, 3500);
+</script>
+
+</body>
+</html>

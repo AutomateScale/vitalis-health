@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitalis 90-Day System &middot; Master Strategy Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060907;
+      --surface: #0C1310;
+      --surface-card: #121E19;
+      --surface-card-hover: #182821;
+      --ink: #F7F5F2;
+      --ink-muted: #8E9E97;
+      --ink-dim: #54635D;
+      --sage: #5E6B5C;
+      --sage-light: #859F83;
+      --sage-glow: rgba(133, 159, 131, 0.2);
+      --gold: #C5A880;
+      --gold-light: #E5D3B8;
+      --gold-glow: rgba(197, 168, 128, 0.2);
+      --border: #182821;
+      --border-accent: #284035;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      padding: 16px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      background: rgba(12, 19, 16, 0.95);
+      z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+    .brand-nav { display: flex; align-items: center; gap: 16px; }
+    .brand-title { font-family: var(--font-serif); font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); font-weight: 500; }
+    .hub-link { font-size: 11px; color: var(--gold); text-decoration: none; text-transform: uppercase; font-family: var(--font-mono); font-weight: 600; }
+    .header-controls { display: flex; align-items: center; gap: 14px; }
+    .toggle-overview-btn {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: var(--ink-muted);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    .toggle-overview-btn:hover { color: #fff; border-color: var(--gold); }
+    .slide-counter { font-family: var(--font-mono); font-size: 12px; color: var(--gold); }
+
+    .viewport {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 48px;
+    }
+    .slide {
+      position: absolute;
+      width: 100%;
+      max-width: 1120px;
+      height: 100%;
+      max-height: 640px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(40px);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .slide.active { opacity: 1; visibility: visible; transform: translateX(0); }
+
+    .eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    h1 { font-family: var(--font-serif); font-size: clamp(36px, 5.5vw, 56px); font-weight: 400; line-height: 1.08; margin-bottom: 16px; }
+    h1 em { font-style: italic; color: var(--sage-light); }
+    .subtitle { font-size: 16px; color: var(--ink-muted); max-width: 800px; line-height: 1.55; margin-bottom: 28px; }
+
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; width: 100%; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; width: 100%; }
+
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 22px 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .card-accent { border-color: var(--border-accent); background: linear-gradient(180deg, rgba(94,107,92,0.12) 0%, var(--surface) 100%); }
+    .card-gold { border-color: rgba(197, 168, 128, 0.35); background: linear-gradient(180deg, rgba(197,168,128,0.1) 0%, var(--surface) 100%); }
+    .card-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; display: block; }
+    .card-title { font-family: var(--font-serif); font-size: 22px; margin-bottom: 8px; line-height: 1.2; }
+    .card-p { font-size: 13px; color: var(--ink-muted); line-height: 1.45; }
+
+    .metric-row { display: flex; gap: 18px; width: 100%; margin-top: 10px; }
+    .metric-box { background: var(--surface-card); border: 1px solid var(--border); padding: 18px 22px; border-radius: 10px; flex: 1; }
+    .metric-val { font-family: var(--font-serif); font-size: 36px; font-weight: 600; color: var(--gold-light); line-height: 1; margin-bottom: 4px; }
+    .metric-lbl { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); font-family: var(--font-mono); }
+
+    /* Overview Grid Overlay */
+    .overview-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(6, 9, 7, 0.96);
+      backdrop-filter: blur(12px);
+      z-index: 50;
+      padding: 40px;
+      overflow-y: auto;
+      display: none;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .overview-overlay.active { display: grid; }
+    .thumb-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .thumb-card:hover { border-color: var(--gold); transform: scale(1.02); }
+    .thumb-num { font-family: var(--font-mono); font-size: 11px; color: var(--gold); margin-bottom: 6px; }
+    .thumb-title { font-family: var(--font-serif); font-size: 16px; color: #fff; line-height: 1.2; }
+
+    footer {
+      padding: 16px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      background: rgba(12, 19, 16, 0.95);
+      z-index: 10;
+    }
+    .progress-track { flex: 1; max-width: 400px; height: 4px; background: var(--surface-card); border-radius: 999px; margin: 0 24px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--gold); width: 12.5%; transition: width 0.3s ease; }
+    .nav-btn {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: var(--font-sans);
+    }
+    .nav-btn:hover { background: var(--sage); color: #fff; border-color: var(--sage); }
+    .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-nav">
+      <div class="brand-title">Vitalis &middot; Master Strategy</div>
+      <a href="review-hub.html" class="hub-link">← Flight Hub</a>
+    </div>
+    <div class="header-controls">
+      <button class="toggle-overview-btn" onclick="toggleOverview()">Grid Overview (O)</button>
+      <div class="slide-counter" id="counter">01 / 08</div>
+    </div>
+  </header>
+
+  <div class="viewport">
+
+    <!-- SLIDE 1: Title & Vision -->
+    <div class="slide active" id="slide-0">
+      <p class="eyebrow">AutomateScale 90-Day Launch System</p>
+      <h1>A High-LTV Booking &amp; Retention Engine for<br><em>Mobile IV Therapy in Dallas.</em></h1>
+      <p class="subtitle">Architected around physical capacity constraints (3 RN hospital shifts/wk, 8 drips/wk) to scale from word-of-mouth to $36,896 in 90-day gross pipeline value and $9,828/mo in recurring MRR.</p>
+      <div class="metric-row">
+        <div class="metric-box"><div class="metric-val">$382.00</div><div class="metric-lbl">Target AOV (High-LTV Model)</div></div>
+        <div class="metric-box"><div class="metric-val">8 Drips/Wk</div><div class="metric-lbl">Capacity Ceiling (Max LTV)</div></div>
+        <div class="metric-box"><div class="metric-val">$9,828/Mo</div><div class="metric-lbl">Day-90 Locked MRR</div></div>
+        <div class="metric-box"><div class="metric-val">14.75x</div><div class="metric-lbl">Blended 90-Day ROAS</div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: Dallas Market & Competitor Teardown -->
+    <div class="slide" id="slide-1">
+      <p class="eyebrow">Market Positioning &middot; Dallas Competitor Teardown</p>
+      <h1>Where Dallas Competitors Fail &amp;<br><em>The Vitalis Moat</em></h1>
+      <p class="subtitle">Teardown of Lone Star IV, Prime IV, and Pure IV reveals two massive market vulnerabilities in DFW.</p>
+      <div class="grid-3">
+        <div class="card">
+          <span class="card-tag">Competitor Blindspot 01</span>
+          <h3 class="card-title">Hidden Distance Surcharges</h3>
+          <p class="card-p">Competitors advertise $120 drips then tack on $45–$65 county dispatch fees at checkout, destroying booking trust.</p>
+        </div>
+        <div class="card card-gold">
+          <span class="card-tag">The Vitalis Moat</span>
+          <h3 class="card-title">Love Field 15-Mile $0 Fee</h3>
+          <p class="card-p">Zero travel fees anywhere in Highland Park, University Park, Uptown, Downtown, Preston Hollow, &amp; Lakewood.</p>
+        </div>
+        <div class="card">
+          <span class="card-tag">Competitor Blindspot 02</span>
+          <h3 class="card-title">Retail Clinic Friction</h3>
+          <p class="card-p">Prime IV forces clients to drive to Mockingbird/Addison. Vitalis brings ICU-trained RN care directly to the client's door.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: The 4 Front-End Pillars -->
+    <div class="slide" id="slide-2">
+      <p class="eyebrow">Front-End Acquisition &middot; Primary ICP Realignment</p>
+      <h1>4 Dedicated Audience Pillars<br><em>Flagship Hero Funnels</em></h1>
+      <p class="subtitle">Segmented landing pages matching traffic intent with clinical precision and compound customizers.</p>
+      <div class="grid-4">
+        <div class="card card-accent" style="border-color:var(--gold);">
+          <span class="card-tag" style="color:var(--gold);">Primary ICP &middot; Performance</span>
+          <h3 class="card-title">Athletic HYROX</h3>
+          <p class="card-p"><strong>Rebuild ($324)</strong><br>100% bioavailability vs 15% shaker cups. Lactic acid clearance for Dallas runners and Hyrox athletes.</p>
+        </div>
+        <div class="card card-accent" style="border-color:var(--gold);">
+          <span class="card-tag" style="color:var(--gold);">Primary ICP &middot; Longevity</span>
+          <h3 class="card-title">NAD+ Longevity</h3>
+          <p class="card-p"><strong>The Reserve ($500)</strong><br>Mitochondrial ATP renewal for Park Cities executives. Routes to $900/mo 4-week protocol.</p>
+        </div>
+        <div class="card">
+          <span class="card-tag">Weekend Surge &middot; Rebound</span>
+          <h3 class="card-title">Hangover Recovery</h3>
+          <p class="card-p"><strong>The Reset ($249)</strong><br>Zofran &amp; Toradol pushes for acute Dallas nightlife and hotel guests. &lt;15m buying window.</p>
+        </div>
+        <div class="card">
+          <span class="card-tag">Aesthetics &middot; Bridal</span>
+          <h3 class="card-title">Aesthetic Glow</h3>
+          <p class="card-p"><strong>Radiance ($374)</strong><br>2,000mg Glutathione + Biotin vascular skin plumping for brides and gala attendees.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: Speed-to-Lead & GHL Architecture -->
+    <div class="slide" id="slide-3">
+      <p class="eyebrow">Operational Infrastructure &middot; Speed-to-Lead</p>
+      <h1>Sub-5-Minute Triage &amp;<br><em>Nurse Shift Blackout Sync</em></h1>
+      <p class="subtitle">Automated CRM bridge protecting Sergio's hospital duties while maintaining a 76%+ show rate.</p>
+      <div class="grid-2">
+        <div class="card card-accent">
+          <span class="card-tag">Lead Triage &amp; Show Rate</span>
+          <h3 class="card-title">Hybrid Voice/SMS Engine</h3>
+          <p class="card-p">• <strong>Sub-30s SMS Dispatch:</strong> Matches lead intent instantly.<br>• <strong>AI Voice Agent Callback:</strong> If Sergio is on shift, Bland/Retell AI calls lead in &lt;60s to qualify address &amp; collect $50 deposit.<br>• <strong>$50 Stripe Hold:</strong> Filters out no-shows.</p>
+        </div>
+        <div class="card">
+          <span class="card-tag">Dallas Route Density</span>
+          <h3 class="card-title">Geofence &amp; Calendar Logic</h3>
+          <p class="card-p">• <strong>Two-Way Shift Sync:</strong> Live Google Calendar blackout prevents booking on work days.<br>• <strong>Capacity Ceiling:</strong> Switches to priority waitlist upon reaching 8 drips/wk.<br>• <strong>Buffer Logic:</strong> 45-min transit buffers between appointments.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: The 7 Downstream Retention Loops -->
+    <div class="slide" id="slide-4">
+      <p class="eyebrow">Backend Monetization Architecture</p>
+      <h1>The 7 Downstream Funnels<br><em>Where Real LTV Lives</em></h1>
+      <p class="subtitle">Front-end drips break even on ad spend. The downstream engine captures $36,896 in gross value.</p>
+      <div class="grid-3">
+        <div class="card"><span class="card-tag">Down-Funnel 01</span><h3 class="card-title">T+24h Review Gate</h3><p class="card-p">4-5★ routes to Google Review link; 1-3★ escalates directly to Sergio.</p></div>
+        <div class="card card-accent"><span class="card-tag">Down-Funnel 02</span><h3 class="card-title">14-Day Recharge</h3><p class="card-p">$25 loyalty credit timed to cellular nutrient depletion curve.</p></div>
+        <div class="card card-gold"><span class="card-tag">Down-Funnel 03</span><h3 class="card-title">30-Day Member MRR</h3><p class="card-p">Recurring monthly tiers ($189, $369, $699/mo) locking in MRR.</p></div>
+        <div class="card card-gold"><span class="card-tag">Down-Funnel 04</span><h3 class="card-title">NAD+ Protocol Ascension</h3><p class="card-p">4-Week induction protocol ($900/mo) filling 50% capacity at 4x margin.</p></div>
+        <div class="card"><span class="card-tag">Down-Funnel 05</span><h3 class="card-title">No-Show &amp; Abandon Rescue</h3><p class="card-p">+15m, +3h, +24h, and +72h multi-channel recovery sequence.</p></div>
+        <div class="card"><span class="card-tag">Down-Funnel 06 &amp; 07</span><h3 class="card-title">VIP Referrals &amp; Group Suites</h3><p class="card-p">"Give $50, Get $50" Park Cities loop + 15% off bridal group packages.</p></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: Financial Unit Economics -->
+    <div class="slide" id="slide-5">
+      <p class="eyebrow">Financial Economics &middot; High-LTV Model</p>
+      <h1>Ad Pacing, Unit Economics &amp;<br><em>Transformed Return on Ad Spend</em></h1>
+      <p class="subtitle">How a modest $2,500 ad spend delivers 14.75x blended ROAS and $9,828/mo in locked MRR.</p>
+      <div class="metric-row">
+        <div class="metric-box"><div class="metric-val">$2,500</div><div class="metric-lbl">69-Day Live Ad Spend</div></div>
+        <div class="metric-box"><div class="metric-val">$14,516</div><div class="metric-lbl">Front-End Drip Cash ($382 AOV)</div></div>
+        <div class="metric-box"><div class="metric-val">$36,896</div><div class="metric-lbl">90-Day Total Pipeline (14.75x)</div></div>
+        <div class="metric-box"><div class="metric-val">$9,828/Mo</div><div class="metric-lbl">Day-90 Locked MRR</div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: Roadmap -->
+    <div class="slide" id="slide-6">
+      <p class="eyebrow">90-Day Implementation Timeline</p>
+      <h1>Phased System Rollout &amp;<br><em>Sprint Sequence</em></h1>
+      <p class="subtitle">Clear, disciplined sequencing from foundational blueprinting to scaled profitability.</p>
+      <div class="grid-3">
+        <div class="card"><span class="card-tag">Phase 01 &middot; Days 1–7</span><h3 class="card-title">Audit &amp; Blueprint</h3><p class="card-p">• Competitor teardown<br>• Geofence &amp; drive-time map<br>• Offer architecture &amp; pricing model<br>• Unit economics validation</p></div>
+        <div class="card card-accent"><span class="card-tag">Phase 02 &middot; Days 8–21</span><h3 class="card-title">Build &amp; Wire</h3><p class="card-p">• 3-Pipeline GHL build<br>• 4 Landing pages + CRO customizers<br>• 28-Email evergreen drip series<br>• Meta CAPI &amp; GA4 tracking</p></div>
+        <div class="card card-gold"><span class="card-tag">Phase 03 &middot; Days 22–90</span><h3 class="card-title">Run &amp; Scale</h3><p class="card-p">• Track A: Paid Meta &amp; Google LSA<br>• Track B: 32-post organic calendar<br>• Gym &amp; high-rise pop-ups<br>• Weekly CPA &amp; show rate tuning</p></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: Kickoff Next Steps -->
+    <div class="slide" id="slide-7">
+      <p class="eyebrow">Immediate Action Items &middot; Kickoff Execution</p>
+      <h1>Next Steps &amp; Kickoff Agenda<br><em>Settling the 2 Core Decisions</em></h1>
+      <p class="subtitle">Everything is staged, realigned, and ready for full kickoff execution.</p>
+      <div class="grid-2">
+        <div class="card card-accent">
+          <span class="card-tag">Decision 01 &middot; Speed-to-Lead</span>
+          <h3 class="card-title">AI Voice Agent Confirmation</h3>
+          <p class="card-p">Confirm Bland/Retell AI fallback routing to make the 5-minute call while Sergio is on shift (guarantees 75%+ show rate).</p>
+        </div>
+        <div class="card">
+          <span class="card-tag">Decision 02 &middot; CRM Architecture</span>
+          <h3 class="card-title">GoHighLevel Provisioning</h3>
+          <p class="card-p">Confirm AutomateScale managed CRM ($97/mo) or Sergio direct account (`ghl.automatescale.com`).</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Grid Overview Overlay -->
+  <div class="overview-overlay" id="overviewGrid">
+    <div class="thumb-card" onclick="jumpToSlide(0)"><div class="thumb-num">Slide 01</div><div class="thumb-title">Executive Vision &amp; High-LTV</div></div>
+    <div class="thumb-card" onclick="jumpToSlide(1)"><div class="thumb-num">Slide 02</div><div class="thumb-title">Dallas Competitor Teardown</div></div>
+    <div class="thumb-card" onclick="jumpToSlide(2)"><div class="thumb-num">Slide 03</div><div class="thumb-title">4 Flagship Hero Pillars</div></div>
+    <div class="thumb-card" onclick="jumpToSlide(3)"><div class="thumb-num">Slide 04</div><div class="thumb-title">Speed-to-Lead &amp; Shift Sync</div></div>
+    <div class="thumb-card" onclick="jumpToSlide(4)"><div class="thumb-num">Slide 05</div><div class="thumb-title">7 Downstream Retention Loops</div></div>
+    <div class="thumb-card" onclick="jumpToSlide(5)"><div class="thumb-num">Slide 06</div><div class="thumb-title">Transformed Unit Economics</div></div>
+    <div class="thumb-card" onclick="jumpToSlide(6)"><div class="thumb-num">Slide 07</div><div class="thumb-title">90-Day Sprint Roadmap</div></div>
+    <div class="thumb-card" onclick="jumpToSlide(7)"><div class="thumb-num">Slide 08</div><div class="thumb-title">Kickoff Call &amp; Next Steps</div></div>
+  </div>
+
+  <footer>
+    <button class="nav-btn" id="prevBtn" onclick="navSlide(-1)" disabled>← Previous</button>
+    <div class="progress-track"><div class="progress-fill" id="progFill"></div></div>
+    <button class="nav-btn" id="nextBtn" onclick="navSlide(1)">Next Slide →</button>
+  </footer>
+
+  <script>
+    let current = 0;
+    const total = 8;
+    let overviewOpen = false;
+
+    function updateSlide() {
+      document.querySelectorAll('.slide').forEach((s, i) => {
+        s.classList.toggle('active', i === current);
+      });
+      document.getElementById('counter').textContent = `0${current + 1} / 0${total}`;
+      document.getElementById('progFill').style.width = `${((current + 1) / total) * 100}%`;
+      document.getElementById('prevBtn').disabled = current === 0;
+      document.getElementById('nextBtn').disabled = current === total - 1;
+    }
+    function navSlide(d) {
+      current = Math.max(0, Math.min(total - 1, current + d));
+      updateSlide();
+    }
+    function toggleOverview() {
+      overviewOpen = !overviewOpen;
+      document.getElementById('overviewGrid').classList.toggle('active', overviewOpen);
+    }
+    function jumpToSlide(idx) {
+      current = idx;
+      updateSlide();
+      if (overviewOpen) toggleOverview();
+    }
+    window.addEventListener('keydown', e => {
+      if (e.key === 'o' || e.key === 'O') { toggleOverview(); return; }
+      if (overviewOpen) { if (e.key === 'Escape') toggleOverview(); return; }
+      if (e.key === 'ArrowRight' || e.key === 'Space') navSlide(1);
+      if (e.key === 'ArrowLeft') navSlide(-1);
+    });
+    updateSlide();
+  </script>
+</body>
+</html>

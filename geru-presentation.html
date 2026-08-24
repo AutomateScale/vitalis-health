@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitalis Health &middot; System Mind Map & Geru Funnel Architecture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Jost:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070B09;
+      --surface: #0E1512;
+      --surface-card: #141E1A;
+      --surface-hover: #1B2923;
+      --ink: #F7F5F2;
+      --ink-muted: #8A9993;
+      --ink-dim: #5B6964;
+      --sage: #5E6B5C;
+      --sage-light: #829980;
+      --sage-glow: rgba(130, 153, 128, 0.2);
+      --gold: #C5A880;
+      --gold-light: #E2CDAF;
+      --gold-glow: rgba(197, 168, 128, 0.2);
+      --border: #1C2A24;
+      --border-accent: #2A3E35;
+      --blue: #4A90E2;
+      --green: #4ADE80;
+      --red: #F87171;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header Nav */
+    header {
+      padding: 16px 32px;
+      background: rgba(14, 21, 18, 0.95);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .brand {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      background: var(--bg);
+      padding: 4px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--ink-muted);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover { color: #fff; }
+    .tab-btn.active {
+      background: var(--surface-card);
+      color: var(--gold-light);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      border: 1px solid var(--border-accent);
+    }
+
+    /* Main Viewport */
+    .viewport {
+      flex: 1;
+      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 32px 48px;
+    }
+    .view-section {
+      display: none;
+      max-width: 1300px;
+      margin: 0 auto;
+      animation: fadeIn 0.35s ease forwards;
+    }
+    .view-section.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    h2 em { font-style: italic; color: var(--sage-light); }
+    .subhead {
+      font-size: 15px;
+      color: var(--ink-muted);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       GERU FUNNEL CANVAS & VISUAL NODES
+       ========================================================================== */
+    .geru-canvas {
+      background: radial-gradient(circle at center, #111A16 0%, #070B09 100%);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 36px 28px;
+      position: relative;
+      margin-bottom: 32px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+    }
+    .funnel-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      margin-bottom: 40px;
+      gap: 16px;
+    }
+    .funnel-row:last-child { margin-bottom: 0; }
+
+    /* Geru Node Box */
+    .node {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      min-width: 200px;
+      flex: 1;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
+    }
+    .node:hover {
+      border-color: var(--sage-light);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+    }
+    .node-traffic { border-top: 3px solid var(--blue); }
+    .node-optin { border-top: 3px solid var(--gold); }
+    .node-sales { border-top: 3px solid var(--green); }
+    .node-hold { border-top: 3px solid #EAB308; }
+    .node-mrr { border-top: 3px solid #A855F7; }
+    .node-retention { border-top: 3px solid #EC4899; }
+
+    .node-type {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 4px;
+    }
+    .node-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .node-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .stat-vol {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+    .stat-rev {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    /* Flow Connector Arrow */
+    .connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 6px;
+      min-width: 60px;
+    }
+    .connector-line {
+      height: 2px;
+      width: 100%;
+      background: var(--border-accent);
+      position: relative;
+    }
+    .connector-line::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: -3px;
+      width: 0; height: 0;
+      border-left: 6px solid var(--gold);
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+    }
+    .connector-rate {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 4px;
+      background: rgba(197, 168, 128, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(197, 168, 128, 0.2);
+    }
+
+    /* Simulation Totals Banner */
+    .sim-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 24px;
+      margin-top: 24px;
+    }
+    .sim-box { text-align: left; }
+    .sim-num {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .sim-lbl {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+    }
+
+    /* ==========================================================================
+       MIND MAP TREE VIEW
+       ========================================================================== */
+    .mindmap-wrap {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      position: relative;
+    }
+    .hub-node {
+      background: radial-gradient(circle, #20332B 0%, #121C18 100%);
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      padding: 28px 24px;
+      min-width: 260px;
+      text-align: center;
+      box-shadow: 0 0 30px var(--gold-glow);
+      position: sticky;
+      top: 20px;
+    }
+    .hub-title {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .hub-sub {
+      font-size: 12px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: var(--font-mono);
+    }
+
+    .branches {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .branch-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--sage-light);
+      border-radius: 10px;
+      padding: 20px 24px;
+      position: relative;
+    }
+    .branch-card.gold { border-left-color: var(--gold); }
+    .branch-card.blue { border-left-color: var(--blue); }
+    .branch-card.green { border-left-color: var(--green); }
+    .branch-card.purple { border-left-color: #A855F7; }
+
+    .branch-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+    .branch-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: #fff;
+    }
+    .branch-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .leaf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .leaf {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+    }
+    .leaf-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .leaf-desc {
+      font-size: 11px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+
+    /* Controls Bar */
+    footer {
+      padding: 14px 32px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header>
+    <div class="brand-wrap">
+      <div class="brand">Vitalis System Visualizer</div>
+      <div class="brand-sub">Geru Simulation &middot; Mind Maps</div>
+    </div>
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('geru-front')">Geru: Front Acquisition</button>
+      <button class="tab-btn" onclick="switchTab('geru-backend')">Geru: Downstream LTV Engine</button>
+      <button class="tab-btn" onclick="switchTab('mindmap')">System Mind Map</button>
+      <button class="tab-btn" onclick="switchTab('economics')">90-Day Unit Economics</button>
+    </div>
+  </header>
+
+  <!-- Main Viewport -->
+  <div class="viewport">
+
+    <!-- VIEW 1: GERU FRONT-END ACQUISITION FUNNEL -->
+    <section class="view-section active" id="view-geru-front">
+      <div class="section-header">
+        <p class="eyebrow">Interactive Geru Simulation &middot; Front-End Funnel</p>
+        <h2>Front-End Client Acquisition &amp;<br><em>Speed-to-Lead Architecture</em></h2>
+        <p class="subhead">Simulates traffic flow from Meta Ads and Google LSA through the 4 landing pages, $50 deposit gate, and confirmed RN dispatch.</p>
+      </div>
+
+      <div class="geru-canvas">
+        <!-- Funnel Flow 1 -->
+        <div class="funnel-row">
+          <div class="node node-traffic">
+            <div class="node-type">Traffic Source</div>
+            <div class="node-title">Paid Meta &amp; Google Ads</div>
+            <div class="node-stats">
+              <span class="stat-vol">1,400 Visitors</span>
+              <span class="stat-rev">$2,500 Budget</span>
+            </div>
+          </div>
+
+          <div class="connector">
+            <span class="connector-rate">6.0% CR</span>
+            <div class="connector-line"></div>
+          </div>
+
+          <div class="node node-optin">
+            <div class="node-type">Landing Pages (4 Pillars)</div>
+            <div class="node-title">Reset / Rebuild / NAD+ / Radiance</div>
+            <div class="node-stats">
+              <span class="stat-vol">84 Intakes</span>
+              <span class="stat-rev">$29.76 CPL</span>
+            </div>
+          </div>
+
+          <div class="connector">
+            <span class="connector-rate">60% Qualified</span>
+            <div class="connector-line"></div>
+          </div>
+
+          <div class="node node-hold">
+            <div class="node-type">Speed-to-Lead Gate</div>
+            <div class="node-title">&lt;5m SMS + AI Call ($50 Hold)</div>
+            <div class="node-stats">
+              <span class="stat-vol">50 Deposits</span>
+              <span class="stat-rev">$50.00 CPA</span>
+            </div>
+          </div>
+
+          <div class="connector">
+            <span class="connector-rate">76% Show Rate</span>
+            <div class="connector-line"></div>
+          </div>
+
+          <div class="node node-sales">
+            <div class="node-type">Completed Clinical Drip</div>
+            <div class="node-title">Nurse In-Home Service Delivered</div>
+            <div class="node-stats">
+              <span class="stat-vol">38 Drips</span>
+              <span class="stat-rev">$10,830 Gross</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add-on Cross-Sell Multiplier -->
+        <div class="funnel-row" style="margin-top:28px;">
+          <div class="node" style="border-top:3px solid var(--gold); max-width:280px;">
+            <div class="node-type">Compounding Add-ons (CRO)</div>
+            <div class="node-title">Glutathione / Toradol / Zofran</div>
+            <div class="node-stats">
+              <span class="stat-vol">55% Take Rate</span>
+              <span class="stat-rev">+$1,140 Boost</span>
+            </div>
+          </div>
+
+          <div class="connector">
+            <span class="connector-rate">Applied on 21 Drips</span>
+            <div class="connector-line"></div>
+          </div>
+
+          <div class="node node-sales">
+            <div class="node-type">Adjusted Front-End Revenue</div>
+            <div class="node-title">Total Front-End Drip Cashflow</div>
+            <div class="node-stats">
+              <span class="stat-vol">Avg Drip: $315</span>
+              <span class="stat-rev">$11,970 Total</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Geru Front-End Sim Metrics -->
+        <div class="sim-bar">
+          <div class="sim-box">
+            <div class="sim-num" style="color:var(--gold);">$2,500</div>
+            <div class="sim-lbl">69-Day Paid Spend</div>
+          </div>
+          <div class="sim-box">
+            <div class="sim-num" style="color:#fff;">38 Kept Drips</div>
+            <div class="sim-lbl">Capacity: 3.8/wk (Paced)</div>
+          </div>
+          <div class="sim-box">
+            <div class="sim-num" style="color:var(--green);">$11,970</div>
+            <div class="sim-lbl">Front-End Drip Cash</div>
+          </div>
+          <div class="sim-box">
+            <div class="sim-num" style="color:var(--gold-light);">4.78x</div>
+            <div class="sim-lbl">Front-End ROAS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: GERU DOWNSTREAM LTV ENGINE -->
+    <section class="view-section" id="view-geru-backend">
+      <div class="section-header">
+        <p class="eyebrow">Geru Backend Simulation &middot; LTV Ascension</p>
+        <h2>The 7 Downstream Funnels &amp;<br><em>Recurring Enterprise Value</em></h2>
+        <p class="subhead">How 38 initial patients ascend into recurring monthly memberships ($189–$699/mo), NAD+ protocols ($900/mo), and VIP referrals.</p>
+      </div>
+
+      <div class="geru-canvas">
+        <div class="funnel-row">
+          <div class="node node-sales" style="max-width:240px;">
+            <div class="node-type">Front-End Inflow</div>
+            <div class="node-title">38 Completed Patients</div>
+            <div class="node-stats">
+              <span class="stat-vol">100% Base</span>
+              <span class="stat-rev">$11,970</span>
+            </div>
+          </div>
+
+          <div class="connector">
+            <span class="connector-rate">Backend Split</span>
+            <div class="connector-line"></div>
+          </div>
+
+          <div style="flex:3; display:flex; flex-direction:column; gap:14px;">
+            <!-- Downstream Branch 1 -->
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div class="node node-retention">
+                <div class="node-type">Down-Funnel 01 &amp; 02</div>
+                <div class="node-title">14-Day Recharge + 5★ Reviews</div>
+                <div class="node-stats"><span class="stat-vol">13 Rebooked</span><span class="stat-rev">+$3,705</span></div>
+              </div>
+              <div class="node node-retention">
+                <div class="node-type">Down-Funnel 07</div>
+                <div class="node-title">Give $50 / Get $50 VIP Referrals</div>
+                <div class="node-stats"><span class="stat-vol">8 New Clients</span><span class="stat-rev">+$2,280</span></div>
+              </div>
+            </div>
+
+            <!-- Downstream Branch 2 -->
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div class="node node-mrr">
+                <div class="node-type">Down-Funnel 03 &middot; MRR</div>
+                <div class="node-title">Monthly Memberships ($189–$699/mo)</div>
+                <div class="node-stats"><span class="stat-vol">9 Active Members</span><span class="stat-rev">$3,321 / mo</span></div>
+              </div>
+              <div class="node node-mrr">
+                <div class="node-type">Down-Funnel 04 &middot; High-Ticket</div>
+                <div class="node-title">NAD+ Induction Protocol ($900/mo)</div>
+                <div class="node-stats"><span class="stat-vol">4 Active Protocols</span><span class="stat-rev">$3,600 / mo</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cumulative 90-Day Valuation Bar -->
+        <div class="sim-bar">
+          <div class="sim-box">
+            <div class="sim-num" style="color:var(--green);">$24,876</div>
+            <div class="sim-lbl">90-Day Total System Revenue</div>
+          </div>
+          <div class="sim-box">
+            <div class="sim-num" style="color:#A855F7;">$6,921 / mo</div>
+            <div class="sim-lbl">Locked Monthly MRR (Day 90)</div>
+          </div>
+          <div class="sim-box">
+            <div class="sim-num" style="color:var(--gold);">$654.63</div>
+            <div class="sim-lbl">Average 90-Day Client LTV</div>
+          </div>
+          <div class="sim-box">
+            <div class="sim-num" style="color:var(--gold-light);">9.95x</div>
+            <div class="sim-lbl">Blended System ROAS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: SYSTEM MIND MAP -->
+    <section class="view-section" id="view-mindmap">
+      <div class="section-header">
+        <p class="eyebrow">Architectural Blueprint &middot; Node Hierarchy</p>
+        <h2>Vitalis Master Ecosystem<br><em>Mind Map &amp; Node Tree</em></h2>
+        <p class="subhead">Hierarchical breakdown from top-of-funnel traffic down to clinical operations, CRM logic, and recurring ascension.</p>
+      </div>
+
+      <div class="mindmap-wrap">
+        <!-- Central Hub -->
+        <div class="hub-node">
+          <div class="hub-title">VITALIS</div>
+          <div class="hub-sub">Dallas Concierge Engine</div>
+          <div style="margin-top:16px; font-size:12px; color:var(--ink-muted); line-height:1.4;">
+            Love Field 15-Mi Core<br>
+            8 Drips/Wk &middot; $900/mo MRR<br>
+            BSN RN Administered
+          </div>
+        </div>
+
+        <!-- Branches -->
+        <div class="branches">
+          <!-- Branch 1: Traffic -->
+          <div class="branch-card blue">
+            <div class="branch-head">
+              <h3 class="branch-title">1. Traffic Ingestion Engines</h3>
+              <span class="branch-tag">Top of Funnel</span>
+            </div>
+            <div class="leaf-grid">
+              <div class="leaf">
+                <div class="leaf-name">Meta Ads (4 Pillars)</div>
+                <div class="leaf-desc">12 Creative decks ($25.50/day cold + $7.25 weekend surge dayparting).</div>
+              </div>
+              <div class="leaf">
+                <div class="leaf-name">Google Local Services (LSA)</div>
+                <div class="leaf-desc">"Google Guaranteed" nurse badge in 75205, 75201, 75225 ($35-$65 CPL).</div>
+              </div>
+              <div class="leaf">
+                <div class="leaf-name">Gym &amp; High-Rise QR Portals</div>
+                <div class="leaf-desc">Equinox, Barry’s, &amp; The Victor amenity binders with $50 VIP credit.</div>
+              </div>
+              <div class="leaf">
+                <div class="leaf-name">Substack Newsletter</div>
+                <div class="leaf-desc">"The Vitalis Protocol" weekly deep-dives driving organic CRM opt-ins.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Branch 2: Front-End Funnels -->
+          <div class="branch-card gold">
+            <div class="branch-head">
+              <h3 class="branch-title">2. Dedicated Conversion Funnels</h3>
+              <span class="branch-tag">Landing Pages</span>
+            </div>
+            <div class="leaf-grid">
+              <div class="leaf">
+                <div class="leaf-name">Executive Hangover (`/reset`)</div>
+                <div class="leaf-desc">The Reset ($249) &middot; 45-min arrival guarantee &middot; Zofran/Toradol.</div>
+              </div>
+              <div class="leaf">
+                <div class="leaf-name">Athletic HYROX (`/athletes`)</div>
+                <div class="leaf-desc">Rebuild ($324) &middot; 100% bioavailability vs 15% shaker cups &middot; DOMS relief.</div>
+              </div>
+              <div class="leaf">
+                <div class="leaf-name">NAD+ Longevity (`/longevity`)</div>
+                <div class="leaf-desc">The Reserve ($500) &amp; 4-Week NAD+ Induction Protocol ($900/mo).</div>
+              </div>
+              <div class="leaf">
+                <div class="leaf-name">Aesthetic Radiance (`/radiance`)</div>
+                <div class="leaf-desc">Radiance ($374) &middot; 2,000mg Glutathione + Biotin vascular glow.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Branch 3: GHL Infrastructure -->
+          <div class="branch-card purple">
+            <div class="branch-head">
+              <h3 class="branch-title">3. GoHighLevel CRM &amp; Speed-to-Lead</h3>
+              <span class="branch-tag">Automation Core</span>
+            </div>
+            <div class="leaf-grid">
+              <div class="leaf">
+                <div class="leaf-name">&lt;30s SMS Dispatch</div>
+                <div class="leaf-desc">Dynamic personalized SMS matching ad pillar &amp; lead intent instantly.</div>
+              </div>
+              <div class="leaf">
+                <div class="leaf-name">AI Voice Agent (Bland/Vapi)</div>
+                <div class="leaf-desc">Calls lead in &lt;60s when Sergio is scrubbed in on 12-hr hospital shifts.</div>
+              </div>
+              <div class="leaf">
+                <div class="leaf-name">Love Field 15-Mi Geofence</div>
+                <div class="leaf-desc">$0 fee core vs +$50 extended DFW ring (Plano, Frisco, Southlake).</div>
+              </div>
+              <div class="leaf">
+                <div class="leaf-name">Two-Way Shift Blackout</div>
+                <div class="leaf-desc">Bi-directional Google Calendar sync preventing double-bookings.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Branch 4: Downstream Loops -->
+          <div class="branch-card green">
+            <div class="branch-head">
+              <h3 class="branch-title">4. The 7 Downstream Retention Loops</h3>
+              <span class="branch-tag">LTV Multipliers</span>
+            </div>
+            <div class="leaf-grid">
+              <div class="leaf">
+                <div class="leaf-name">T+2h Clinical Safety Check</div>
+                <div class="leaf-desc">Automated hydration &amp; well-being check-in from Sergio.</div>
+              </div>
+              <div class="leaf">
+                <div class="leaf-name">T+24h 5★ Google Review Gate</div>
+                <div class="leaf-desc">4-5★ routes to Google Review link; 1-3★ escalates to Sergio.</div>
+              </div>
+              <div class="leaf">
+                <div class="leaf-name">14-Day Cellular Recharge</div>
+                <div class="leaf-desc">$25 loyalty credit timed to intracellular nutrient depletion curve.</div>
+              </div>
+              <div class="leaf">
+                <div class="leaf-name">30-Day Member MRR Ladder</div>
+                <div class="leaf-desc">The Foundation ($189), The Protocol ($369), Vitalis Elite ($699/mo).</div>
+              </div>
+              <div class="leaf">
+                <div class="leaf-name">Give $50 / Get $50 Referral</div>
+                <div class="leaf-desc">Bedside VIP card script seeding Park Cities social network circles.</div>
+              </div>
+              <div class="leaf">
+                <div class="leaf-name">No-Show &amp; Abandoned Rescue</div>
+                <div class="leaf-desc">+15m, +3h, +24h, and +7d multi-channel sequence recovering 15–20%.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: 90-DAY UNIT ECONOMICS -->
+    <section class="view-section" id="view-economics">
+      <div class="section-header">
+        <p class="eyebrow">Financial Modeling &middot; 90-Day Launch Math</p>
+        <h2>Unit Economics, Ad Pacing &amp;<br><em>Capacity Ceiling</em></h2>
+        <p class="subhead">The financial engine driving $24,876 in gross value while strictly respecting Sergio's 8 drips/week limit.</p>
+      </div>
+
+      <div class="geru-canvas">
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:18px;">
+          <div class="node">
+            <div class="node-type">Acquisition Economics</div>
+            <div class="node-title">Target CPA: $60–$120</div>
+            <p style="font-size:13px; color:var(--ink-muted); margin-bottom:12px;">Based on Meta Dallas benchmark CPM ($28–$42) and high-intent Google LSA search volume.</p>
+            <div class="node-stats"><span class="stat-vol">Spend: $2,500</span><span class="stat-rev">38 Bookings</span></div>
+          </div>
+
+          <div class="node node-sales">
+            <div class="node-type">Operational Capacity</div>
+            <div class="node-title">8 Drips / Week Maximum</div>
+            <p style="font-size:13px; color:var(--ink-muted); margin-bottom:12px;">Around 3 hospital RN shifts. Ad spend paces to 3.8 new clients/wk + repeat member capacity.</p>
+            <div class="node-stats"><span class="stat-vol">Show Rate: 76%</span><span class="stat-rev">$50 Hold</span></div>
+          </div>
+
+          <div class="node node-mrr">
+            <div class="node-type">Enterprise Value</div>
+            <div class="node-title">$6,921 / Mo MRR by Day 90</div>
+            <p style="font-size:13px; color:var(--ink-muted); margin-bottom:12px;">Combines 9 membership subscribers + 4 recurring $900/mo NAD+ longevity patients.</p>
+            <div class="node-stats"><span class="stat-vol">9.95x ROAS</span><span class="stat-rev">$24,876 Value</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Bottom Footer Controls -->
+  <footer>
+    <div>Vitalis Health & Performance &middot; 90-Day System Visualizer &middot; AutomateScale</div>
+    <div style="font-family:var(--font-mono); color:var(--gold);">GERU ENGINE v2.0 &middot; INTERACTIVE</div>
+  </footer>
+
+  <script>
+    function switchTab(viewId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+      
+      const activeBtn = event.target;
+      activeBtn.classList.add('active');
+      
+      const targetSec = document.getElementById(`view-${viewId}`);
+      if (targetSec) {
+        targetSec.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>

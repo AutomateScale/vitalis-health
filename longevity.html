@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Cellular Longevity, Sirtuin Activation &amp; NAD+ Protocols | Vitalis Dallas</title>
+  <meta name="description" content="Physician-directed NAD+ mitochondrial optimization and Sirtuin activation IV protocols delivered to your private residence in Highland Park, Preston Hollow, and Dallas. Administered by critical care RNs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090E0C;
+      --surface: #101714;
+      --surface-card: #16201C;
+      --surface-light: #1C2B25;
+      --ink: #F7F5F2;
+      --ink-muted: #8E9C97;
+      --sage: #5E6B5C;
+      --sage-light: #7E947B;
+      --gold: #C5A880;
+      --gold-light: #E0C7A6;
+      --emerald: #4ade80;
+      --border: #1F2E28;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 90px;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+    header {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .badge-live {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(197, 168, 128, 0.12);
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(197, 168, 128, 0.3);
+    }
+    .pulse {
+      width: 7px; height: 7px;
+      background: var(--emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--emerald);
+      animation: pulseAnim 2s infinite;
+    }
+    @keyframes pulseAnim {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 12px var(--emerald); }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    .hero { padding: 40px 0 28px; text-align: center; }
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 7vw, 54px);
+      font-weight: 400;
+      line-height: 1.12;
+      margin-bottom: 16px;
+    }
+    h1 em { font-style: italic; color: var(--gold-light); }
+    .lead { font-size: 17px; color: var(--ink-muted); max-width: 580px; margin: 0 auto 28px; line-height: 1.55; }
+
+    /* Science of Mitochondrial Optimization Box */
+    .nad-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+    .nad-title { font-family: var(--font-serif); font-size: 24px; margin-bottom: 8px; color: var(--ink); }
+    .nad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+    .nad-item { background: var(--bg); border: 1px solid var(--border); padding: 14px; border-radius: 8px; }
+    .nad-val { font-size: 24px; font-weight: 700; color: var(--gold); margin-bottom: 2px; font-variant-numeric: tabular-nums; }
+    .nad-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* Sirtuin & DNA Repair Breakdown Banner */
+    .mech-banner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+    .mech-head { font-family: var(--font-serif); font-size: 22px; color: var(--ink); margin-bottom: 6px; }
+    .mech-body { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+
+    /* Longevity Cards */
+    .menu-head-title { font-family: var(--font-serif); font-size: 28px; text-align: center; margin-bottom: 6px; }
+    .menu-head-sub { font-size: 14px; color: var(--ink-muted); text-align: center; margin-bottom: 22px; }
+    .tier-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .tier-card:hover { border-color: var(--gold); }
+    .tier-card.selected {
+      border-color: var(--gold);
+      background: linear-gradient(180deg, rgba(197, 168, 128, 0.12) 0%, var(--surface) 100%);
+      box-shadow: 0 0 0 1px var(--gold);
+    }
+    .tier-badge {
+      position: absolute; top: -10px; right: 20px;
+      background: var(--gold); color: #000;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 999px;
+    }
+    .tier-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .tier-name { font-family: var(--font-serif); font-size: 24px; }
+    .tier-price { font-size: 24px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+    .tier-desc { font-size: 14px; color: var(--ink-muted); margin-bottom: 16px; line-height: 1.5; }
+    .btn-tier {
+      width: 100%;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tier-card.selected .btn-tier { background: var(--gold); color: #000; font-weight: 700; border-color: var(--gold); }
+    .btn-tier:hover { background: var(--gold-light); color: #000; }
+
+    /* Interactive Compound Customizer */
+    .addons-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 36px;
+    }
+    .addons-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .addons-title { font-family: var(--font-serif); font-size: 22px; color: var(--ink); }
+    .addons-sub { font-size: 12px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; }
+    .addon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .addon-item {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      padding: 12px 14px; cursor: pointer; display: flex; justify-content: space-between;
+      align-items: center; transition: all 0.2s; user-select: none;
+    }
+    .addon-item:hover { border-color: var(--gold); }
+    .addon-item.active { border-color: var(--gold); background: rgba(197, 168, 128, 0.12); }
+    .addon-name { font-size: 13px; font-weight: 600; color: var(--ink); display: block; }
+    .addon-desc { font-size: 11px; color: var(--ink-muted); }
+    .addon-price { font-size: 13px; font-weight: 700; color: var(--gold); margin-left: 8px; }
+    .addon-check {
+      width: 18px; height: 18px; border-radius: 4px; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; font-size: 11px;
+      margin-left: 8px; color: transparent; transition: all 0.2s;
+    }
+    .addon-item.active .addon-check { background: var(--gold); border-color: var(--gold); color: #000; font-weight: 700; }
+
+    /* Live Summary Bar */
+    .summary-bar {
+      background: var(--surface-card);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 18px;
+    }
+    .sum-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .sum-drip-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .sum-total-val { font-size: 22px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+
+    /* Form Wrap */
+    .form-wrap {
+      background: var(--surface);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 48px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .form-field { margin-bottom: 14px; }
+    .form-field label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 6px; }
+    .form-field input, .form-field select {
+      width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+      padding: 12px 14px; color: #fff; font-family: var(--font-sans); font-size: 14px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-field input:focus, .form-field select:focus { border-color: var(--gold); }
+    .btn-submit {
+      width: 100%; background: var(--gold); color: #000; border: none;
+      padding: 16px; border-radius: 6px; font-size: 14px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+      margin-top: 10px; box-shadow: 0 4px 20px rgba(197, 168, 128, 0.35);
+      transition: all 0.2s;
+    }
+    .btn-submit:hover { background: var(--gold-light); }
+
+    /* Sticky Bottom Bar */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(16, 23, 20, 0.96); backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border); padding: 12px 20px; z-index: 900;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+    }
+    .sticky-wrap {
+      max-width: 760px; width: 100%; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .sticky-status { font-size: 11px; color: var(--gold-light); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .sticky-price { font-size: 20px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+    .sticky-btn {
+      background: var(--gold); color: #000; border: none; border-radius: 6px;
+      padding: 12px 22px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    }
+    .sticky-btn:hover { background: var(--gold-light); }
+
+    /* 2-Step Modal */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85); backdrop-filter: blur(6px);
+      z-index: 1000; display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-card {
+      background: var(--surface); border: 1px solid var(--gold);
+      border-radius: 14px; max-width: 520px; width: 100%; padding: 28px;
+      position: relative; max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+    .modal-close { position: absolute; top: 18px; right: 18px; background: transparent; border: none; color: var(--ink-muted); font-size: 24px; cursor: pointer; }
+    .step-indicator { display: flex; gap: 8px; margin-bottom: 20px; }
+    .step-dot { flex: 1; height: 4px; background: var(--border); border-radius: 2px; }
+    .step-dot.active { background: var(--gold); }
+
+    /* Localized Social Proof Toast */
+    .toast-proof {
+      position: fixed; bottom: 82px; left: 20px;
+      background: rgba(22, 32, 28, 0.95);
+      border: 1px solid var(--border); border-left: 3px solid var(--gold);
+      border-radius: 8px; padding: 12px 16px;
+      display: flex; align-items: center; gap: 12px; z-index: 850;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transform: translateY(120px); opacity: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      max-width: 320px; pointer-events: none;
+    }
+    .toast-proof.show { transform: translateY(0); opacity: 1; }
+    .toast-title { font-size: 12px; font-weight: 600; color: var(--ink); }
+    .toast-sub { font-size: 11px; color: var(--ink-muted); }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 0 64px; text-align: center; font-size: 12px; color: var(--ink-muted); }
+
+    @media (max-width: 600px) {
+      .nad-grid { grid-template-columns: 1fr; }
+      .addon-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <a href="/" class="brand">Vitalis</a>
+    <div class="badge-live">
+      <span class="pulse"></span> Dallas Longevity RN Dispatch Active
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">Mitochondrial Optimization &middot; Sirtuin Activation &middot; Dallas, TX</span>
+    <h1>Cellular Renewal for the<br><em>High-Performance Mind.</em></h1>
+    <p class="lead">Replenish cellular NAD+ levels directly into your bloodstream. Enhance sirtuin DNA repair, eliminate executive brain fog, and restore mitochondrial ATP output with physician-directed protocols administered at your private residence.</p>
+
+    <div class="nad-box">
+      <h3 class="nad-title">The Science of Intravenous NAD+</h3>
+      <p style="font-size:14px; color:var(--ink-muted); line-height:1.5;">Nicotinamide Adenine Dinucleotide (NAD+) is the essential coenzyme powering ATP respiration. After age 30, systemic NAD+ drops by up to 50%. Oral precursors (NMN, NR) degrade in hepatic first-pass digestion; slow-titrated IV infusion delivers 100% cellular saturation across the blood-brain barrier.</p>
+      
+      <div class="nad-grid">
+        <div class="nad-item">
+          <div class="nad-val">100%</div>
+          <div class="nad-label">Bioavailability vs oral precursors</div>
+        </div>
+        <div class="nad-item">
+          <div class="nad-val">2–3 hrs</div>
+          <div class="nad-label">Slow micro-titration comfort protocol</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sirtuin Mechanism Banner -->
+    <div class="mech-banner">
+      <div class="mech-head">Sirtuin Longevity Gene Activation</div>
+      <div class="mech-body">
+        Sirtuins (SIRT1-7) regulate cellular senescence, systemic inflammation, and epigenetic DNA repair. Sirtuin enzymes are <strong>completely dormant without intracellular NAD+</strong>. Vitalis delivers pharmaceutical-grade lyophilized NAD+ coupled with master antioxidant Glutathione pushes to trigger immediate mitochondrial biogenesis.
+      </div>
+    </div>
+  </section>
+
+  <!-- Longevity Protocol Ladder -->
+  <section>
+    <h2 class="menu-head-title">Select Your Longevity Protocol Ladder</h2>
+    <p class="menu-head-sub">Administered by experienced critical-care RNs with micro-drip titration comfort control.</p>
+
+    <div class="tier-card selected" id="card-nad-monthly" onclick="chooseLongevity('4-Week NAD+ Induction Protocol (Hero Retainer)', 900, 'card-nad-monthly')">
+      <span class="tier-badge">Signature Longevity Retainer</span>
+      <div class="tier-head">
+        <h3 class="tier-name">4-Week NAD+ Induction Protocol</h3>
+        <div class="tier-price">$900 <span style="font-size:14px; font-weight:400; color:var(--ink-muted);">/ mo</span></div>
+      </div>
+      <p class="tier-desc">4 weekly in-home sessions (250mg–500mg pure NAD+) with micro-titration monitoring, high-dose Glutathione pushes, scheduled priority booking, and personalized cognitive/HRV biomarker tracking.</p>
+      <button type="button" class="btn-tier">Selected: 4-Week NAD+ Protocol ($900/mo) ✓</button>
+    </div>
+
+    <div class="tier-card" id="card-reserve" onclick="chooseLongevity('The Reserve (Master Cellular Infusion)', 500, 'card-reserve')">
+      <div class="tier-head">
+        <h3 class="tier-name">The Reserve (Single Session)</h3>
+        <div class="tier-price">$500</div>
+      </div>
+      <p class="tier-desc">Comprehensive master micronutrient recharge: 100mg NAD+ infusion + 2,000mg Glutathione push, megadose Vitamin C (5,000mg), Magnesium Chloride, and performance amino blend for deep systemic clarity.</p>
+      <button type="button" class="btn-tier">Select The Reserve ($500) →</button>
+    </div>
+
+    <div class="tier-card" id="card-nad-single" onclick="chooseLongevity('NAD+ High-Dose Single Session (250mg)', 400, 'card-nad-single')">
+      <div class="tier-head">
+        <h3 class="tier-name">NAD+ Single Induction (250mg)</h3>
+        <div class="tier-price">$400</div>
+      </div>
+      <p class="tier-desc">Single high-potency NAD+ slow-infusion paired with balanced electrolytes for executive mental clarity and cognitive de-fogging.</p>
+      <button type="button" class="btn-tier">Select NAD+ Single Session ($400) →</button>
+    </div>
+  </section>
+
+  <!-- Interactive Compound Add-on Customizer -->
+  <section class="addons-box">
+    <div class="addons-head">
+      <div>
+        <h3 class="addons-title">Cellular Co-Factors &amp; Antioxidant Boosters</h3>
+        <p style="font-size:12px; color:var(--ink-muted); margin-top:2px;">Synergistic co-factors for enhanced sirtuin and methylation support.</p>
+      </div>
+      <span class="addons-sub">Co-Factor Matrix</span>
+    </div>
+
+    <div class="addon-grid">
+      <div class="addon-item" data-id="glutathione" data-price="40" onclick="toggleLongevityAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Glutathione Push (2,000mg)</span>
+          <span class="addon-desc">Master antioxidant &amp; mitochondrial shield</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$40</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="b12" data-price="30" onclick="toggleLongevityAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Methyl B-12 Co-Factor</span>
+          <span class="addon-desc">Methylation donor for NAD+ recycling</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$30</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="vitc" data-price="35" onclick="toggleLongevityAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Megadose Ascorbic Acid</span>
+          <span class="addon-desc">5,000mg Vitamin C collagen &amp; immune defense</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$35</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+
+      <div class="addon-item" data-id="magnesium" data-price="35" onclick="toggleLongevityAddon(this)">
+        <div class="addon-info">
+          <span class="addon-name">+ Magnesium Chloride Push</span>
+          <span class="addon-desc">Vascular smooth muscle relaxation</span>
+        </div>
+        <div style="display:flex; align-items:center;">
+          <span class="addon-price">+$35</span>
+          <div class="addon-check">✓</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Summary Bar -->
+    <div class="summary-bar">
+      <div>
+        <div class="sum-label">Selected Configuration:</div>
+        <div class="sum-drip-name" id="sumConfigName">4-Week NAD+ Induction Protocol ($900/mo)</div>
+      </div>
+      <div style="text-align:right;">
+        <div class="sum-label">Total Investment:</div>
+        <div class="sum-total-val" id="sumTotal">$900</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intake & Application Form -->
+  <section class="form-wrap" id="booking">
+    <h3 style="font-family:var(--font-serif); font-size:26px; text-align:center; margin-bottom:6px;">Schedule Concierge Longevity Intake</h3>
+    <p style="font-size:13px; color:var(--ink-muted); text-align:center; margin-bottom:20px;">Direct physician-directed intake administered by Sergio Enriquez, BSN, RN.</p>
+    
+    <form id="longevityForm" onsubmit="handleLongevitySubmit(event)">
+      <div class="form-field">
+        <label>Selected Protocol &amp; Co-Factors</label>
+        <input type="text" id="selectedLongevitySummary" value="4-Week NAD+ Induction Protocol ($900/mo)" readonly style="color:var(--gold); font-weight:600;">
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;" class="form-field">
+        <div>
+          <label>Full Name</label>
+          <input type="text" id="longevityName" placeholder="Executive Name" required>
+        </div>
+        <div>
+          <label>Cell Phone (5-Min Confirmation)</label>
+          <input type="tel" id="longevityPhone" placeholder="(214) 555-0199" required>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label>Dallas Service Address (Home / Executive Suite)</label>
+        <input type="text" id="longevityAddress" placeholder="Highland Park / Preston Hollow / Uptown Address" required>
+      </div>
+
+      <div class="form-field">
+        <label>Primary Wellness &amp; Longevity Goal</label>
+        <select id="longevityGoal">
+          <option>Mitochondrial Energy &amp; Brain Fog Elimination</option>
+          <option>Athletic Recovery &amp; VO2 Max Optimization</option>
+          <option>Executive Stress &amp; Travel Fatigue Resilience</option>
+          <option>Anti-Aging, DNA Repair &amp; Cellular Longevity</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-submit" id="longevitySubmitBtn">Submit Longevity Request &middot; Reserve RN →</button>
+      <p style="font-size:11px; color:var(--ink-muted); text-align:center; margin-top:10px;">
+        Zero travel fees across core 15-mile Love Field corridor &middot; Itemized receipts provided
+      </p>
+    </form>
+
+    <div id="longevityConfirmation" style="display:none; text-align:center; padding:24px 0;">
+      <div style="font-size:36px; margin-bottom:8px;">✓</div>
+      <h4 style="color:#86efac; font-size:22px; margin-bottom:8px;">Longevity Assessment Queued</h4>
+      <p style="font-size:15px; color:var(--ink); margin-bottom:12px;">Clinical Director Sergio Enriquez, RN will review your profile.</p>
+      <div style="background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:14px; max-width:400px; margin:0 auto; font-size:13px; color:var(--ink-muted);">
+        ⏱️ Speed-to-lead status: <strong style="color:var(--emerald);" id="longevityCountdown">4:59</strong> until confirmation call/text.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Vitalis Health &amp; Performance &middot; Physician Directed &middot; Critical Care RN Administered &middot; Dallas Love Field Corridor</p>
+  </footer>
+</div>
+
+<!-- Sticky Bottom Bar -->
+<div class="sticky-bar">
+  <div class="sticky-wrap">
+    <div>
+      <div class="sticky-status"><span class="pulse"></span> Dallas Longevity RN Dispatch Active</div>
+      <div class="sticky-price" id="stickyTotalVal">$900</div>
+    </div>
+    <button type="button" class="sticky-btn" onclick="openLongevityModal()">Book Concierge Longevity →</button>
+  </div>
+</div>
+
+<!-- 2-Step Modal -->
+<div class="modal-overlay" id="longevityModal" onclick="closeModalOnBg(event)">
+  <div class="modal-card">
+    <button type="button" class="modal-close" onclick="closeLongevityModal()">&times;</button>
+    <div class="step-indicator">
+      <div class="step-dot active" id="lonDot1"></div>
+      <div class="step-dot" id="lonDot2"></div>
+    </div>
+
+    <div id="lonStep1">
+      <h3 style="font-family:var(--font-serif); font-size:24px; margin-bottom:4px;">Step 1: Longevity Protocol &amp; Location</h3>
+      <p style="font-size:13px; color:var(--ink-muted); margin-bottom:18px;">Zero travel fee in the core Dallas 15-mile corridor.</p>
+
+      <div class="form-field">
+        <label>Selected Protocol</label>
+        <input type="text" id="modalLonDrip" value="4-Week NAD+ Induction Protocol ($900/mo)" readonly style="color:var(--gold); font-weight:600;">
+      </div>
+      <div class="form-field">
+        <label>Dallas ZIP / Address</label>
+        <input type="text" id="modalLonAddress" placeholder="e.g. 75205 or Preston Hollow / Highland Park Address" required>
+      </div>
+      <button type="button" class="btn-submit" onclick="goToLonStep2()">Continue to Executive Contact →</button>
+    </div>
+
+    <div id="lonStep2" style="display:none;">
+      <h3 style="font-family:var(--font-serif); font-size:24px; margin-bottom:4px;">Step 2: Contact Information</h3>
+      <p style="font-size:13px; color:var(--ink-muted); margin-bottom:18px;">Our clinical team confirms your appointment in &lt;5 minutes.</p>
+
+      <div class="form-field">
+        <label>Full Name</label>
+        <input type="text" id="modalLonName" placeholder="Your Name" required>
+      </div>
+      <div class="form-field">
+        <label>Cell Phone</label>
+        <input type="tel" id="modalLonPhone" placeholder="(214) 555-0199" required>
+      </div>
+      <div style="display:flex; gap:10px;">
+        <button type="button" class="btn-tier" style="width:auto; padding:12px 18px;" onclick="goToLonStep1()">← Back</button>
+        <button type="button" class="btn-submit" style="margin-top:0; flex:1;" onclick="submitLonModal()">Confirm Longevity Intake →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Localized Social Proof Toast -->
+<div class="toast-proof" id="toastProof">
+  <div style="font-size:20px;">🧬</div>
+  <div>
+    <div class="toast-title" id="toastTitle">Preston Hollow, Dallas</div>
+    <div class="toast-sub" id="toastSub">Tech CEO booked 4-Week NAD+ Induction ($900/mo) (32m ago)</div>
+  </div>
+</div>
+
+<script>
+  let basePrice = 900;
+  let selectedDripTitle = '4-Week NAD+ Induction Protocol';
+  let activeAddons = {};
+
+  function chooseLongevity(name, price, cardId) {
+    basePrice = price;
+    selectedDripTitle = name;
+
+    document.querySelectorAll('.tier-card').forEach(c => {
+      c.classList.remove('selected');
+      const btn = c.querySelector('.btn-tier');
+      if (btn) btn.textContent = 'Select ' + c.querySelector('.tier-name').textContent + ' →';
+    });
+
+    const card = document.getElementById(cardId);
+    if (card) {
+      card.classList.add('selected');
+      const btn = card.querySelector('.btn-tier');
+      if (btn) btn.textContent = 'Selected: ' + name + ' ($' + price + ') ✓';
+    }
+
+    recalculateTotal();
+  }
+
+  function toggleLongevityAddon(el) {
+    const id = el.getAttribute('data-id');
+    const price = parseInt(el.getAttribute('data-price'), 10);
+    const name = el.querySelector('.addon-name').textContent;
+
+    if (activeAddons[id]) {
+      delete activeAddons[id];
+      el.classList.remove('active');
+    } else {
+      activeAddons[id] = { price, name };
+      el.classList.add('active');
+    }
+
+    recalculateTotal();
+  }
+
+  function recalculateTotal() {
+    let addonSum = 0;
+    let addonNames = [];
+    for (let k in activeAddons) {
+      addonSum += activeAddons[k].price;
+      addonNames.push(activeAddons[k].name);
+    }
+    const total = basePrice + addonSum;
+
+    document.getElementById('sumTotal').textContent = '$' + total;
+    document.getElementById('stickyTotalVal').textContent = '$' + total;
+
+    let summaryStr = selectedDripTitle + ' ($' + basePrice + ')';
+    if (addonNames.length > 0) {
+      summaryStr += ' + ' + addonNames.length + ' Booster(s): ' + addonNames.join(', ');
+    }
+    document.getElementById('selectedLongevitySummary').value = summaryStr;
+    document.getElementById('sumConfigName').textContent = summaryStr;
+    document.getElementById('modalLonDrip').value = summaryStr;
+  }
+
+  function handleLongevitySubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('longevitySubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Routing to Clinical Director...';
+
+    setTimeout(() => {
+      document.getElementById('longevityForm').style.display = 'none';
+      document.getElementById('longevityConfirmation').style.display = 'block';
+      startLongevityCountdown();
+    }, 800);
+  }
+
+  function startLongevityCountdown() {
+    let sec = 299;
+    const el = document.getElementById('longevityCountdown');
+    const timer = setInterval(() => {
+      sec--;
+      if (sec <= 0) { clearInterval(timer); return; }
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    }, 1000);
+  }
+
+  function openLongevityModal() { document.getElementById('longevityModal').classList.add('open'); }
+  function closeLongevityModal() { document.getElementById('longevityModal').classList.remove('open'); }
+  function closeModalOnBg(e) { if (e.target.id === 'longevityModal') closeLongevityModal(); }
+  function goToLonStep2() {
+    if (!document.getElementById('modalLonAddress').value.trim()) { alert('Please enter your Dallas address.'); return; }
+    document.getElementById('lonStep1').style.display = 'none';
+    document.getElementById('lonStep2').style.display = 'block';
+    document.getElementById('lonDot2').classList.add('active');
+  }
+  function goToLonStep1() {
+    document.getElementById('lonStep2').style.display = 'none';
+    document.getElementById('lonStep1').style.display = 'block';
+    document.getElementById('lonDot2').classList.remove('active');
+  }
+  function submitLonModal() {
+    const name = document.getElementById('modalLonName').value.trim();
+    const phone = document.getElementById('modalLonPhone').value.trim();
+    if (!name || !phone) { alert('Please provide your name and phone.'); return; }
+    closeLongevityModal();
+    document.getElementById('longevityName').value = name;
+    document.getElementById('longevityPhone').value = phone;
+    document.getElementById('longevityAddress').value = document.getElementById('modalLonAddress').value;
+    document.getElementById('longevityForm').style.display = 'none';
+    document.getElementById('longevityConfirmation').style.display = 'block';
+    document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    startLongevityCountdown();
+  }
+
+  /* Social proof */
+  const LON_PROOFS = [
+    { title: "Preston Hollow, Dallas", sub: "Tech CEO booked 4-Week NAD+ Induction ($900/mo) (32m ago)" },
+    { title: "Highland Park", sub: "The Reserve Longevity Session ($500) booked (1h ago)" },
+    { title: "Turtle Creek", sub: "NAD+ 250mg Maintenance booked (2h ago)" },
+    { title: "Uptown Dallas", sub: "Executive NAD+ Protocol booked (3h ago)" }
+  ];
+  let lpIdx = 0;
+  function showNextProof() {
+    const toast = document.getElementById('toastProof');
+    const data = LON_PROOFS[lpIdx];
+    document.getElementById('toastTitle').textContent = data.title;
+    document.getElementById('toastSub').textContent = data.sub;
+    toast.classList.add('show');
+    setTimeout(() => { toast.classList.remove('show'); }, 4500);
+    lpIdx = (lpIdx + 1) % LON_PROOFS.length;
+  }
+  setTimeout(() => { showNextProof(); setInterval(showNextProof, 12000); }, 3500);
+</script>
+
+</body>
+</html>

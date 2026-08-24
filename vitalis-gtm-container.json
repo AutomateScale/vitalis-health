@@ -1,0 +1,87 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-08-23 19:50:00",
+  "containerVersion": {
+    "path": "accounts/6000000000/containers/70000000/versions/0",
+    "accountId": "6000000000",
+    "containerId": "70000000",
+    "container": {
+      "name": "Vitalis Health & Performance - Dallas Launch Container",
+      "publicId": "GTM-VITALIS01",
+      "usageContext": ["WEB"]
+    },
+    "tag": [
+      {
+        "name": "Meta Pixel - Base Code & PageView",
+        "type": "html",
+        "parameter": [
+          {
+            "key": "html",
+            "value": "<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '{{Meta Pixel ID}}');fbq('track', 'PageView');</script>"
+          }
+        ],
+        "firingTriggerId": ["trigger_all_pages"]
+      },
+      {
+        "name": "Meta Pixel - ViewContent (Funnel Pillar)",
+        "type": "html",
+        "parameter": [
+          {
+            "key": "html",
+            "value": "<script>fbq('track', 'ViewContent', { content_name: document.title, content_category: 'Mobile IV Therapy', currency: 'USD', value: {{Drip Value}} });</script>"
+          }
+        ],
+        "firingTriggerId": ["trigger_funnel_view"]
+      },
+      {
+        "name": "Meta Pixel - AddToCart (Compound Add-ons)",
+        "type": "html",
+        "parameter": [
+          {
+            "key": "html",
+            "value": "<script>fbq('track', 'AddToCart', { content_name: {{Selected Addons}}, currency: 'USD', value: {{Total Calculated Price}} });</script>"
+          }
+        ],
+        "firingTriggerId": ["trigger_addon_select"]
+      },
+      {
+        "name": "Meta Pixel - Lead / InitiateCheckout ($50 Deposit)",
+        "type": "html",
+        "parameter": [
+          {
+            "key": "html",
+            "value": "<script>fbq('track', 'InitiateCheckout', { content_name: {{Selected Drip}}, currency: 'USD', value: 50.00 });</script>"
+          }
+        ],
+        "firingTriggerId": ["trigger_deposit_start"]
+      },
+      {
+        "name": "Meta Pixel - Purchase (Confirmed RN Dispatch)",
+        "type": "html",
+        "parameter": [
+          {
+            "key": "html",
+            "value": "<script>fbq('track', 'Purchase', { currency: 'USD', value: {{Total Calculated Price}}, predicted_ltv: 900.00, content_type: 'product' });</script>"
+          }
+        ],
+        "firingTriggerId": ["trigger_dispatch_confirmed"]
+      },
+      {
+        "name": "Google GA4 - Config & Dallas Geo Tracking",
+        "type": "gaawe",
+        "parameter": [
+          { "key": "measurementId", "value": "G-N0WBWPH5SH" },
+          { "key": "sendPageView", "value": "true" }
+        ],
+        "firingTriggerId": ["trigger_all_pages"]
+      }
+    ],
+    "trigger": [
+      { "triggerId": "trigger_all_pages", "name": "All Pages", "type": "PAGEVIEW" },
+      { "triggerId": "trigger_funnel_view", "name": "Custom - Funnel Page Loaded", "type": "DOM_READY" },
+      { "triggerId": "trigger_addon_select", "name": "Custom - Compound Addon Clicked", "type": "CUSTOM_EVENT", "customEventFilter": [{ "type": "EQUALS", "parameter": [{ "key": "arg0", "value": "{{_event}}" }, { "key": "arg1", "value": "vitalis_addon_toggled" }] }] },
+      { "triggerId": "trigger_deposit_start", "name": "Custom - Deposit Modal Opened", "type": "CUSTOM_EVENT", "customEventFilter": [{ "type": "EQUALS", "parameter": [{ "key": "arg0", "value": "{{_event}}" }, { "key": "arg1", "value": "vitalis_modal_opened" }] }] },
+      { "triggerId": "trigger_dispatch_confirmed", "name": "Custom - Dispatch Confirmed", "type": "CUSTOM_EVENT", "customEventFilter": [{ "type": "EQUALS", "parameter": [{ "key": "arg0", "value": "{{_event}}" }, { "key": "arg1", "value": "vitalis_dispatch_success" }] }] }
+    ]
+  }
+}

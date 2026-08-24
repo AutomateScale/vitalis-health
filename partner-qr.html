@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>VIP Concierge Amenity &middot; $50 Recovery Credit | Vitalis Dallas</title>
+  <meta name="description" content="Exclusive VIP resident and partner amenity. In-room and in-home concierge mobile IV therapy delivered across Dallas with $50 pre-applied credit.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0A0F0D;
+      --surface: #121916;
+      --surface-card: #18221E;
+      --ink: #F7F5F2;
+      --ink-muted: #95A39E;
+      --sage: #5E6B5C;
+      --sage-light: #7E947B;
+      --gold: #C5A880;
+      --gold-light: #E2CDAF;
+      --emerald: #4ade80;
+      --border: #212F2A;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      padding: 24px 16px 90px;
+      text-align: center;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap {
+      max-width: 580px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px 24px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+    }
+    .brand { font-family: var(--font-serif); font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 12px; display: inline-block; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(197,168,128,0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .pulse {
+      width: 6px; height: 6px;
+      background: var(--emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--emerald);
+      animation: pulseAnim 2s infinite;
+    }
+    @keyframes pulseAnim {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    h1 { font-family: var(--font-serif); font-size: clamp(30px, 6vw, 42px); line-height: 1.15; margin-bottom: 12px; }
+    h1 em { font-style: italic; color: var(--gold-light); }
+    p { font-size: 15px; color: var(--ink-muted); margin-bottom: 22px; line-height: 1.5; }
+    
+    .credit-box {
+      background: var(--bg);
+      border: 1px dashed var(--gold);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .credit-val { font-size: 32px; font-weight: 700; color: var(--gold); font-family: var(--font-serif); }
+    .credit-sub { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* Drip Option Selector */
+    .option-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; text-align: left; }
+    .opt-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .opt-box:hover { border-color: var(--gold); }
+    .opt-box.selected {
+      border-color: var(--gold);
+      background: rgba(197, 168, 128, 0.12);
+    }
+    .opt-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .opt-price { font-size: 14px; font-weight: 700; color: var(--gold); }
+    .opt-orig { font-size: 11px; color: var(--ink-muted); text-decoration: line-through; margin-right: 4px; }
+
+    /* Add-ons mini */
+    .addon-mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 22px; text-align: left; }
+    .addon-pill {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      transition: all 0.2s;
+    }
+    .addon-pill:hover { border-color: var(--gold); }
+    .addon-pill.active { border-color: var(--gold); background: rgba(197, 168, 128, 0.12); color: var(--gold-light); font-weight: 600; }
+
+    /* Form Fields */
+    .field { margin-bottom: 14px; text-align: left; }
+    .field label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 6px; letter-spacing: 0.08em; }
+    .field input, .field select {
+      width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+      padding: 12px 14px; color: #fff; font-family: var(--font-sans); font-size: 14px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .field input:focus, .field select:focus { border-color: var(--gold); }
+    .btn-act {
+      width: 100%; background: var(--gold); color: #000; border: none; padding: 16px;
+      border-radius: 6px; font-size: 14px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; cursor: pointer; margin-top: 8px; box-shadow: 0 4px 20px rgba(197,168,128,0.35);
+      transition: all 0.2s;
+    }
+    .btn-act:hover { background: var(--gold-light); }
+
+    /* Sticky Bottom Bar */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(18, 25, 22, 0.96); backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border); padding: 12px 20px; z-index: 900;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+    }
+    .sticky-wrap {
+      max-width: 580px; width: 100%; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .sticky-status { font-size: 11px; color: var(--gold-light); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .sticky-price { font-size: 20px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+    .sticky-btn {
+      background: var(--gold); color: #000; border: none; border-radius: 6px;
+      padding: 12px 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    }
+    .sticky-btn:hover { background: var(--gold-light); }
+
+    /* Toast */
+    .toast-proof {
+      position: fixed; bottom: 82px; left: 20px;
+      background: rgba(24, 34, 30, 0.95);
+      border: 1px solid var(--border); border-left: 3px solid var(--gold);
+      border-radius: 8px; padding: 12px 16px;
+      display: flex; align-items: center; gap: 12px; z-index: 850;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transform: translateY(120px); opacity: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      max-width: 320px; pointer-events: none;
+    }
+    .toast-proof.show { transform: translateY(0); opacity: 1; }
+    .toast-title { font-size: 12px; font-weight: 600; color: var(--ink); text-align: left; }
+    .toast-sub { font-size: 11px; color: var(--ink-muted); text-align: left; }
+
+    @media (max-width: 500px) {
+      .option-grid { grid-template-columns: 1fr; }
+      .addon-mini-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brand">Vitalis</div>
+  <div class="badge"><span class="pulse"></span> Partner VIP Amenity &middot; Dallas</div>
+  <h1>Wellness Delivered to<br><em>Your Door.</em></h1>
+  <p>Your building concierge or luxury partner club has unlocked an exclusive <strong>$50 VIP recovery credit</strong> for your in-suite medical IV infusion.</p>
+
+  <div class="credit-box">
+    <div class="credit-val">$50 VIP Credit Applied</div>
+    <div class="credit-sub">Zero Travel Fees &middot; Dallas Love Field Corridor</div>
+  </div>
+
+  <div style="text-align:left; font-size:11px; font-weight:700; text-transform:uppercase; color:var(--ink-muted); margin-bottom:8px; letter-spacing:0.08em;">
+    Step 1: Choose Your VIP Treatment
+  </div>
+
+  <div class="option-grid">
+    <div class="opt-box selected" id="opt-reset" onclick="choosePartnerDrip('The Reset', 249, 199, 'opt-reset')">
+      <div class="opt-title">The Reset</div>
+      <div class="opt-price"><span class="opt-orig">$249</span>$199</div>
+      <div style="font-size:11px; color:var(--ink-muted);">Hangover &amp; Headache</div>
+    </div>
+
+    <div class="opt-box" id="opt-rebuild" onclick="choosePartnerDrip('Rebuild', 324, 274, 'opt-rebuild')">
+      <div class="opt-title">Rebuild</div>
+      <div class="opt-price"><span class="opt-orig">$324</span>$274</div>
+      <div style="font-size:11px; color:var(--ink-muted);">Athletic Amino Recovery</div>
+    </div>
+
+    <div class="opt-box" id="opt-radiance" onclick="choosePartnerDrip('Radiance', 374, 324, 'opt-radiance')">
+      <div class="opt-title">Radiance</div>
+      <div class="opt-price"><span class="opt-orig">$374</span>$324</div>
+      <div style="font-size:11px; color:var(--ink-muted);">Glutathione Aesthetic Glow</div>
+    </div>
+
+    <div class="opt-box" id="opt-reserve" onclick="choosePartnerDrip('The Reserve', 500, 450, 'opt-reserve')">
+      <div class="opt-title">The Reserve</div>
+      <div class="opt-price"><span class="opt-orig">$500</span>$450</div>
+      <div style="font-size:11px; color:var(--ink-muted);">NAD+ &amp; Longevity Matrix</div>
+    </div>
+  </div>
+
+  <div style="text-align:left; font-size:11px; font-weight:700; text-transform:uppercase; color:var(--ink-muted); margin-bottom:8px; letter-spacing:0.08em;">
+    Step 2: Add Optional Clinical Boosters
+  </div>
+
+  <div class="addon-mini-grid">
+    <div class="addon-pill" data-price="40" onclick="togglePartnerAddon(this, '+ Glutathione (2000mg)')">
+      <span>+ Glutathione (2000mg)</span>
+      <span style="color:var(--gold);">+$40</span>
+    </div>
+    <div class="addon-pill" data-price="35" onclick="togglePartnerAddon(this, '+ Toradol Pain Push')">
+      <span>+ Toradol Pain Push</span>
+      <span style="color:var(--gold);">+$35</span>
+    </div>
+    <div class="addon-pill" data-price="30" onclick="togglePartnerAddon(this, '+ Methyl B-12 Shot')">
+      <span>+ Methyl B-12 Shot</span>
+      <span style="color:var(--gold);">+$30</span>
+    </div>
+    <div class="addon-pill" data-price="30" onclick="togglePartnerAddon(this, '+ Zofran Nausea Push')">
+      <span>+ Zofran Nausea Push</span>
+      <span style="color:var(--gold);">+$30</span>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <form id="partnerForm" onsubmit="handlePartnerSubmit(event)">
+    <div class="field">
+      <label>Full Name</label>
+      <input type="text" id="partnerName" placeholder="Your Name" required>
+    </div>
+    <div class="field">
+      <label>Cell Phone (For 5-Min Confirmation)</label>
+      <input type="tel" id="partnerPhone" placeholder="(214) 555-0199" required>
+    </div>
+    <div class="field">
+      <label>Residence / Building / Hotel Suite</label>
+      <input type="text" id="partnerAddress" placeholder="e.g. The Victor, Apt 2204 or The Joule Suite 801" required>
+    </div>
+    <div class="field">
+      <label>Preferred Time Window</label>
+      <select id="partnerWindow">
+        <option value="asap">ASAP (Next Available RN ~45m)</option>
+        <option value="afternoon">Today — Afternoon</option>
+        <option value="evening">Today — Evening</option>
+        <option value="tomorrow">Tomorrow Morning</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-act" id="partnerSubmitBtn">Redeem $50 Credit &middot; Dispatch RN →</button>
+    <p style="font-size:11px; color:var(--ink-muted); margin-top:10px;">
+      Zero travel fee in the core 15-mile Love Field corridor &middot; HSA/FSA itemized receipts provided
+    </p>
+  </form>
+
+  <div id="partnerConfirmation" style="display:none; text-align:center; padding:24px 0;">
+    <div style="font-size:36px; margin-bottom:8px;">✓</div>
+    <h4 style="color:#86efac; font-size:22px; margin-bottom:8px;">VIP Reservation Queued</h4>
+    <p style="font-size:15px; color:var(--ink); margin-bottom:12px;">$50 VIP credit has been applied to your account.</p>
+    <div style="background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:14px; font-size:13px; color:var(--ink-muted);">
+      ⏱️ Confirmation call/text in progress: <strong style="color:var(--emerald);" id="partnerCountdown">4:59</strong>.
+    </div>
+  </div>
+</div>
+
+<!-- Sticky Bottom Bar -->
+<div class="sticky-bar">
+  <div class="sticky-wrap">
+    <div>
+      <div class="sticky-status"><span class="pulse"></span> $50 Credit Applied</div>
+      <div class="sticky-price" id="stickyTotalVal">$199</div>
+    </div>
+    <button type="button" class="sticky-btn" onclick="document.getElementById('partnerAddress').focus(); document.querySelector('.wrap').scrollIntoView({behavior:'smooth'});">Redeem Credit &rarr;</button>
+  </div>
+</div>
+
+<!-- Localized Social Proof Toast -->
+<div class="toast-proof" id="toastProof">
+  <div style="font-size:20px;">💎</div>
+  <div>
+    <div class="toast-title" id="toastTitle">The Victor, Uptown</div>
+    <div class="toast-sub" id="toastSub">Resident redeemed $50 credit for The Reset (14m ago)</div>
+  </div>
+</div>
+
+<script>
+  let discountedPrice = 199;
+  let selectedDripTitle = 'The Reset';
+  let addonSum = 0;
+
+  function choosePartnerDrip(name, orig, disc, id) {
+    discountedPrice = disc;
+    selectedDripTitle = name;
+    document.querySelectorAll('.opt-box').forEach(b => b.classList.remove('selected'));
+    document.getElementById(id).classList.add('selected');
+    updatePartnerTotal();
+  }
+
+  function togglePartnerAddon(el, name) {
+    const price = parseInt(el.getAttribute('data-price'), 10);
+    if (el.classList.contains('active')) {
+      el.classList.remove('active');
+      addonSum -= price;
+    } else {
+      el.classList.add('active');
+      addonSum += price;
+    }
+    updatePartnerTotal();
+  }
+
+  function updatePartnerTotal() {
+    const total = discountedPrice + addonSum;
+    document.getElementById('stickyTotalVal').textContent = '$' + total;
+  }
+
+  function handlePartnerSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('partnerSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Applying Credit & Routing RN...';
+
+    setTimeout(() => {
+      document.getElementById('partnerForm').style.display = 'none';
+      document.getElementById('partnerConfirmation').style.display = 'block';
+      startPartnerCountdown();
+    }, 800);
+  }
+
+  function startPartnerCountdown() {
+    let sec = 299;
+    const el = document.getElementById('partnerCountdown');
+    const timer = setInterval(() => {
+      sec--;
+      if (sec <= 0) { clearInterval(timer); return; }
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    }, 1000);
+  }
+
+  /* Social proof */
+  const PARTNER_PROOFS = [
+    { title: "The Victor, Uptown", sub: "Resident redeemed $50 credit for The Reset (14m ago)" },
+    { title: "Cirque Victory Park", sub: "Resident booked Rebuild with $50 credit (40m ago)" },
+    { title: "Equinox Member, Oak Lawn", sub: "Member booked The Reserve (1h ago)" },
+    { title: "SkyHouse Dallas", sub: "Resident booked Radiance with $50 credit (2h ago)" }
+  ];
+  let prIdx = 0;
+  function showNextProof() {
+    const toast = document.getElementById('toastProof');
+    const data = PARTNER_PROOFS[prIdx];
+    document.getElementById('toastTitle').textContent = data.title;
+    document.getElementById('toastSub').textContent = data.sub;
+    toast.classList.add('show');
+    setTimeout(() => { toast.classList.remove('show'); }, 4500);
+    prIdx = (prIdx + 1) % PARTNER_PROOFS.length;
+  }
+  setTimeout(() => { showNextProof(); setInterval(showNextProof, 12000); }, 3500);
+</script>
+
+</body>
+</html>

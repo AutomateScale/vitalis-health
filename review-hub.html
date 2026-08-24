@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitalis Health & Performance &middot; Executive Launch & Flight Review Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050807;
+      --surface: #0B120F;
+      --surface-card: #101B16;
+      --surface-card-hover: #172620;
+      --ink: #F7F5F2;
+      --ink-muted: #8E9E97;
+      --ink-dim: #54635D;
+      --sage: #5E6B5C;
+      --sage-light: #859F83;
+      --sage-glow: rgba(133, 159, 131, 0.25);
+      --gold: #C5A880;
+      --gold-light: #E5D3B8;
+      --gold-glow: rgba(197, 168, 128, 0.25);
+      --border: #182821;
+      --border-accent: #294035;
+      --blue: #3B82F6;
+      --green: #22C55E;
+      --purple: #A855F7;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding: 32px 24px 80px;
+      -webkit-font-smoothing: antialiased;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(30, 48, 40, 0.4) 0%, transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(197, 168, 128, 0.05) 0%, transparent 40%);
+      min-height: 100vh;
+    }
+    .container { max-width: 1140px; margin: 0 auto; }
+
+    /* Top Navigation Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .brand-logo {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .brand-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .status-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #86efac;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+    .pulse-dot {
+      width: 7px; height: 7px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 10px #22c55e;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.85); } }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(16, 27, 22, 0.9) 0%, rgba(11, 18, 15, 0.9) 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 48px;
+      margin-bottom: 36px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+    }
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; width: 400px; height: 100%;
+      background: radial-gradient(circle at 100% 0%, var(--gold-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    h1 em { font-style: italic; color: var(--sage-light); }
+    .hero-lead {
+      font-size: 16px;
+      color: var(--ink-muted);
+      max-width: 780px;
+      line-height: 1.6;
+    }
+
+    /* High-LTV Metrics Row */
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      transition: all 0.2s;
+    }
+    .kpi-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+    .kpi-val {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 4px;
+      color: var(--gold-light);
+    }
+    .kpi-lbl {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-muted);
+    }
+
+    /* Section Title */
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 22px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      color: #fff;
+    }
+    .section-counter {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    /* Presentation Decks Grid */
+    .deck-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .deck-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px 24px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .deck-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      background: var(--surface-card-hover);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+    }
+    .deck-top-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .deck-h {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .deck-p {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .deck-action {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gold-light);
+    }
+
+    /* Live Funnels Row */
+    .funnels-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+    .funnel-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s;
+    }
+    .funnel-box:hover {
+      border-color: var(--sage-light);
+      background: var(--surface-card);
+      transform: translateY(-2px);
+    }
+    .funnel-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .funnel-meta {
+      font-size: 11px;
+      color: var(--ink-muted);
+    }
+
+    /* Strategy Blueprints Hub */
+    .blueprints-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+    .bp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .bp-tag { font-family: var(--font-mono); font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--sage-light); margin-bottom: 4px; }
+    .bp-title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+    .bp-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.45; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Top Navigation Header -->
+  <header>
+    <div class="brand-wrap">
+      <div class="brand-logo">Vitalis</div>
+      <div class="brand-tag">High-LTV Launch Suite</div>
+    </div>
+    <div class="status-badge">
+      <span class="pulse-dot"></span> System 95% Ready &middot; Offline Flight Mode
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <div class="hero-banner">
+    <p class="eyebrow">Executive Review Hub &middot; Meeting Alignment</p>
+    <h1>The Vitalis 90-Day System<br><em>Master Strategy &amp; Execution Hub</em></h1>
+    <p class="hero-lead">All interactive presentations, high-LTV GERU funnel simulators, 28-email evergreen nurture series, and system mind maps compiled for your review.</p>
+  </div>
+
+  <!-- High-LTV Economics Strip -->
+  <div class="kpi-strip">
+    <div class="kpi-card">
+      <div class="kpi-val">$382.00</div>
+      <div class="kpi-lbl">Target AOV (High-LTV)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">14.75x</div>
+      <div class="kpi-lbl">Blended 90-Day ROAS</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">$9,828 / mo</div>
+      <div class="kpi-lbl">Day-90 Locked MRR</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">8 Drips/Wk</div>
+      <div class="kpi-lbl">Capacity Ceiling (Max LTV)</div>
+    </div>
+  </div>
+
+  <!-- Section 1: Presentations -->
+  <div class="section-head">
+    <h2 class="section-title">Executive Presentation Suite</h2>
+    <span class="section-counter">4 Standalone Decks</span>
+  </div>
+
+  <div class="deck-grid">
+    <!-- Deck 1 -->
+    <a href="presentation-master.html" class="deck-card" style="border-top: 3px solid var(--gold);">
+      <div>
+        <span class="deck-top-tag" style="color:var(--gold);">Deck 01 &middot; Master Pitch</span>
+        <h3 class="deck-h">Executive Strategy Deck</h3>
+        <p class="deck-p">8-Slide master pitch: Dallas competitor teardown, Love Field 15-mi $0 fee moat, 4 audience pillars, and 90-day roadmap.</p>
+      </div>
+      <span class="deck-action">Launch Deck 01 (8 Slides) →</span>
+    </a>
+
+    <!-- Deck 2 -->
+    <a href="presentation-geru-funnels.html" class="deck-card" style="border-top: 3px solid var(--sage-light);">
+      <div>
+        <span class="deck-top-tag" style="color:var(--sage-light);">Deck 02 &middot; Interactive Math</span>
+        <h3 class="deck-h">High-LTV GERU Simulator</h3>
+        <p class="deck-p">Live interactive funnel simulator modeling $382 AOV, 14.75x ROAS, and $9,828/mo locked MRR with real-time sliders.</p>
+      </div>
+      <span class="deck-action">Launch GERU Simulator →</span>
+    </a>
+
+    <!-- Deck 3 -->
+    <a href="presentation-downstream.html" class="deck-card" style="border-top: 3px solid var(--purple);">
+      <div>
+        <span class="deck-top-tag" style="color:var(--purple);">Deck 03 &middot; Retention &amp; Drips</span>
+        <h3 class="deck-h">7 Down-Funnels &amp; 28-Drip</h3>
+        <p class="deck-p">Verbatim scripts: T+24h review gate, 14d recharge, 30d membership MRR ladder, and the 28-email evergreen nurture.</p>
+      </div>
+      <span class="deck-action">Launch Downstream Deck →</span>
+    </a>
+
+    <!-- Deck 4 -->
+    <a href="presentation-mindmaps.html" class="deck-card" style="border-top: 3px solid var(--blue);">
+      <div>
+        <span class="deck-top-tag" style="color:var(--blue);">Deck 04 &middot; Architecture Tree</span>
+        <h3 class="deck-h">System Mind Maps &amp; Tech</h3>
+        <p class="deck-p">Hierarchical node tree covering Love Field 15-mi geofencing, 2-way Google Calendar blackout sync, and Meta CAPI tracking.</p>
+      </div>
+      <span class="deck-action">Launch Mind Map Deck →</span>
+    </a>
+  </div>
+
+  <!-- Section 2: Conversion Funnels -->
+  <div class="section-head">
+    <h2 class="section-title">Flagship Front-End Conversion Funnels</h2>
+    <span class="section-counter">Tested &amp; Production Ready</span>
+  </div>
+
+  <div class="funnels-row">
+    <a href="athletes.html" class="funnel-box" style="border-color:var(--border-accent);">
+      <div class="funnel-name">Athletic HYROX (`/athletes`)</div>
+      <div class="funnel-meta"><strong>Hero Funnel</strong> &middot; Rebuild ($324) &middot; Bioavailability Matrix</div>
+    </a>
+    <a href="longevity.html" class="funnel-box" style="border-color:var(--border-accent);">
+      <div class="funnel-name">Cellular Longevity (`/longevity`)</div>
+      <div class="funnel-meta"><strong>Hero Funnel</strong> &middot; The Reserve ($500) &middot; 4-Wk NAD+ ($900/mo)</div>
+    </a>
+    <a href="hangover.html" class="funnel-box">
+      <div class="funnel-name">Executive Hangover (`/reset`)</div>
+      <div class="funnel-meta">The Reset ($249) &middot; Love Field 15-mi ZIP Checker</div>
+    </a>
+    <a href="radiance.html" class="funnel-box">
+      <div class="funnel-name">Aesthetic Radiance (`/radiance`)</div>
+      <div class="funnel-meta">Radiance ($374) &middot; 2,000mg Glutathione Push</div>
+    </a>
+    <a href="partner-qr.html" class="funnel-box">
+      <div class="funnel-name">Partner Amenity (`/partner-qr`)</div>
+      <div class="funnel-meta">$50 VIP Credit for luxury apartments &amp; gym pop-ups</div>
+    </a>
+  </div>
+
+  <!-- Section 3: Core Strategy Blueprints -->
+  <div class="section-head">
+    <h2 class="section-title">Core Strategy Blueprints &amp; Technical Files</h2>
+    <span class="section-counter">Master Markdown Assets</span>
+  </div>
+
+  <div class="blueprints-grid">
+    <div class="bp-card">
+      <div class="bp-tag">Founder Directive</div>
+      <div class="bp-title">High-LTV Strategic Memo</div>
+      <div class="bp-desc">Documents the pivot to Athletes &amp; Longevity, $382 AOV, and 100% capacity lock. (`vitalis-high-ltv-pivot.md`)</div>
+    </div>
+    <div class="bp-card">
+      <div class="bp-tag">Email Architecture</div>
+      <div class="bp-title">28-Email Evergreen Drip</div>
+      <div class="bp-desc">Complete 90-day post-opt-in nurture engine with Liquid tags and membership ascension. (`vitalis-email-drip-series.md`)</div>
+    </div>
+    <div class="bp-card">
+      <div class="bp-tag">Paid Media</div>
+      <div class="bp-title">Realigned Growth Blueprint</div>
+      <div class="bp-desc">75% budget shift to Athletic Bioavailability &amp; NAD+ Longevity; Google LSA matrix. (`vitalis-realigned-growth-blueprint.md`)</div>
+    </div>
+    <div class="bp-card">
+      <div class="bp-tag">Automation</div>
+      <div class="bp-title">7 Downstream Scripts</div>
+      <div class="bp-desc">Verbatim SMS/Email scripts for review filter, recharge, memberships, and Retell AI voice. (`vitalis-downstream-scripts.md`)</div>
+    </div>
+  </div>
+
+  <footer>
+    <div>Vitalis Health & Performance &middot; Architected by AutomateScale &middot; Dallas, TX</div>
+    <div style="font-family:var(--font-mono); color:var(--gold);">AIRPLANE REVIEW MODE ACTIVE</div>
+  </footer>
+</div>
+
+</body>
+</html>
