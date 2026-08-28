@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitalis Health & Performance &middot; Master Launchpad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090E0C;
+      --surface: #101714;
+      --surface-card: #16201C;
+      --ink: #F7F5F2;
+      --ink-muted: #8E9C97;
+      --sage: #5E6B5C;
+      --sage-light: #7E947B;
+      --gold: #C5A880;
+      --border: #1F2E28;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding: 36px 24px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 960px; margin: 0 auto; }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand { font-family: var(--font-serif); font-size: 28px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .status-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(74, 222, 128, 0.12);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      color: #86efac;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .pulse { width: 7px; height: 7px; background: #4ade80; border-radius: 50%; box-shadow: 0 0 8px #4ade80; }
+
+    .hero { margin-bottom: 36px; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    h1 { font-family: var(--font-serif); font-size: 42px; font-weight: 400; line-height: 1.1; margin-bottom: 12px; }
+    h1 em { font-style: italic; color: var(--sage-light); }
+    .lead { font-size: 16px; color: var(--ink-muted); max-width: 680px; }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      margin: 32px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .section-count { font-family: var(--font-mono); font-size: 12px; color: var(--gold); }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .launch-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+    }
+    .launch-card:hover {
+      border-color: var(--sage-light);
+      transform: translateY(-2px);
+      background: var(--surface-card);
+    }
+    .card-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 600; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 6px; }
+    .card-h { font-family: var(--font-serif); font-size: 20px; margin-bottom: 6px; }
+    .card-p { font-size: 13px; color: var(--ink-muted); margin-bottom: 16px; line-height: 1.45; }
+    .card-btn {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 24px 0 36px;
+    }
+    .kpi-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .kpi-num { font-family: var(--font-serif); font-size: 28px; font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+    .kpi-lbl { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="brand">Vitalis Launchpad</div>
+    <div class="status-badge">
+      <span class="pulse"></span> System Live &middot; 88% Ready
+    </div>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">AutomateScale 90-Day Command Center</p>
+    <h1>The Concierge Mobile IV<br><em>Booking &amp; Retention Engine</em></h1>
+    <p class="lead">Dallas Love Field 15-mile zero-fee corridor &middot; 4 Front-End Audience Funnels &middot; 7 Downstream Retention Loops &middot; Sub-5-Minute Speed-to-Lead Automation.</p>
+  </section>
+
+  <!-- Metrics -->
+  <div class="kpi-row">
+    <div class="kpi-box">
+      <div class="kpi-num">$60–$120</div>
+      <div class="kpi-lbl">Target CPA / Booking</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-num">8 Drips/Wk</div>
+      <div class="kpi-lbl">Capacity Ceiling</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-num">75%+</div>
+      <div class="kpi-lbl">Show Rate Target</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-num">$900/Mo</div>
+      <div class="kpi-lbl">NAD+ Retainer Tier</div>
+    </div>
+  </div>
+
+  <!-- Group 1: Presentation & Front-End Funnels -->
+  <div class="section-title">
+    <span>Front-End Conversion Funnels</span>
+    <span class="section-count">5 Live Pages</span>
+  </div>
+  <div class="card-grid">
+    <a href="presentation.html" class="launch-card" style="border-color:var(--gold);">
+      <div>
+        <span class="card-tag">Interactive Deck</span>
+        <h3 class="card-h">Executive Presentation</h3>
+        <p class="card-p">6-Slide master system deck covering economics, pillars, CRM engine, and downstream loops.</p>
+      </div>
+      <span class="card-btn" style="color:var(--gold);">Open Presentation Deck →</span>
+    </a>
+
+    <a href="hangover.html" class="launch-card">
+      <div>
+        <span class="card-tag">Pillar A &middot; Rapid Rebound</span>
+        <h3 class="card-h">Executive Hangover Recovery</h3>
+        <p class="card-p">The Reset ($249) with 45-min arrival guarantee, Love Field 15-mi ZIP checker, and instant RN booking.</p>
+      </div>
+      <span class="card-btn">Launch Hangover Funnel →</span>
+    </a>
+
+    <a href="athletes.html" class="launch-card">
+      <div>
+        <span class="card-tag">Pillar B &middot; Performance</span>
+        <h3 class="card-h">Athletic &amp; HYROX Recovery</h3>
+        <p class="card-p">Rebuild ($324) featuring 100% IV bioavailability vs 15% shaker cups, DOMS relief, and amino kinetics.</p>
+      </div>
+      <span class="card-btn">Launch Athletes Funnel →</span>
+    </a>
+
+    <a href="longevity.html" class="launch-card">
+      <div>
+        <span class="card-tag">Pillar C &middot; High-Ticket</span>
+        <h3 class="card-h">Cellular Longevity &amp; NAD+</h3>
+        <p class="card-p">The Reserve ($500) and 4-Week NAD+ Induction Protocol ($900/mo) for Park Cities executives.</p>
+      </div>
+      <span class="card-btn">Launch Longevity Funnel →</span>
+    </a>
+
+    <a href="radiance.html" class="launch-card">
+      <div>
+        <span class="card-tag">Pillar D &middot; Aesthetics</span>
+        <h3 class="card-h">Aesthetic Radiance &amp; Bridal</h3>
+        <p class="card-p">Radiance ($374) featuring 2,000mg Glutathione + Biotin vascular glow and in-suite bridal group packages.</p>
+      </div>
+      <span class="card-btn">Launch Radiance Funnel →</span>
+    </a>
+
+    <a href="partner-qr.html" class="launch-card">
+      <div>
+        <span class="card-tag">On-Site QR Amenity</span>
+        <h3 class="card-h">Hotel &amp; Gym Partner Portal</h3>
+        <p class="card-p">$50 VIP Amenity Credit redemption portal for luxury Dallas high-rises and boutique gym pop-ups.</p>
+      </div>
+      <span class="card-btn">Launch Partner Portal →</span>
+    </a>
+  </div>
+
+  <!-- Group 2: Downstream Engines & Technical Hub -->
+  <div class="section-title">
+    <span>Downstream Automation &amp; Master Blueprints</span>
+    <span class="section-count">6 Strategic Files</span>
+  </div>
+  <div class="card-grid">
+    <div class="launch-card">
+      <div>
+        <span class="card-tag">Downstream Engine</span>
+        <h3 class="card-h">7 Down-Funnel Scripts</h3>
+        <p class="card-p">Verbatim SMS, Email, and Retell AI Voice Agent scripts for T+2h, T+24h review, 14d recharge, and membership.</p>
+      </div>
+      <span class="card-btn" style="color:var(--ink-muted);">`vitalis-downstream-scripts.md`</span>
+    </div>
+
+    <div class="launch-card">
+      <div>
+        <span class="card-tag">Paid Media</span>
+        <h3 class="card-h">12 Meta Ad Decks &amp; RSAs</h3>
+        <p class="card-p">12 video/static creative storyboards across 4 pillars, Google Search RSAs, and 120+ negative keywords.</p>
+      </div>
+      <span class="card-btn" style="color:var(--ink-muted);">`vitalis-ad-creatives.md`</span>
+    </div>
+
+    <div class="launch-card">
+      <div>
+        <span class="card-tag">Client Onboarding</span>
+        <h3 class="card-h">Kickoff Call Package</h3>
+        <p class="card-p">45-minute kickoff agenda, shift sync framework, 2 core decisions settlement, and asset handover list.</p>
+      </div>
+      <span class="card-btn" style="color:var(--ink-muted);">`vitalis-kickoff-package.md`</span>
+    </div>
+
+    <div class="launch-card">
+      <div>
+        <span class="card-tag">CRM &amp; Tracking</span>
+        <h3 class="card-h">GHL Snapshot &amp; GTM Container</h3>
+        <p class="card-p">3 GoHighLevel pipelines, custom fields schema, and GTM container JSON with Meta CAPI purchase tracking.</p>
+      </div>
+      <span class="card-btn" style="color:var(--ink-muted);">`ghl-snapshot-schema.json`</span>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Vitalis Health & Performance &middot; Architected by AutomateScale &middot; Dallas, TX</p>
+  </footer>
+</div>
+
+</body>
+</html>

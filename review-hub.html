@@ -47,7 +47,6 @@
     }
     .container { max-width: 1140px; margin: 0 auto; }
 
-    /* Top Navigation Header */
     header {
       display: flex;
       justify-content: space-between;
@@ -56,26 +55,9 @@
       margin-bottom: 32px;
       border-bottom: 1px solid var(--border);
     }
-    .brand-wrap {
-      display: flex;
-      align-items: baseline;
-      gap: 14px;
-    }
-    .brand-logo {
-      font-family: var(--font-serif);
-      font-size: 30px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink);
-      font-weight: 500;
-    }
-    .brand-tag {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--gold);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
+    .brand-wrap { display: flex; align-items: baseline; gap: 14px; }
+    .brand-logo { font-family: var(--font-serif); font-size: 30px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); font-weight: 500; }
+    .brand-tag { font-family: var(--font-mono); font-size: 11px; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; }
     .status-badge {
       display: flex;
       align-items: center;
@@ -91,13 +73,8 @@
       text-transform: uppercase;
       font-family: var(--font-mono);
     }
-    .pulse-dot {
-      width: 7px; height: 7px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 10px #22c55e;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.85); } }
+    .pulse-dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 10px #22c55e; }
 
-    /* Hero Banner */
     .hero-banner {
       background: linear-gradient(135deg, rgba(16, 27, 22, 0.9) 0%, rgba(11, 18, 15, 0.9) 100%);
       border: 1px solid var(--border);
@@ -115,94 +92,42 @@
       background: radial-gradient(circle at 100% 0%, var(--gold-glow) 0%, transparent 70%);
       pointer-events: none;
     }
-    .eyebrow {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 10px;
-    }
-    h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(36px, 5vw, 52px);
-      font-weight: 400;
-      line-height: 1.1;
-      margin-bottom: 14px;
-    }
+    .eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    h1 { font-family: var(--font-serif); font-size: clamp(36px, 5vw, 52px); font-weight: 400; line-height: 1.1; margin-bottom: 14px; }
     h1 em { font-style: italic; color: var(--sage-light); }
-    .hero-lead {
-      font-size: 16px;
-      color: var(--ink-muted);
-      max-width: 780px;
-      line-height: 1.6;
-    }
+    .hero-lead { font-size: 16px; color: var(--ink-muted); max-width: 780px; line-height: 1.6; }
 
-    /* High-LTV Metrics Row */
-    .kpi-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 40px;
-    }
-    .kpi-card {
+    .kpi-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
+    .kpi-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; }
+    .kpi-val { font-family: var(--font-serif); font-size: 32px; font-weight: 600; line-height: 1; margin-bottom: 4px; color: var(--gold-light); }
+    .kpi-lbl { font-family: var(--font-mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); }
+
+    .section-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 22px; }
+    .section-title { font-family: var(--font-serif); font-size: 26px; font-weight: 400; color: #fff; }
+    .section-counter { font-family: var(--font-mono); font-size: 11px; color: var(--gold); text-transform: uppercase; }
+
+    /* PDF Downloads Grid (4 Columns) */
+    .pdf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-bottom: 48px; }
+    .pdf-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 20px 22px;
-      transition: all 0.2s;
-    }
-    .kpi-card:hover {
-      border-color: var(--border-accent);
-      transform: translateY(-2px);
-    }
-    .kpi-val {
-      font-family: var(--font-serif);
-      font-size: 32px;
-      font-weight: 600;
-      line-height: 1;
-      margin-bottom: 4px;
-      color: var(--gold-light);
-    }
-    .kpi-lbl {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--ink-muted);
-    }
-
-    /* Section Title */
-    .section-head {
+      padding: 20px 18px;
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      align-items: baseline;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 10px;
-      margin-bottom: 22px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s;
     }
-    .section-title {
-      font-family: var(--font-serif);
-      font-size: 26px;
-      font-weight: 400;
-      color: #fff;
-    }
-    .section-counter {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--gold);
-      text-transform: uppercase;
-    }
+    .pdf-card:hover { border-color: var(--gold); background: var(--surface-card-hover); transform: translateY(-3px); }
+    .pdf-badge { font-family: var(--font-mono); font-size: 8.5pt; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+    .pdf-h { font-family: var(--font-serif); font-size: 19px; color: #fff; margin-bottom: 6px; line-height: 1.2; }
+    .pdf-p { font-size: 12px; color: var(--ink-muted); line-height: 1.45; margin-bottom: 16px; }
+    .pdf-btn { font-family: var(--font-mono); font-size: 9.5pt; font-weight: 700; color: var(--gold-light); display: flex; align-items: center; gap: 6px; }
 
-    /* Presentation Decks Grid */
-    .deck-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-bottom: 48px;
-    }
+    /* Decks Grid */
+    .deck-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 48px; }
     .deck-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -213,201 +138,138 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: all 0.25s;
     }
-    .deck-card:hover {
-      border-color: var(--gold);
-      transform: translateY(-4px);
-      background: var(--surface-card-hover);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.5);
-    }
-    .deck-top-tag {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 8px;
-      display: block;
-    }
-    .deck-h {
-      font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 500;
-      margin-bottom: 8px;
-      color: #fff;
-      line-height: 1.2;
-    }
-    .deck-p {
-      font-size: 13px;
-      color: var(--ink-muted);
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-    .deck-action {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--gold-light);
-    }
+    .deck-card:hover { border-color: var(--gold); transform: translateY(-4px); background: var(--surface-card-hover); }
+    .deck-top-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; display: block; }
+    .deck-h { font-family: var(--font-serif); font-size: 22px; font-weight: 500; margin-bottom: 8px; color: #fff; line-height: 1.2; }
+    .deck-p { font-size: 13px; color: var(--ink-muted); line-height: 1.5; margin-bottom: 20px; }
+    .deck-action { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; color: var(--gold-light); }
 
-    /* Live Funnels Row */
-    .funnels-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 14px;
-      margin-bottom: 48px;
-    }
-    .funnel-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px 18px;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.2s;
-    }
-    .funnel-box:hover {
-      border-color: var(--sage-light);
-      background: var(--surface-card);
-      transform: translateY(-2px);
-    }
-    .funnel-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .funnel-meta {
-      font-size: 11px;
-      color: var(--ink-muted);
-    }
+    .funnels-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 48px; }
+    .funnel-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; text-decoration: none; color: inherit; transition: all 0.2s; }
+    .funnel-box:hover { border-color: var(--sage-light); background: var(--surface-card); transform: translateY(-2px); }
+    .funnel-name { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .funnel-meta { font-size: 11px; color: var(--ink-muted); }
 
-    /* Strategy Blueprints Hub */
-    .blueprints-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-      margin-bottom: 48px;
-    }
-    .bp-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 18px 20px;
-    }
-    .bp-tag { font-family: var(--font-mono); font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--sage-light); margin-bottom: 4px; }
-    .bp-title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 6px; }
-    .bp-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.45; }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      color: var(--ink-muted);
-    }
+    footer { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--ink-muted); }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <!-- Top Navigation Header -->
   <header>
     <div class="brand-wrap">
       <div class="brand-logo">Vitalis</div>
-      <div class="brand-tag">High-LTV Launch Suite</div>
+      <div class="brand-tag">Executive Launch Suite</div>
     </div>
     <div class="status-badge">
       <span class="pulse-dot"></span> System 95% Ready &middot; Offline Flight Mode
     </div>
   </header>
 
-  <!-- Hero Header -->
   <div class="hero-banner">
     <p class="eyebrow">Executive Review Hub &middot; Meeting Alignment</p>
     <h1>The Vitalis 90-Day System<br><em>Master Strategy &amp; Execution Hub</em></h1>
-    <p class="hero-lead">All interactive presentations, high-LTV GERU funnel simulators, 28-email evergreen nurture series, and system mind maps compiled for your review.</p>
+    <p class="hero-lead">All interactive presentations, high-LTV GERU funnel simulators, 28-email evergreen nurture series, and downloadable PDF documents compiled for your review.</p>
   </div>
 
-  <!-- High-LTV Economics Strip -->
   <div class="kpi-strip">
-    <div class="kpi-card">
-      <div class="kpi-val">$382.00</div>
-      <div class="kpi-lbl">Target AOV (High-LTV)</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-val">14.75x</div>
-      <div class="kpi-lbl">Blended 90-Day ROAS</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-val">$9,828 / mo</div>
-      <div class="kpi-lbl">Day-90 Locked MRR</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-val">8 Drips/Wk</div>
-      <div class="kpi-lbl">Capacity Ceiling (Max LTV)</div>
-    </div>
+    <div class="kpi-card"><div class="kpi-val">$382.00</div><div class="kpi-lbl">Target AOV (High-LTV Model)</div></div>
+    <div class="kpi-card"><div class="kpi-val">14.75x</div><div class="kpi-lbl">Blended 90-Day ROAS</div></div>
+    <div class="kpi-card"><div class="kpi-val">$9,828 / mo</div><div class="kpi-lbl">Day-90 Locked MRR</div></div>
+    <div class="kpi-card"><div class="kpi-val">8 Drips/Wk</div><div class="kpi-lbl">Capacity Ceiling (Max LTV)</div></div>
   </div>
 
-  <!-- Section 1: Presentations -->
+  <!-- Section: Downloadable Shareable PDFs -->
   <div class="section-head">
-    <h2 class="section-title">Executive Presentation Suite</h2>
-    <span class="section-counter">4 Standalone Decks</span>
+    <h2 class="section-title">📄 Shareable Team PDFs (Ready to Send)</h2>
+    <span class="section-counter">4 Print-Ready Documents</span>
+  </div>
+
+  <div class="pdf-grid">
+    <a href="../vitalis-lead-magnet-strategic-plan.pdf" class="pdf-card" target="_blank" style="border-top:3px solid var(--blue);">
+      <div>
+        <span class="pdf-badge" style="color:var(--blue);">PDF 01 &middot; Strategy Blueprint</span>
+        <h3 class="pdf-h">Lead Magnet Strategy Plan</h3>
+        <p class="pdf-p">Acquisition blueprint: 3-stage conversion, multi-channel distribution, and $50 voucher bridge.</p>
+      </div>
+      <span class="pdf-btn">Download Plan PDF (210 KB) ↗</span>
+    </a>
+
+    <a href="../vitalis-lead-magnet-protocol-guide.pdf" class="pdf-card" target="_blank" style="border-top:3px solid var(--gold);">
+      <div>
+        <span class="pdf-badge">PDF 02 &middot; Lead Magnet</span>
+        <h3 class="pdf-h">The Protocol Guide PDF</h3>
+        <p class="pdf-p">Official 8-page whitepaper with 10-Point Cellular Deficit Audit and $50 VIP pass.</p>
+      </div>
+      <span class="pdf-btn">Download Protocol PDF (210 KB) ↗</span>
+    </a>
+
+    <a href="../vitalis-90day-master-system-brief.pdf" class="pdf-card" target="_blank" style="border-top:3px solid var(--sage-light);">
+      <div>
+        <span class="pdf-badge">PDF 03 &middot; Pitch Deck</span>
+        <h3 class="pdf-h">Master Strategy Brief</h3>
+        <p class="pdf-p">Landscape executive brief covering competitor teardown and $36,896 economics.</p>
+      </div>
+      <span class="pdf-btn">Download Master Brief PDF (227 KB) ↗</span>
+    </a>
+
+    <a href="../vitalis-28-email-nurture-playbook.pdf" class="pdf-card" target="_blank" style="border-top:3px solid var(--purple);">
+      <div>
+        <span class="pdf-badge">PDF 04 &middot; Copy Playbook</span>
+        <h3 class="pdf-h">28-Email Nurture PDF</h3>
+        <p class="pdf-p">Complete verbatim 90-day email nurture playbook with timing triggers.</p>
+      </div>
+      <span class="pdf-btn">Download Drip Playbook PDF (134 KB) ↗</span>
+    </a>
+  </div>
+
+  <!-- Section: Executive Presentation Decks -->
+  <div class="section-head">
+    <h2 class="section-title">Executive Interactive Presentations</h2>
+    <span class="section-counter">4 Standalone HTML Decks</span>
   </div>
 
   <div class="deck-grid">
-    <!-- Deck 1 -->
     <a href="presentation-master.html" class="deck-card" style="border-top: 3px solid var(--gold);">
       <div>
         <span class="deck-top-tag" style="color:var(--gold);">Deck 01 &middot; Master Pitch</span>
         <h3 class="deck-h">Executive Strategy Deck</h3>
-        <p class="deck-p">8-Slide master pitch: Dallas competitor teardown, Love Field 15-mi $0 fee moat, 4 audience pillars, and 90-day roadmap.</p>
+        <p class="deck-p">8-Slide master pitch with 'O' key grid overview, competitor teardown, and 90-day roadmap.</p>
       </div>
       <span class="deck-action">Launch Deck 01 (8 Slides) →</span>
     </a>
 
-    <!-- Deck 2 -->
     <a href="presentation-geru-funnels.html" class="deck-card" style="border-top: 3px solid var(--sage-light);">
       <div>
         <span class="deck-top-tag" style="color:var(--sage-light);">Deck 02 &middot; Interactive Math</span>
         <h3 class="deck-h">High-LTV GERU Simulator</h3>
-        <p class="deck-p">Live interactive funnel simulator modeling $382 AOV, 14.75x ROAS, and $9,828/mo locked MRR with real-time sliders.</p>
+        <p class="deck-p">Live interactive funnel simulator modeling $382 AOV, 14.75x ROAS, and $9,828/mo locked MRR.</p>
       </div>
       <span class="deck-action">Launch GERU Simulator →</span>
     </a>
 
-    <!-- Deck 3 -->
     <a href="presentation-downstream.html" class="deck-card" style="border-top: 3px solid var(--purple);">
       <div>
         <span class="deck-top-tag" style="color:var(--purple);">Deck 03 &middot; Retention &amp; Drips</span>
         <h3 class="deck-h">7 Down-Funnels &amp; 28-Drip</h3>
-        <p class="deck-p">Verbatim scripts: T+24h review gate, 14d recharge, 30d membership MRR ladder, and the 28-email evergreen nurture.</p>
+        <p class="deck-p">Verbatim scripts with 1-click copying for review filter, recharge, memberships, and 28-drip series.</p>
       </div>
       <span class="deck-action">Launch Downstream Deck →</span>
     </a>
 
-    <!-- Deck 4 -->
     <a href="presentation-mindmaps.html" class="deck-card" style="border-top: 3px solid var(--blue);">
       <div>
         <span class="deck-top-tag" style="color:var(--blue);">Deck 04 &middot; Architecture Tree</span>
         <h3 class="deck-h">System Mind Maps &amp; Tech</h3>
-        <p class="deck-p">Hierarchical node tree covering Love Field 15-mi geofencing, 2-way Google Calendar blackout sync, and Meta CAPI tracking.</p>
+        <p class="deck-p">Hierarchical node tree covering Love Field 15-mi geofencing, shift blackout sync, and Meta CAPI tracking.</p>
       </div>
       <span class="deck-action">Launch Mind Map Deck →</span>
     </a>
   </div>
 
-  <!-- Section 2: Conversion Funnels -->
+  <!-- Section: Flagship Hero Conversion Funnels -->
   <div class="section-head">
     <h2 class="section-title">Flagship Front-End Conversion Funnels</h2>
     <span class="section-counter">Tested &amp; Production Ready</span>
@@ -436,38 +298,9 @@
     </a>
   </div>
 
-  <!-- Section 3: Core Strategy Blueprints -->
-  <div class="section-head">
-    <h2 class="section-title">Core Strategy Blueprints &amp; Technical Files</h2>
-    <span class="section-counter">Master Markdown Assets</span>
-  </div>
-
-  <div class="blueprints-grid">
-    <div class="bp-card">
-      <div class="bp-tag">Founder Directive</div>
-      <div class="bp-title">High-LTV Strategic Memo</div>
-      <div class="bp-desc">Documents the pivot to Athletes &amp; Longevity, $382 AOV, and 100% capacity lock. (`vitalis-high-ltv-pivot.md`)</div>
-    </div>
-    <div class="bp-card">
-      <div class="bp-tag">Email Architecture</div>
-      <div class="bp-title">28-Email Evergreen Drip</div>
-      <div class="bp-desc">Complete 90-day post-opt-in nurture engine with Liquid tags and membership ascension. (`vitalis-email-drip-series.md`)</div>
-    </div>
-    <div class="bp-card">
-      <div class="bp-tag">Paid Media</div>
-      <div class="bp-title">Realigned Growth Blueprint</div>
-      <div class="bp-desc">75% budget shift to Athletic Bioavailability &amp; NAD+ Longevity; Google LSA matrix. (`vitalis-realigned-growth-blueprint.md`)</div>
-    </div>
-    <div class="bp-card">
-      <div class="bp-tag">Automation</div>
-      <div class="bp-title">7 Downstream Scripts</div>
-      <div class="bp-desc">Verbatim SMS/Email scripts for review filter, recharge, memberships, and Retell AI voice. (`vitalis-downstream-scripts.md`)</div>
-    </div>
-  </div>
-
   <footer>
     <div>Vitalis Health & Performance &middot; Architected by AutomateScale &middot; Dallas, TX</div>
-    <div style="font-family:var(--font-mono); color:var(--gold);">AIRPLANE REVIEW MODE ACTIVE</div>
+    <div style="font-family:var(--font-mono); color:var(--gold);">ALL 4 PDFS READY FOR DOWNLOAD</div>
   </footer>
 </div>
 

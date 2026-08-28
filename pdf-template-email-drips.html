@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vitalis 28-Email Evergreen Nurture Playbook &middot; PDF</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    @page {
+      size: letter portrait;
+      margin: 0.7in;
+      @bottom-right {
+        content: counter(page);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8pt;
+        color: #8E9E97;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #FFFFFF;
+      color: #1A2420;
+      font-family: 'Jost', -apple-system, sans-serif;
+      font-size: 10pt;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-break { page-break-after: always; }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 2px solid #0E1A15;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .brand { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18pt; font-weight: 700; text-transform: uppercase; }
+    .meta { font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: #5E6B5C; text-align: right; }
+
+    h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26pt; margin-bottom: 0.5rem; line-height: 1.1; }
+    h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 16pt; margin: 1.2rem 0 0.5rem; color: #0E1A15; border-bottom: 1px solid #D8D0C5; padding-bottom: 4px; }
+    
+    .email-card {
+      background: #F8FAF9;
+      border: 1px solid #D5DDD8;
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      page-break-inside: avoid;
+    }
+    .email-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt;
+      font-weight: 700;
+      color: #8C6D40;
+      margin-bottom: 4px;
+    }
+    .email-subject { font-weight: 600; color: #0E1A15; font-size: 10.5pt; margin-bottom: 6px; }
+    .email-body { font-size: 9pt; color: #33443C; line-height: 1.45; white-space: pre-wrap; font-family: 'Jost', sans-serif; }
+  </style>
+</head>
+<body>
+
+  <div class="header-bar">
+    <div class="brand">Vitalis Health & Performance</div>
+    <div class="meta">28-Email Evergreen Drip Playbook<br>90-Day Post-Opt-In Lifecycle</div>
+  </div>
+
+  <h1>The 28-Email Nurture &amp; Ascension Engine</h1>
+  <p style="color:#5E6B5C; margin-bottom:1.5rem;">Verbatim email copy, Liquid merge tags, and timing triggers mapped across 4 strategic phases to convert leads into recurring $369–$699/mo members and $900/mo NAD+ retainers.</p>
+
+  <h2>Phase 1: Induction &amp; Clinical Authority (Days 1–14)</h2>
+
+  <div class="email-card">
+    <div class="email-meta"><span>EMAIL 01 &middot; DAY 0 (IMMEDIATE)</span><span>TRIGGER: OPT-IN</span></div>
+    <div class="email-subject">Subject: Your Dallas Recovery Protocol is inside (+ an honest confession)</div>
+    <div class="email-body">Hey {{contact.first_name}}, Sergio here. Your copy of The Dallas High-Performance & Cellular Recovery Protocol is ready.
+
+When you swallow vitamin pills or drink electrolyte powders, your GI tract destroys 80–85% of active nutrients before they reach your bloodstream. Intravenous therapy is the only clinical route achieving 100% vascular bioavailability.
+
+If you're depleted or fighting travel fatigue today, our registered nurse can be at your Dallas doorstep in 45 minutes: https://vitalishealthco.com/athletes</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-meta"><span>EMAIL 02 &middot; DAY 2</span><span>TRIGGER: +48H NURTURE</span></div>
+    <div class="email-subject">Subject: Why drinking 1 gallon of water is making you more tired</div>
+    <div class="email-body">Hey {{contact.first_name}}, pure water without balanced electrolytes actually dilutes the sodium and potassium gradient in your bloodstream. Your kidneys dump the excess fluid before your cells can absorb it.
+
+When we administer The Rebuild ($324) or The Reset ($249), we use 1,000mL of isotonic fluid balanced to human serum osmolarity (~290 mOsm/L) combined with IV Magnesium Chloride. Instant cellular equilibrium.</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-meta"><span>EMAIL 03 &middot; DAY 4</span><span>TRIGGER: +96H NURTURE</span></div>
+    <div class="email-subject">Subject: Who is holding the needle in your living room? (The RN Standard)</div>
+    <div class="email-body">Hey {{contact.first_name}}, many franchise mobile IV companies hire medical assistants or EMTs. At Vitalis, every single infusion is administered by a licensed Registered Nurse (BSN, RN) with hospital acute-care experience.
+
+Painless single-stick cannulation, individualized flow titration, and hospital-grade sterility in total home comfort: https://vitalishealthco.com/service-areas</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-meta"><span>EMAIL 06 &middot; DAY 11</span><span>TRIGGER: PROMO VOUCHER</span></div>
+    <div class="email-subject">Subject: $25 credited to your Vitalis profile (Code: VITALIS25)</div>
+    <div class="email-body">Hey {{contact.first_name}}, I've generated a private $25 Welcome Credit tied to your email. Use code VITALIS25 for $25 off any in-home infusion in our Dallas Love Field zero-fee corridor: https://vitalishealthco.com/athletes</div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <h2>Phase 2: Biomarkers &amp; NAD+ Science (Days 15–30)</h2>
+
+  <div class="email-card">
+    <div class="email-meta"><span>EMAIL 08 &middot; DAY 16</span><span>THE MASTER ANTIOXIDANT</span></div>
+    <div class="email-subject">Subject: Why oral Glutathione pills are 95% useless</div>
+    <div class="email-body">Hey {{contact.first_name}}, oral glutathione degrades in stomach acid into basic amino acids. Our 2,000mg IV push enters venous circulation directly, flooding liver phase-II detox pathways and brightening skin tone in 12 hours: https://vitalishealthco.com/radiance</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-meta"><span>EMAIL 09 &middot; DAY 19</span><span>MITOCHONDRIAL ENERGY</span></div>
+    <div class="email-subject">Subject: The cellular battery that drains 50% by age 40 (NAD+)</div>
+    <div class="email-body">Hey {{contact.first_name}}, NAD+ powers mitochondrial ATP synthesis and activates sirtuin longevity genes. Our 4-Week In-Home NAD+ Induction Protocol ($900/mo) restores razor-sharp executive focus: https://vitalishealthco.com/longevity</div>
+  </div>
+
+  <h2>Phase 3: Case Studies &amp; Memberships (Days 31–55)</h2>
+
+  <div class="email-card">
+    <div class="email-meta"><span>EMAIL 15 &middot; DAY 33</span><span>ATHLETIC CASE STUDY</span></div>
+    <div class="email-subject">Subject: Case Study: How Marcus dropped 48-hr recovery to 6 hrs</div>
+    <div class="email-body">Meet Marcus (42, Dallas PE Partner). By implementing bi-weekly Rebuild infusions, his average Whoop recovery increased from 44% to 78% green with zero afternoon caffeine crashes: https://vitalishealthco.com/athletes</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-meta"><span>EMAIL 17 &middot; DAY 40</span><span>MEMBERSHIP MATH</span></div>
+    <div class="email-subject">Subject: Stop paying retail for mobile IVs in Dallas</div>
+    <div class="email-body">The Protocol Membership ($369/mo) gives you 2 complete drips per month (saving ~$80–$140/mo), priority weekend scheduling, and 100% rollover protection: https://vitalishealthco.com/service-areas</div>
+  </div>
+
+  <h2>Phase 4: High-Ticket Retainers (Days 56–90)</h2>
+
+  <div class="email-card">
+    <div class="email-meta"><span>EMAIL 22 &middot; DAY 58</span><span>$900/MO NAD+ PROTOCOL</span></div>
+    <div class="email-subject">Subject: The 4-Week NAD+ Protocol ($900/mo) explained in detail</div>
+    <div class="email-body">Weekly in-home titrated dosing (250mg &rarr; 500mg) managed by your acute-care nurse. Capped at 6 private clients per month: https://vitalishealthco.com/longevity</div>
+  </div>
+
+</body>
+</html>

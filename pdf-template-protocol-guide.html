@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Dallas High-Performance & Cellular Recovery Protocol &middot; Vitalis</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    @page {
+      size: letter portrait;
+      margin: 0.8in 0.8in 0.8in 0.8in;
+      @bottom-right {
+        content: counter(page);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 9pt;
+        color: #8E9E97;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #FFFFFF;
+      color: #1A2420;
+      font-family: 'Jost', -apple-system, sans-serif;
+      font-size: 11pt;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-break { page-break-after: always; }
+
+    /* Cover Page */
+    .cover-page {
+      height: 9.2in;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 2px solid #C5A880;
+      padding: 3.5rem 3rem;
+      background: #080D0B;
+      color: #F7F5F2;
+    }
+    .cover-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10pt;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #C5A880;
+      font-weight: 700;
+    }
+    .cover-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 38pt;
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 1.5rem 0 1rem;
+      color: #FFFFFF;
+    }
+    .cover-title em { font-style: italic; color: #859F83; }
+    .cover-subtitle {
+      font-size: 13pt;
+      color: #A0B0AA;
+      line-height: 1.5;
+      max-width: 520px;
+    }
+    .cover-footer {
+      border-top: 1px solid #22332B;
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .author-name { font-size: 12pt; font-weight: 600; color: #FFFFFF; }
+    .author-title { font-size: 9pt; color: #C5A880; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; }
+    .badge-dallas { font-family: 'JetBrains Mono', monospace; font-size: 9pt; color: #859F83; text-transform: uppercase; }
+
+    /* Interior Page Header & Typography */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #E0D8CE;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt;
+      color: #7A8A84;
+      text-transform: uppercase;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 24pt;
+      font-weight: 600;
+      color: #0E1A15;
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+    h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 16pt;
+      font-weight: 600;
+      color: #21332A;
+      margin: 1.2rem 0 0.4rem;
+    }
+    p { margin-bottom: 1rem; color: #2B3D35; }
+    strong { color: #0E1A15; font-weight: 600; }
+
+    /* Callout & Matrix Boxes */
+    .callout {
+      background: #F4F7F5;
+      border-left: 3px solid #5E6B5C;
+      padding: 1rem 1.2rem;
+      margin: 1.2rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2rem 0;
+      font-size: 10pt;
+    }
+    .matrix-table th {
+      background: #0E1A15;
+      color: #FFFFFF;
+      text-align: left;
+      padding: 8px 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt;
+      text-transform: uppercase;
+    }
+    .matrix-table td {
+      border-bottom: 1px solid #E2DDD5;
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+
+    /* Scorecard */
+    .score-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed #D0C8BD;
+      padding: 6px 0;
+      font-size: 10pt;
+    }
+    .checkbox { width: 14px; height: 14px; border: 1px solid #0E1A15; display: inline-block; margin-right: 8px; vertical-align: middle; }
+
+    /* Voucher */
+    .voucher-box {
+      border: 2px dashed #C5A880;
+      background: #FAF8F5;
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: 1.5rem;
+      border-radius: 8px;
+    }
+    .voucher-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18pt;
+      font-weight: 700;
+      color: #8C6D40;
+      letter-spacing: 0.1em;
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COVER PAGE -->
+  <div class="cover-page page-break">
+    <div>
+      <p class="cover-eyebrow">Clinical Whitepaper &middot; Clinical Protocol</p>
+      <h1 class="cover-title">The Dallas<br>High-Performance &amp;<br><em>Cellular Recovery Protocol</em></h1>
+      <p class="cover-subtitle">The Acute-Care Registered Nurse’s Blueprint to 100% Bioavailability, Mitochondrial ATP Renewal, and Rapid Lactate Clearance.</p>
+    </div>
+    <div class="cover-footer">
+      <div>
+        <div class="author-name">Sergio Enriquez, BSN, RN</div>
+        <div class="author-title">Founder &middot; Vitalis Health &amp; Performance</div>
+      </div>
+      <div class="badge-dallas">Dallas Love Field 15-Mi Corridor</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: THE BIOAVAILABILITY TRUTH -->
+  <div class="page-break">
+    <div class="doc-header">
+      <span>Vitalis Clinical Whitepaper</span>
+      <span>Section 01 &middot; Bioavailability Kinetics</span>
+    </div>
+
+    <h2>1. The Shaker Cup Deficit: Why Oral Vitamins Fail</h2>
+    <p>Every morning in Dallas, thousands of high-performing executives, marathon runners, and athletes follow the exact same routine: they swallow handfuls of multivitamin capsules, mix electrolyte powders into shaker cups, and drink double espressos.</p>
+    <p>Yet by 2:30 PM, the familiar symptoms return: <strong>brain fog, tight calves, physical exhaustion, and heavy cognitive drag</strong>.</p>
+
+    <div class="callout">
+      <strong>The Gut-Lock Phenomenon:</strong> During intense athletic training or high corporate stress, sympathetic nervous system arousal shunts blood flow away from the gastrointestinal tract (gut ischemia). Oral supplement absorption drops from a baseline of ~30% to <strong>less than 15–20%</strong>.
+    </div>
+
+    <h3>The Intravenous Delivery Standard</h3>
+    <p>When vitamins, amino acids, and minerals are administered intravenously:</p>
+    <ul>
+      <li><strong>100% Vascular Bioavailability:</strong> Bypasses the gastrointestinal tract and liver first-pass metabolism entirely.</li>
+      <li><strong>Immediate Osmotic Hydration:</strong> 1,000mL of isotonic fluid restores intracranial and muscular plasma volume in under 15 minutes.</li>
+      <li><strong>Therapeutic Tissue Saturation:</strong> Floods depleted intracellular receptor sites with clinical doses impossible to reach orally without severe digestive distress.</li>
+    </ul>
+
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th>Delivery Method</th>
+          <th>Active Absorption</th>
+          <th>Time to Cellular Peak</th>
+          <th>Digestive Side Effects</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Oral Vitamin Capsules</td>
+          <td>15% &ndash; 25%</td>
+          <td>3 &ndash; 6 Hours</td>
+          <td>High (Nausea, GI distress)</td>
+        </tr>
+        <tr>
+          <td>Electrolyte Powders</td>
+          <td>20% &ndash; 30%</td>
+          <td>2 &ndash; 4 Hours</td>
+          <td>Moderate (Osmotic diarrhea)</td>
+        </tr>
+        <tr>
+          <td><strong>Vitalis In-Home IV</strong></td>
+          <td><strong>100% Exact</strong></td>
+          <td><strong>15 &ndash; 30 Minutes</strong></td>
+          <td><strong>Zero GI Breakdown</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 2: THE COMPOUNDING MATRIX & AUDIT -->
+  <div class="page-break">
+    <div class="doc-header">
+      <span>Vitalis Clinical Whitepaper</span>
+      <span>Section 02 &middot; Biomarker Audit</span>
+    </div>
+
+    <h2>2. The 10-Point Cellular Deficit Audit</h2>
+    <p>Use this self-diagnostic assessment to evaluate your current intracellular recovery baseline:</p>
+
+    <div style="margin: 1rem 0;">
+      <div class="score-item"><span><span class="checkbox"></span> Afternoon cognitive crash between 2:00 PM and 4:00 PM</span> <strong>[+1 Pt]</strong></div>
+      <div class="score-item"><span><span class="checkbox"></span> Delayed Onset Muscle Soreness (DOMS) lasting > 36 hours</span> <strong>[+1 Pt]</strong></div>
+      <div class="score-item"><span><span class="checkbox"></span> Frequent airplane travel (Love Field / DFW) causing jetlag</span> <strong>[+1 Pt]</strong></div>
+      <div class="score-item"><span><span class="checkbox"></span> Relying on > 300mg of caffeine daily for baseline alertness</span> <strong>[+1 Pt]</strong></div>
+      <div class="score-item"><span><span class="checkbox"></span> Muscle twitches, tight calves, or nighttime sleep disruption</span> <strong>[+1 Pt]</strong></div>
+      <div class="score-item"><span><span class="checkbox"></span> Waking up unrefreshed despite 7+ hours in bed</span> <strong>[+1 Pt]</strong></div>
+      <div class="score-item"><span><span class="checkbox"></span> Whoop / Oura HRV recovery scores frequently in yellow/red</span> <strong>[+1 Pt]</strong></div>
+      <div class="score-item"><span><span class="checkbox"></span> Drinking > 1 gallon of water daily but still feeling dehydrated</span> <strong>[+1 Pt]</strong></div>
+      <div class="score-item"><span><span class="checkbox"></span> Post-social alcohol recovery requiring > 24 hours to reboot</span> <strong>[+1 Pt]</strong></div>
+      <div class="score-item"><span><span class="checkbox"></span> Skin dullness or joint stiffness during heavy training</span> <strong>[+1 Pt]</strong></div>
+    </div>
+
+    <div class="callout">
+      <strong>Score Interpretation:</strong><br>
+      • <strong>1–3 Points:</strong> Mild baseline depletion. Recommended: Bi-weekly hydration tune-up.<br>
+      • <strong>4–6 Points:</strong> Moderate intracellular deficit. Recommended: The Rebuild Protocol ($324) or The Reset ($249).<br>
+      • <strong>7–10 Points:</strong> Severe mitochondrial & mineral exhaustion. Recommended: 4-Week NAD+ Induction Protocol ($900/mo) or The Reserve ($500).
+    </div>
+
+    <div class="voucher-box">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:9pt; text-transform:uppercase; color:#7A6038;">Exclusive Protocol Reader Credit</div>
+      <div class="voucher-code">$50 VIP RECOVERY VOUCHER</div>
+      <p style="font-size:10pt; color:#5A4A35; margin-bottom:0.5rem;">Valid for in-home registered nurse IV therapy across Dallas Love Field 15-mile zero-fee zone.</p>
+      <div style="font-family:'JetBrains Mono',monospace; font-weight:700; font-size:11pt; color:#0E1A15;">Use Code: PROTOCOL50 &middot; https://vitalishealthco.com</div>
+    </div>
+  </div>
+
+</body>
+</html>

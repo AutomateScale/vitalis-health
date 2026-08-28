@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Vitalis — 90-Day Launch System | AutomateScale</title>
+<meta name="description" content="A booking engine for mobile IV therapy in Dallas. Prepared for Sergio Enriquez by AutomateScale.">
+<meta property="og:title" content="Vitalis — 90-Day Launch System">
+<meta property="og:description" content="A booking engine for mobile IV therapy in Dallas. Built once, then fed by paid and organic traffic working together.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #F6F7F6;
+    --surface: #FFFFFF;
+    --surface-2: #F0F3F1;
+    --ink: #101E1D;
+    --ink-2: #3D4E4C;
+    --muted: #6E7E7C;
+    --line: #DCE3E1;
+    --line-strong: #C3CFCC;
+    --accent: #A96F0D;
+    --accent-ink: #8A5A08;
+    --accent-soft: #FAF2E1;
+    --teal: #14504C;
+    --teal-soft: #E5EDEB;
+    --off: #9AA8A6;
+
+    --display: "Inter", ui-sans-serif, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --body: "Source Serif 4", "Iowan Old Style", Palatino, Georgia, serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0B1413;
+      --surface: #121F1E;
+      --surface-2: #162524;
+      --ink: #EDF2F1;
+      --ink-2: #B6C4C2;
+      --muted: #7F908E;
+      --line: #22322F;
+      --line-strong: #33463F;
+      --accent: #E3A93F;
+      --accent-ink: #F0C275;
+      --accent-soft: #23190A;
+      --teal: #57ADA4;
+      --teal-soft: #14201F;
+      --off: #4E5F5D;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.62;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 28px 160px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    border-bottom: 1px solid var(--line);
+    padding: 64px 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .eyebrow {
+    font-family: var(--display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(38px, 7vw, 60px);
+    font-weight: 800;
+    letter-spacing: -.035em;
+    line-height: 1.02;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .standfirst {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 30em;
+  }
+
+  .factbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--surface);
+    margin: 0;
+  }
+
+  .fact {
+    flex: 1 1 150px;
+    padding: 14px 18px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .fact:last-child { border-right: none; }
+
+  .fact dt {
+    font-family: var(--display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+  .fact dd {
+    font-family: var(--display);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    color: var(--ink);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- sections ---------- */
+
+  section { padding-top: 56px; }
+
+  h2 {
+    font-family: var(--display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ink);
+    display: inline-block;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    line-height: 1.2;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  p { margin: 0 0 18px; }
+  p:last-child { margin-bottom: 0; }
+  .lead { font-size: 18.5px; color: var(--ink-2); }
+
+  strong { font-weight: 600; color: var(--ink); }
+  em.note { font-style: italic; color: var(--muted); }
+
+  /* ---------- read-back list ---------- */
+
+  .readback {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 3px; overflow: hidden;
+  }
+  .readback li {
+    background: var(--surface);
+    padding: 15px 18px;
+    display: grid;
+    grid-template-columns: 128px 1fr;
+    gap: 18px;
+    align-items: baseline;
+  }
+  .readback .k {
+    font-family: var(--display);
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .readback .v { font-size: 16px; line-height: 1.5; }
+
+  @media (max-width: 560px) {
+    .readback li { grid-template-columns: 1fr; gap: 5px; }
+  }
+
+  /* ---------- phase rail ---------- */
+
+  .phases { position: relative; margin: 0; padding: 8px 0 0 46px; }
+  .phases::before {
+    content: ""; position: absolute;
+    left: 13px; top: 22px; bottom: 34px; width: 1px;
+    background: linear-gradient(var(--accent), var(--line-strong));
+  }
+
+  .phase { position: relative; padding-bottom: 40px; }
+  .phase:last-child { padding-bottom: 8px; }
+  .phase::before {
+    content: ""; position: absolute;
+    left: -39px; top: 8px; width: 13px; height: 13px;
+    border-radius: 50%;
+    background: var(--ground);
+    border: 3px solid var(--accent);
+  }
+
+  .phase-head {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px;
+    margin-bottom: 6px;
+  }
+  .phase-num {
+    font-family: var(--mono); font-size: 12px; font-weight: 600;
+    color: var(--accent-ink); letter-spacing: .04em;
+  }
+  .phase-window {
+    font-family: var(--display); font-size: 11px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .phase-price {
+    font-family: var(--display); font-size: 13px; font-weight: 700;
+    color: var(--ink); background: var(--accent-soft);
+    border: 1px solid var(--accent); border-radius: 2px;
+    padding: 2px 8px; font-variant-numeric: tabular-nums;
+    margin-left: auto;
+  }
+  .phase-lede { color: var(--ink-2); font-size: 16.5px; margin: 8px 0 14px; }
+
+  .deliverables { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+  .deliverables li {
+    position: relative; padding-left: 20px;
+    font-size: 16px; line-height: 1.5;
+  }
+  .deliverables li::before {
+    content: ""; position: absolute; left: 2px; top: 10px;
+    width: 7px; height: 1px; background: var(--accent);
+  }
+  .owner {
+    font-family: var(--display); font-size: 10px; font-weight: 700;
+    letter-spacing: .09em; text-transform: uppercase;
+    color: var(--teal); white-space: nowrap;
+  }
+
+  /* ---------- tracks (toggleable) ---------- */
+
+  .track {
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: var(--surface);
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    transition: opacity .18s ease, border-color .18s ease;
+  }
+  .track:last-child { margin-bottom: 0; }
+  .track[data-on="false"] { opacity: .42; border-style: dashed; }
+  .track[data-on="false"] .track-price { text-decoration: line-through; }
+
+  .track-head {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    margin-bottom: 12px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .track-name {
+    font-family: var(--display); font-size: 12px; font-weight: 700;
+    letter-spacing: .11em; text-transform: uppercase; color: var(--ink);
+  }
+  .track-price {
+    font-family: var(--display); font-size: 12px; font-weight: 700;
+    color: var(--accent-ink); font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  /* switch */
+  .switch {
+    margin-left: auto;
+    display: inline-flex; align-items: center; gap: 9px;
+    cursor: pointer; user-select: none;
+    font-family: var(--display); font-size: 10px; font-weight: 700;
+    letter-spacing: .11em; text-transform: uppercase; color: var(--muted);
+  }
+  .switch input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .switch .slot {
+    width: 40px; height: 22px; border-radius: 999px;
+    background: var(--off); position: relative;
+    transition: background .18s ease;
+    flex: none;
+  }
+  .switch .slot::after {
+    content: ""; position: absolute; top: 3px; left: 3px;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: #fff; transition: transform .18s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,.28);
+  }
+  .switch input:checked + .slot { background: var(--teal); }
+  .switch input:checked + .slot::after { transform: translateX(18px); }
+  .switch input:focus-visible + .slot { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .track-note { margin: 14px 0 0; font-size: 15px; color: var(--muted); }
+
+  .dropped {
+    display: none;
+    margin: 12px 0 0; padding: 11px 13px;
+    border-left: 3px solid var(--accent);
+    background: var(--accent-soft);
+    font-size: 15px; line-height: 1.5; color: var(--ink-2);
+  }
+  .track[data-on="false"] .dropped { display: block; }
+
+  /* ---------- configurator ---------- */
+
+  .config {
+    border: 1px solid var(--line-strong);
+    border-radius: 3px;
+    background: var(--surface);
+    padding: 22px 24px;
+  }
+  .ctrl { padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .ctrl:first-child { padding-top: 0; }
+  .ctrl:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .ctrl-label {
+    font-family: var(--display); font-size: 11px; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+    display: block; margin-bottom: 4px;
+  }
+  .ctrl-value {
+    font-family: var(--display); font-size: 26px; font-weight: 800;
+    letter-spacing: -.03em; color: var(--accent-ink);
+    font-variant-numeric: tabular-nums; line-height: 1.1;
+  }
+  .ctrl-sub { font-size: 15px; color: var(--ink-2); margin: 6px 0 0; }
+
+  input[type="range"] {
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 4px; margin: 18px 0 6px;
+    background: var(--line-strong); border-radius: 999px; outline: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--surface);
+    box-shadow: 0 1px 4px rgba(0,0,0,.3); cursor: pointer;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--surface);
+    box-shadow: 0 1px 4px rgba(0,0,0,.3); cursor: pointer; border-color: var(--surface);
+  }
+  input[type="range"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  input[type="range"]:disabled { opacity: .35; cursor: not-allowed; }
+
+  .scale {
+    display: flex; justify-content: space-between;
+    font-family: var(--display); font-size: 11px; color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stepper { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+  .stepper button {
+    width: 34px; height: 34px; border-radius: 3px;
+    border: 1px solid var(--line-strong); background: var(--surface-2);
+    color: var(--ink); font-size: 19px; line-height: 1; cursor: pointer;
+    font-family: var(--display);
+  }
+  .stepper button:hover { border-color: var(--accent); color: var(--accent-ink); }
+  .stepper input {
+    width: 76px; padding: 8px 10px; text-align: center;
+    font-family: var(--display); font-size: 17px; font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    border: 1px solid var(--line-strong); border-radius: 3px;
+    background: var(--ground); color: var(--ink);
+  }
+  .stepper span {
+    font-family: var(--display); font-size: 12px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  }
+
+  /* ---------- option cards ---------- */
+
+  .options { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; margin-top: 14px; }
+  .opt {
+    display: block; cursor: pointer; position: relative;
+    border: 1px solid var(--line-strong); border-radius: 3px;
+    background: var(--ground); padding: 14px 15px;
+    transition: border-color .16s ease, background .16s ease;
+  }
+  .opt input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .opt:hover { border-color: var(--accent); }
+  .opt:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
+  .opt:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .opt-name {
+    font-family: var(--display); font-size: 14px; font-weight: 700;
+    letter-spacing: -.01em; color: var(--ink); display: block; margin-bottom: 5px;
+  }
+  .opt-desc { font-size: 14.5px; line-height: 1.45; color: var(--ink-2); }
+  .opt-tag {
+    display: inline-block; margin-top: 8px;
+    font-family: var(--display); font-size: 10px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--teal);
+  }
+
+  /* ---------- tables ---------- */
+
+  .scroller { overflow-x: auto; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); }
+
+  table { width: 100%; border-collapse: collapse; font-family: var(--display); font-size: 15px; }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th {
+    font-size: 10px; font-weight: 700; letter-spacing: .13em;
+    text-transform: uppercase; color: var(--muted);
+    background: var(--surface-2); white-space: nowrap;
+  }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  tr.total td {
+    border-top: 2px solid var(--ink); border-bottom: none;
+    font-weight: 700; font-size: 16px; background: var(--surface-2);
+  }
+  tr[data-off="true"] { display: none; }
+  td .sub {
+    display: block; font-size: 13px; color: var(--muted);
+    line-height: 1.4; margin-top: 2px; font-weight: 400;
+  }
+  .name { font-weight: 600; color: var(--ink); }
+
+  /* ---------- decisions ---------- */
+
+  .decision {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+  }
+  .decision h3 { font-size: 17px; margin-bottom: 8px; }
+  .decision p { font-size: 16px; margin-bottom: 0; color: var(--ink-2); }
+  .decision p + p { margin-top: 10px; }
+
+  /* ---------- kpis ---------- */
+
+  .kpis {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+    gap: 1px; background: var(--line);
+    border: 1px solid var(--line); border-radius: 3px; overflow: hidden;
+  }
+  .kpi { background: var(--surface); padding: 18px; display: flex; flex-direction: column; gap: 4px; }
+  .kpi .v {
+    font-family: var(--display); font-size: 27px; font-weight: 800;
+    letter-spacing: -.03em; color: var(--accent-ink);
+    font-variant-numeric: tabular-nums; line-height: 1;
+  }
+  .kpi .l {
+    font-family: var(--display); font-size: 11px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  }
+  .kpi .d { font-size: 14px; color: var(--ink-2); line-height: 1.4; }
+
+  .verdict {
+    margin-top: 14px; padding: 14px 16px;
+    border: 1px solid var(--line); border-left: 3px solid var(--teal);
+    border-radius: 3px; background: var(--teal-soft);
+    font-size: 15.5px; line-height: 1.5; color: var(--ink-2);
+  }
+  .verdict[data-tone="warn"] { border-left-color: var(--accent); background: var(--accent-soft); }
+  .verdict b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- steps ---------- */
+
+  ol.steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  ol.steps li {
+    counter-increment: s; position: relative;
+    padding-left: 42px; font-size: 16.5px; line-height: 1.5;
+  }
+  ol.steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 1px;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--teal); color: var(--ground);
+    font-family: var(--display); font-size: 13px; font-weight: 700;
+    display: grid; place-items: center;
+  }
+
+  .btn {
+    display: inline-block; margin-top: 16px; text-decoration: none;
+    font-family: var(--display); font-size: 13px; font-weight: 700;
+    letter-spacing: .09em; text-transform: uppercase;
+    background: var(--teal); color: #fff;
+    border: none; border-radius: 3px; padding: 13px 24px; cursor: pointer;
+  }
+  .btn:hover { background: var(--ink); }
+  .btn:disabled { opacity: .5; cursor: progress; }
+  .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); }
+  .btn.ghost:hover { border-color: var(--accent); color: var(--accent-ink); background: transparent; }
+
+  /* ---------- sticky total bar ---------- */
+
+  .bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    background: var(--surface);
+    border-top: 1px solid var(--line-strong);
+    box-shadow: 0 -6px 24px rgba(0,0,0,.10);
+    transform: translateY(105%);
+    transition: transform .28s cubic-bezier(.4,0,.2,1);
+  }
+  .bar[data-show="true"] { transform: translateY(0); }
+  .bar-in {
+    max-width: 820px; margin: 0 auto; padding: 12px 28px;
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  }
+  .bar-l {
+    font-family: var(--display); font-size: 10px; font-weight: 700;
+    letter-spacing: .13em; text-transform: uppercase; color: var(--muted);
+    display: block;
+  }
+  .bar-v {
+    font-family: var(--display); font-size: 24px; font-weight: 800;
+    letter-spacing: -.03em; color: var(--ink);
+    font-variant-numeric: tabular-nums; line-height: 1.1;
+  }
+  .bar-note {
+    font-family: var(--display); font-size: 13px; color: var(--muted);
+    flex: 1 1 200px; line-height: 1.35;
+  }
+  .bar .btn { margin-top: 0; margin-left: auto; padding: 11px 20px; }
+
+  @media (max-width: 620px) {
+    .bar-in { padding: 10px 20px; gap: 12px; }
+    .bar-note { display: none; }
+    .bar .btn { font-size: 12px; padding: 10px 16px; }
+  }
+
+  footer {
+    margin-top: 64px; padding-top: 22px;
+    border-top: 1px solid var(--line);
+    font-family: var(--display); font-size: 13px; color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between;
+  }
+
+  /* ---------- print ---------- */
+  @media print {
+    :root { --ground:#fff; --surface:#fff; --surface-2:#f4f4f2; --ink:#111; --ink-2:#333; --muted:#666; --line:#ccc; --line-strong:#aaa; --accent:#8A5A08; --accent-ink:#8A5A08; --accent-soft:#faf4e6; --teal:#14504C; }
+    .bar, .switch, .stepper button, .print-hide { display: none !important; }
+    .track[data-on="false"] { display: none; }
+    input[type="range"] { display: none; }
+    body { font-size: 12pt; }
+    section { padding-top: 26px; page-break-inside: avoid; }
+    .wrap { padding-bottom: 0; max-width: none; }
+    a[href]::after { content: ""; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Prepared for Sergio Enriquez &middot; Vitalis</div>
+    <h1>90-Day Launch System</h1>
+    <p class="standfirst">A booking engine for mobile IV therapy in Dallas &mdash; built once, then fed by paid and organic traffic working together.</p>
+    <dl class="factbar">
+      <div class="fact"><dt>Date</dt><dd>August 19, 2026</dd></div>
+      <div class="fact"><dt>Investment</dt><dd><span id="fact-total">$15,000</span> / 90 days</dd></div>
+      <div class="fact"><dt>Prepared by</dt><dd>AutomateScale</dd></div>
+      <div class="fact"><dt>Valid through</dt><dd>September 9, 2026</dd></div>
+    </dl>
+    <p class="print-hide" style="margin:0; font-size:15.5px; color:var(--muted);"><em class="note">This document is live. Toggle the tracks, move the spend, set your capacity &mdash; the numbers below recalculate as you go. Bring whatever you land on to the kickoff call.</em></p>
+  </header>
+
+  <section>
+    <h2>Where you are today</h2>
+    <p class="lead">Reading this back so we know we heard you correctly. Everything below is built on these facts &mdash; if any are wrong, the plan changes.</p>
+    <ul class="readback">
+      <li><span class="k">Core offer</span><span class="v">Mobile IV drips &mdash; hydration, hangover rebound, athletic performance, beauty. NAD+ sold in three protocol tiers, top tier at $900/month.</span></li>
+      <li><span class="k">Biggest need</span><span class="v">Booked appointments. Not awareness, not followers &mdash; appointments on a calendar.</span></li>
+      <li><span class="k">Geography</span><span class="v">Dallas. Density matters more than reach &mdash; a booking in Flower Mound costs you an afternoon.</span></li>
+      <li><span class="k">Marketing to date</span><span class="v">Personal outreach only. Gym partnership open to pop-ups (untapped). Apartment complex gave one flyer in the mail room &mdash; zero walk-ins.</span></li>
+      <li><span class="k">Assets you have</span><span class="v">Two social accounts (Vitalis brand + personal nurse/lifestyle) on Instagram and TikTok. A free educational Substack newsletter with a soft CTA.</span></li>
+      <li><span class="k">Assets you don't</span><span class="v">No CRM, no booking funnel, no paid traffic, no tracking, no follow-up automation. Starting from zero.</span></li>
+      <li><span class="k">Capacity</span><span class="v">Three hospital shifts a week as a nurse. Business revenue reinvested, not drawn.</span></li>
+      <li><span class="k">Phase two</span><span class="v">GLP-1s, peptides, HRT &mdash; telehealth, shipped direct. One medical director, licensed in Texas, Colorado, and a third state.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What we're building</h2>
+    <p class="lead">One system, not a pile of tactics.</p>
+    <p>Every traffic source &mdash; paid ads, your organic content, the Substack list, the gym partnership &mdash; points at the same place: a booking. Behind that booking sits a CRM that knows who came from where, who booked, who didn't, and what to say to each of them next.</p>
+    <p>The single highest-leverage mechanic in this category is <strong>speed to lead</strong>. A booking gets a call within five minutes to confirm it. That one behavior moves show rate more than any creative decision we'll make. It is also the part that depends on you, and we've flagged it as a decision below.</p>
+    <p>The second is <strong>the follow-up</strong>. An IV client isn't a one-time transaction &mdash; they're a subscription that hasn't been asked for yet. Rebooking, referrals, reviews, and the NAD+ ascension all get built in Phase 02, not bolted on later.</p>
+  </section>
+
+  <section>
+    <h2>The 90 days</h2>
+
+    <div class="phases">
+
+      <article class="phase">
+        <div class="phase-head">
+          <span class="phase-num">PHASE 01</span>
+          <span class="phase-window">Days 1&ndash;7</span>
+          <span class="phase-price">$1,500</span>
+        </div>
+        <h3>Audit &amp; Blueprint</h3>
+        <p class="phase-lede">We don't build until we've mapped it. You get a document you'd own even if you walked away.</p>
+        <ul class="deliverables">
+          <li>Full asset audit &mdash; Substack list health, both social accounts, gym and apartment partnerships, service menu and price architecture <span class="owner">Adam</span></li>
+          <li>Dallas competitor teardown, including a Meta Ad Library sweep of who's already running and what's working <span class="owner">Saul</span></li>
+          <li>Funnel blueprint &mdash; every traffic entry point mapped top-of-funnel down to a confirmed booking <span class="owner">Adam</span></li>
+          <li>Offer architecture &mdash; which drip is the front door, and the path from that drip to NAD+ recurring <span class="owner">Adam</span></li>
+          <li>Service-area map &mdash; the geofence, drive-time rings, and the density target that keeps your day profitable <span class="owner">Saul</span></li>
+          <li>90-day unit economics model &mdash; target cost per booked appointment, show rate, and the honest ceiling given your availability <span class="owner">Adam</span></li>
+        </ul>
+      </article>
+
+      <article class="phase">
+        <div class="phase-head">
+          <span class="phase-num">PHASE 02</span>
+          <span class="phase-window">Days 8&ndash;21</span>
+          <span class="phase-price">$5,000</span>
+        </div>
+        <h3>Build</h3>
+        <p class="phase-lede">Two weeks. At the end of it you have infrastructure that runs whether or not anyone is watching it.</p>
+        <ul class="deliverables">
+          <li>CRM build on GoHighLevel &mdash; pipeline stages, contact database, your Substack list imported and segmented <span class="owner">Mo</span></li>
+          <li>Booking calendar wired to your real availability, with hospital shifts blocked and a service-area qualifier before anyone can book <span class="owner">Mo</span></li>
+          <li>Landing pages by audience pillar &mdash; athletes, hangover and events, wellness and NAD+, beauty &mdash; each with its own angle <span class="owner">Gabe</span></li>
+          <li>Lead magnet built from your newsletter archive &mdash; an at-home protocol guide worth downloading on its own <span class="owner">Gabe</span></li>
+          <li>Downstream nurture series &mdash; the email and SMS sequences that work a lead from first download to booked appointment, written by the same people running the traffic so the message never breaks between ad and inbox <span class="owner">Gabe + Saul</span></li>
+          <li>Speed-to-lead automation &mdash; instant SMS, call task fired inside five minutes, confirmation and reminder sequence, no-show rescue <span class="owner">Mo</span></li>
+          <li>Post-visit engine &mdash; review request, referral ask, rebooking offer, membership pitch <span class="owner">Mo</span></li>
+          <li>Tracking layer &mdash; pixel, conversions API, call tracking, and a live dashboard you can read without us <span class="owner">Mo</span></li>
+        </ul>
+      </article>
+
+      <article class="phase">
+        <div class="phase-head">
+          <span class="phase-num">PHASE 03</span>
+          <span class="phase-window">Days 22&ndash;90</span>
+          <span class="phase-price"><span id="p3-rate">$2,000</span> / mo</span>
+        </div>
+        <h3>Run &amp; Optimize</h3>
+        <p class="phase-lede">The system is live. Two tracks run in parallel from here &mdash; one buys attention, one earns it. They're priced separately because they're separate disciplines, and because you may want to keep one running longer than the other.</p>
+
+        <div class="track" id="track-a" data-on="true">
+          <div class="track-head">
+            <span class="track-name">Track A &mdash; Paid &amp; Systems</span>
+            <span class="track-price">$1,250 / mo</span>
+            <label class="switch print-hide">
+              <input type="checkbox" id="sw-a" checked>
+              <span class="slot"></span>
+              <span>Included</span>
+            </label>
+          </div>
+          <ul class="deliverables">
+            <li>Paid traffic on Meta and Google Local Services &mdash; tight geofence, continuous creative testing against cost per booked appointment <span class="owner">Saul</span></li>
+            <li>Nurture sequences tuned against live data &mdash; what gets opened, what books, what gets ignored <span class="owner">Gabe + Saul</span></li>
+            <li>Gym partnership activated properly: pop-up event mechanics, on-site capture, and the follow-up behind it <span class="owner">Saul</span></li>
+            <li>Weekly optimization pass and a plain-English performance report <span class="owner">Mo</span></li>
+            <li>Monthly strategy call, direct with Adam <span class="owner">Adam</span></li>
+          </ul>
+          <p class="track-note"><em class="note">The $1,250 covers management of up to <strong>$5,000/month</strong> in ad spend. Past that, add <strong>12% of the spend above the threshold</strong> &mdash; because running $10k/month is materially more work than running $2k, and we'd rather price that honestly up front than renegotiate the day it starts working. At the budget below, it doesn't apply.</em></p>
+          <p class="dropped">Without Track A the system still exists &mdash; but nothing drives it. The CRM, the funnel, and the follow-up sit built and idle until traffic arrives. Ad spend drops out of the total too, because there's no one running it.</p>
+        </div>
+
+        <div class="track" id="track-b" data-on="true">
+          <div class="track-head">
+            <span class="track-name">Track B &mdash; Organic Strategy Retainer</span>
+            <span class="track-price">$750 / mo</span>
+            <label class="switch print-hide">
+              <input type="checkbox" id="sw-b" checked>
+              <span class="slot"></span>
+              <span>Included</span>
+            </label>
+          </div>
+          <ul class="deliverables">
+            <li>Content system across both accounts &mdash; the Vitalis brand page and your personal nurse/founder account, each with its own job <span class="owner">Sagar</span></li>
+            <li>Pillar calendar built around your audience segments: athletes, hangover and events, wellness and NAD+, beauty <span class="owner">Sagar</span></li>
+            <li>Newsletter repositioned as a funnel asset &mdash; same free value, engineered CTA, list feeding the CRM <span class="owner">Sagar</span></li>
+            <li>Monthly content review against what paid is proving, so the two channels sharpen each other instead of running blind <span class="owner">Sagar</span></li>
+          </ul>
+          <p class="track-note"><em class="note">Organic compounds slowly and then all at once. This track is designed to continue past day 90 &mdash; it's the half of the system that keeps working when you turn the ads off.</em></p>
+          <p class="dropped">Without Track B, every booking has a price on it forever. The day you stop paying for traffic is the day the calendar stops filling &mdash; there's no owned audience underneath it.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="configure">
+    <h2>Set your inputs</h2>
+    <p class="lead">Two numbers change everything downstream: what you're willing to spend on traffic, and how many drips you can actually deliver in a week. Set them here and the plan below reprices itself.</p>
+
+    <div class="config">
+
+      <div class="ctrl">
+        <span class="ctrl-label">Ad spend, days 22&ndash;90</span>
+        <div class="ctrl-value" id="spend-v">$2,500</div>
+        <p class="ctrl-sub" id="spend-sub">About $36/day across the live window. Paid by you directly to Meta and Google &mdash; it never touches our invoice.</p>
+        <input type="range" id="spend" min="2500" max="20000" step="500" value="2500" class="print-hide" aria-label="Ad spend across days 22 to 90">
+        <div class="scale print-hide"><span>$2,500</span><span>$11,250</span><span>$20,000</span></div>
+        <p class="ctrl-sub" id="mgmt-line" style="margin-top:10px;"></p>
+      </div>
+
+      <div class="ctrl">
+        <span class="ctrl-label">Drips you can deliver per week</span>
+        <div class="ctrl-value" id="cap-v">8</div>
+        <p class="ctrl-sub">Around three hospital shifts. Be honest here &mdash; we'd rather pace spend to a real number than book appointments you have to cancel.</p>
+        <div class="stepper print-hide">
+          <button type="button" id="cap-down" aria-label="Fewer drips per week">&minus;</button>
+          <input type="number" id="cap" min="1" max="40" step="1" value="8" aria-label="Drips per week">
+          <button type="button" id="cap-up" aria-label="More drips per week">+</button>
+          <span>per week</span>
+        </div>
+      </div>
+
+      <div class="ctrl">
+        <span class="ctrl-label">Who makes the five-minute confirmation call</span>
+        <p class="ctrl-sub" style="margin-top:2px;">The highest-ROI action in the whole system, and the one that depends on someone being reachable. You're in a hospital three days a week.</p>
+        <div class="options">
+          <label class="opt">
+            <input type="radio" name="callback" value="AI voice agent" checked>
+            <span class="opt-name">AI voice agent</span>
+            <span class="opt-desc">Calls within seconds, confirms, reschedules, hands off to a human when it can't. Cheapest per booking and never asleep.</span>
+            <span class="opt-tag">Our recommendation &middot; scoped add-on</span>
+          </label>
+          <label class="opt">
+            <input type="radio" name="callback" value="Answering service">
+            <span class="opt-name">Answering service</span>
+            <span class="opt-desc">A real human voice on every booking. Higher monthly cost, and quality varies with who picks up.</span>
+            <span class="opt-tag">Scoped add-on</span>
+          </label>
+          <label class="opt">
+            <input type="radio" name="callback" value="Someone on your side">
+            <span class="opt-name">Someone on your side</span>
+            <span class="opt-desc">Bookings route to a shared inbox and phone your team owns. No added cost &mdash; it lives or dies on discipline.</span>
+            <span class="opt-tag">No added cost</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="ctrl">
+        <span class="ctrl-label">Where the CRM lives</span>
+        <p class="ctrl-sub" style="margin-top:2px;">Everything we build in Phase 02 sits inside GoHighLevel. Two ways to hold the licence &mdash; the build is identical either way.</p>
+        <div class="options">
+          <label class="opt">
+            <input type="radio" name="crm" value="AutomateScale CRM ($97/mo)" checked>
+            <span class="opt-name">CRM from us &mdash; $97/month</span>
+            <span class="opt-desc">Runs on our GoHighLevel agency. One bill, we handle provisioning, upgrades and support, and it's live before the build starts.</span>
+            <span class="opt-tag">Simplest &middot; nothing to set up</span>
+          </label>
+          <label class="opt">
+            <input type="radio" name="crm" value="Own GHL account (direct)">
+            <span class="opt-name">Your own GoHighLevel account</span>
+            <span class="opt-desc">You hold the licence directly, in your name, billed by GoHighLevel. From $97/month depending on the plan you pick.</span>
+            <span class="opt-tag">You own the billing</span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Investment</h2>
+    <div class="scroller">
+      <table>
+        <thead>
+          <tr>
+            <th>Line</th>
+            <th>Timing</th>
+            <th class="num">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="name">Phase 01 &mdash; Audit &amp; Blueprint</span><span class="sub">One-time. Due at kickoff.</span></td>
+            <td>Days 1&ndash;7</td>
+            <td class="num">$1,500</td>
+          </tr>
+          <tr>
+            <td><span class="name">Phase 02 &mdash; Build</span><span class="sub">One-time. Half at start of build, half at handover.</span></td>
+            <td>Days 8&ndash;21</td>
+            <td class="num">$5,000</td>
+          </tr>
+          <tr id="row-a">
+            <td><span class="name">Phase 03, Track A &mdash; Paid &amp; Systems</span><span class="sub">$1,250/month &times; 3. Month-to-month, cancel any time.</span></td>
+            <td>Days 22&ndash;90</td>
+            <td class="num">$3,750</td>
+          </tr>
+          <tr id="row-b">
+            <td><span class="name">Phase 03, Track B &mdash; Organic Strategy Retainer</span><span class="sub">$750/month &times; 3. Month-to-month. Designed to continue past day 90.</span></td>
+            <td>Days 22&ndash;90</td>
+            <td class="num">$2,250</td>
+          </tr>
+          <tr id="row-spend">
+            <td><span class="name">Ad spend</span><span class="sub" id="spend-sub2">Paid by you directly to Meta and Google. Never touches our invoice.</span></td>
+            <td>Days 22&ndash;90</td>
+            <td class="num" id="spend-cell">$2,500</td>
+          </tr>
+          <tr id="row-mgmt">
+            <td><span class="name">Ad management, spend above threshold</span><span class="sub" id="mgmt-sub">12% of monthly ad spend over $5,000. Only applies while spend is above it.</span></td>
+            <td>Days 22&ndash;90</td>
+            <td class="num" id="mgmt-cell">$0</td>
+          </tr>
+          <tr class="total">
+            <td>Total, 90 days</td>
+            <td></td>
+            <td class="num" id="total-cell">$15,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:16px;" id="soft-note"></p>
+  </section>
+
+  <section>
+    <h2>Who does the work</h2>
+    <div class="scroller">
+      <table>
+        <thead>
+          <tr><th>Person</th><th>Owns</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="name">Adam Palmer</td><td>Strategy, funnel architecture, system design. Your point of contact.</td></tr>
+          <tr><td class="name">Saul Treger</td><td>Paid traffic and media buying. Also the route into licensed-physician and telehealth infrastructure for Phase Two.</td></tr>
+          <tr><td class="name">Mo Berkane</td><td>Lead-gen systems, CRM and automation build. Has run this exact play for direct-to-clinic on Meta and Google.</td></tr>
+          <tr><td class="name">Sagar Desai</td><td>Organic strategy retainer &mdash; content system, pillar calendar, and the newsletter, across both accounts. The track built to outlast the ad budget.</td></tr>
+          <tr><td class="name">Gabe</td><td>Funnel and landing-page build, plus the downstream drip series &mdash; written with Saul so the ad, the page, and the follow-up all say the same thing.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>What we're managing to</h2>
+    <p class="lead">Targets, not guarantees &mdash; and they move with the inputs you just set. Phase 01 locks the real numbers and we hold ourselves to them from there.</p>
+    <div class="kpis">
+      <div class="kpi"><span class="l">Cost per booking</span><span class="v">$60&ndash;120</span><span class="d">Paid channels, inside the Dallas geofence. This is the number Phase 01 exists to prove.</span></div>
+      <div class="kpi"><span class="l">Show rate</span><span class="v">75%+</span><span class="d">With a deposit at booking and the five-minute confirmation call.</span></div>
+      <div class="kpi"><span class="l">Bookings, days 22&ndash;90</span><span class="v" id="kpi-bookings">20&ndash;40</span><span class="d" id="kpi-bookings-d">From paid at target CPA, before organic contribution.</span></div>
+      <div class="kpi"><span class="l">Rebook rate</span><span class="v">30%+</span><span class="d">Target by day 90, driven by the post-visit sequence.</span></div>
+    </div>
+    <div class="verdict" id="verdict"></div>
+    <p style="margin-top:18px;">Ad spend starts lean on purpose. You told us you'll reinvest what the business earns rather than draw it &mdash; so the plan is to prove the cost per booking first, then raise spend against a number we trust instead of a number we hoped for. Once the funnel converts, more budget is the easiest lever in the system to pull. That's exactly what the slider above is showing you.</p>
+  </section>
+
+  <section>
+    <h2>Phase Two, when you're ready</h2>
+    <p>GLP-1s, peptides, and HRT are a different business with different margins and a different compliance surface &mdash; and they're where the real revenue lives. They're not in this scope, but everything we build in the next 90 days is built to carry them.</p>
+    <p>Two things to know now. First, Meta will run IV therapy without much friction; peptides and GLP-1s are a materially harder ad environment, and creative has to be written for it from the start. Second, Saul's partners can white-label a full telehealth back end under the Vitalis brand &mdash; licensed physicians, prescribing infrastructure, fulfillment &mdash; which is a faster route to more states than adding medical directors one at a time.</p>
+    <p>We'd scope that as a separate engagement once the front door is producing.</p>
+  </section>
+
+  <section id="reply">
+    <h2>Next steps</h2>
+    <ol class="steps">
+      <li>Set your inputs above &mdash; spend, capacity, and who makes the five-minute call. Whatever you land on is the version we'll price.</li>
+      <li>Book the kickoff call and walk us through it. That's also where the two open decisions get settled.</li>
+      <li>We send contracts and an invoice for Phase 01.</li>
+      <li>Asset handover &mdash; social logins, Substack export, service menu, pricing, service area.</li>
+      <li>Blueprint delivered inside seven days. You review it before we build a single page.</li>
+    </ol>
+    <p style="margin-top:24px;">
+      <a class="btn" href="/book">Book the kickoff call</a>
+      <button type="button" class="btn ghost print-hide" id="f-print" style="margin-left:8px;">Save as PDF</button>
+    </p>
+  </section>
+
+  <footer>
+    <span>AutomateScale &middot; Prepared for Sergio Enriquez</span>
+    <span>August 19, 2026</span>
+  </footer>
+
+</div>
+
+<div class="bar" id="bar" data-show="false">
+  <div class="bar-in">
+    <div>
+      <span class="bar-l">Total, 90 days</span>
+      <span class="bar-v" id="bar-total">$15,000</span>
+    </div>
+    <div class="bar-note" id="bar-note">Both tracks &middot; $2,500 ad spend</div>
+    <a class="btn" id="bar-cta" href="/book">Book the kickoff call</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var P1 = 1500, P2 = 5000;
+  var A_MO = 1250, B_MO = 750, MONTHS = 3;
+  var LIVE_DAYS = 69;            // days 22-90 inclusive
+  var LIVE_WEEKS = LIVE_DAYS / 7; // ~9.86
+  var MGMT_RATE = 0.12;            // of spend above the threshold
+  var MGMT_THRESHOLD_MO = 5000;    // monthly managed-spend included in Track A
+  var WINDOW_MONTHS = LIVE_DAYS / 30.44;
+  var MGMT_THRESHOLD_WINDOW = MGMT_THRESHOLD_MO * WINDOW_MONTHS;
+  var CPA_HIGH = 120, CPA_LOW = 60;
+  var SHOW_RATE = 0.75;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (n) { return "$" + Math.round(n).toLocaleString("en-US"); };
+
+  var swA = $("sw-a"), swB = $("sw-b"), spend = $("spend"), cap = $("cap");
+
+  function state() {
+    return {
+      a: swA.checked,
+      b: swB.checked,
+      spend: swA.checked ? parseInt(spend.value, 10) : 0,
+      cap: Math.max(1, Math.min(40, parseInt(cap.value, 10) || 1)),
+      callback: (document.querySelector('input[name="callback"]:checked') || {}).value || ""
+    };
+  }
+
+  function render() {
+    var s = state();
+
+    var trackTotal = (s.a ? A_MO : 0) * MONTHS + (s.b ? B_MO : 0) * MONTHS;
+    var mgmt = s.a ? Math.max(0, s.spend - MGMT_THRESHOLD_WINDOW) * MGMT_RATE : 0;
+    var total = P1 + P2 + trackTotal + s.spend + mgmt;
+    var rate = (s.a ? A_MO : 0) + (s.b ? B_MO : 0);
+
+    // Track panels + table rows
+    $("track-a").dataset.on = String(s.a);
+    $("track-b").dataset.on = String(s.b);
+    $("row-a").dataset.off = String(!s.a);
+    $("row-b").dataset.off = String(!s.b);
+    $("row-spend").dataset.off = String(!s.a);
+    $("row-mgmt").dataset.off = String(mgmt <= 0);
+    $("mgmt-cell").textContent = money(mgmt);
+
+    // Spend controls
+    spend.disabled = !s.a;
+    var perDay = s.spend / LIVE_DAYS;
+    $("spend-v").textContent = s.a ? money(s.spend) : "—";
+    $("spend-sub").textContent = s.a
+      ? "About " + money(perDay) + "/day across the live window. Paid by you directly to Meta and Google — it never touches our invoice."
+      : "No paid traffic without Track A. Nothing is driving the funnel.";
+    $("spend-cell").textContent = money(s.spend);
+    $("spend-sub2").textContent = "Paid by you directly to Meta and Google. Never touches our invoice. Roughly " + money(perDay) + "/day across the live window.";
+
+    var perMonth = s.spend / WINDOW_MONTHS;
+    var ml = $("mgmt-line");
+    if (!s.a) {
+      ml.textContent = "";
+    } else if (mgmt > 0) {
+      ml.innerHTML = "That's about <b>" + money(perMonth) + "/month</b> under management \u2014 above the " +
+        money(MGMT_THRESHOLD_MO) + "/month included in Track A, so management adds <b>" +
+        money(mgmt / WINDOW_MONTHS) + "/month</b> (" + money(mgmt) + " across the window). " +
+        "Every dollar of that still buys 8\u201316 more bookings than it costs to manage.";
+    } else {
+      ml.innerHTML = "That's about <b>" + money(perMonth) + "/month</b> under management \u2014 inside the " +
+        money(MGMT_THRESHOLD_MO) + "/month included in Track A, so there's no management fee on top. " +
+        "It only starts at " + money(MGMT_THRESHOLD_WINDOW) + " across the window.";
+    }
+
+    // Totals
+    $("p3-rate").textContent = money(rate);
+    $("total-cell").textContent = money(total);
+    $("fact-total").textContent = money(total);
+    $("bar-total").textContent = money(total);
+    $("cap-v").textContent = String(s.cap);
+
+    var parts = [];
+    if (s.a && s.b) parts.push("Both tracks");
+    else if (s.a) parts.push("Paid track only");
+    else if (s.b) parts.push("Organic track only");
+    else parts.push("Build only, no retainer");
+    parts.push(s.a ? money(s.spend) + " ad spend" : "no ad spend");
+    if (mgmt > 0) parts.push(money(mgmt) + " mgmt");
+    $("bar-note").textContent = parts.join(" · ");
+
+    // Software / CRM path
+    var crm = (document.querySelector('input[name="crm"]:checked') || {}).value || "";
+    var sn = $("soft-note");
+    if (crm.indexOf("Own GHL") === 0) {
+      sn.innerHTML = '<em class="note">Software sits outside the 90-day total. You\u2019ve picked <strong>your own GoHighLevel account</strong> \u2014 sign up at ' +
+        '<a href="https://ghl.automatescale.com" target="_blank" rel="noopener" style="color:var(--accent-ink);">ghl.automatescale.com</a>, ' +
+        'from $97/month billed by GoHighLevel in your name. We\u2019re a GoHighLevel partner and earn a referral commission on that signup \u2014 it costs you nothing extra and changes nothing about what we build. ' +
+        'Budget a domain on top (about $15/year). You own every account, asset and login from day one.</em>';
+    } else {
+      sn.innerHTML = '<em class="note">Software sits outside the 90-day total. You\u2019ve picked <strong>the CRM from us at $97/month</strong> \u2014 one invoice, provisioned and supported by us, live before the build starts. ' +
+        'Budget a domain on top (about $15/year). Everything we build inside it \u2014 funnels, automations, contact data \u2014 is yours, and it snapshots out with you if you ever move it into your own account.</em>';
+    }
+
+    // Projections
+    var low = Math.floor(s.spend / CPA_HIGH);
+    var high = Math.floor(s.spend / CPA_LOW);
+    var ceiling = Math.floor(s.cap * LIVE_WEEKS);
+    var v = $("verdict");
+
+    if (!s.a) {
+      $("kpi-bookings").textContent = "—";
+      $("kpi-bookings-d").textContent = "No paid traffic in this configuration.";
+      v.dataset.tone = "warn";
+      v.innerHTML = "With Track A off there is <b>no traffic engine</b>. The CRM, funnel and follow-up still get built in Phase 02 and they're yours — but nothing fills them until you turn paid on or the organic track compounds. Most of the 90-day targets on this page don't apply.";
+    } else {
+      $("kpi-bookings").textContent = low + "–" + high;
+      $("kpi-bookings-d").textContent = money(s.spend) + " at $60–120 per booking, before organic contribution.";
+
+      var shows = Math.round(high * SHOW_RATE);
+      var msg = "At " + money(s.spend) + " you're buying roughly <b>" + low + "–" + high + " bookings</b> across days 22–90 — about <b>" + shows + " kept appointments</b> at the high end once show rate is applied. ";
+      msg += "You said you can deliver <b>" + s.cap + " a week</b>, which is about <b>" + ceiling + "</b> over the same window. ";
+
+      if (high > ceiling) {
+        v.dataset.tone = "warn";
+        msg += "That's more demand than you can serve. We'd either pace spend down, or build waitlist and deposit mechanics so the overflow holds instead of evaporating — and that's a good conversation to be having.";
+      } else if (high >= ceiling * 0.75) {
+        v.dataset.tone = "ok";
+        msg += "That fills your calendar without breaking it. This is the shape we'd aim for.";
+      } else {
+        v.dataset.tone = "ok";
+        msg += "You've got room to spare. Once Phase 01 proves the cost per booking, this is the number to raise first.";
+      }
+      v.innerHTML = msg;
+    }
+  }
+
+  [swA, swB, spend, cap].forEach(function (el) {
+    el.addEventListener("input", render);
+    el.addEventListener("change", render);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="callback"], input[name="crm"]'), function (el) {
+    el.addEventListener("change", render);
+  });
+  $("cap-up").addEventListener("click", function () { cap.value = Math.min(40, (parseInt(cap.value, 10) || 0) + 1); render(); });
+  $("cap-down").addEventListener("click", function () { cap.value = Math.max(1, (parseInt(cap.value, 10) || 2) - 1); render(); });
+
+  // Sticky bar appears once the reader is past the masthead, hides at the form
+  var replyEl = $("reply"), bar = $("bar");
+  function barCheck() {
+    var past = window.scrollY > 420;
+    var atForm = replyEl.getBoundingClientRect().top < window.innerHeight - 120;
+    bar.dataset.show = String(past && !atForm);
+  }
+  window.addEventListener("scroll", barCheck, { passive: true });
+  window.addEventListener("resize", barCheck);
+  $("f-print").addEventListener("click", function () { window.print(); });
+
+  render();
+  barCheck();
+})();
+</script>
+
+</body>
+</html>
